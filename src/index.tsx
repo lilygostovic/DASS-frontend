@@ -1,4 +1,5 @@
 import './index.css';
+import './i18n/config.ts';
 
 import App from './App';
 import React from 'react';

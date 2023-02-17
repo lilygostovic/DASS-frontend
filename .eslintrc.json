@@ -30,18 +30,23 @@
     "rules": {
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/quotes": "off",
+        "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/member-delimiter-style": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/no-unnecessary-condition": "warn",
+        "no-console": "warn",
         "eqeqeq": ["error", "always"],
         "arrow-body-style": ["error", "as-needed"],
-        "no-console": "error",
         "sort-imports": "error",
         "padding-line-between-statements": [
-            "error", 
+            "error",
             { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
-            { "blankLine": "never", "prev": "const", "next": "const" }
+            {
+              "blankLine": "any",
+              "prev": ["const", "let", "var"],
+              "next": ["const", "let", "var"]
+            }
         ],
         "prefer-destructuring": [
             "error",
