@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   BrowserRouter,
   Route,
@@ -7,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { Dashboard } from './pages';
+import React from 'react';
 
 const App = () => {
   return (
