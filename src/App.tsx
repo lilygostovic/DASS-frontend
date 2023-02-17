@@ -7,14 +7,12 @@ import {
 import { Dashboard } from './pages';
 import React from 'react';
 
-const App = () => {
-  return (
+const App = () => (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard/>} />
       </Routes>
     </BrowserRouter>
-  );
-};
+);
 
 export default App;
