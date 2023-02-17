@@ -50,6 +50,5 @@
               "object": true
             }
           ]
-        // must delete return when no body
     }
 }
