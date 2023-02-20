@@ -8,7 +8,7 @@ export const LanguagePicker = () => {
 
   return (
     <select name="language" onChange={handleLanguageChange}>
-      <option value="da">Danish</option>
+      <option value="da">Dansk</option>
       <option value="en">English</option>
     </select>
   )

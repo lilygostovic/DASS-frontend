@@ -1,3 +1,38 @@
 {
-    "welcome": "Welcome!"
+    "welcome": "Welcome!",
+    "sex": "Sex",
+    "lgbtq": "LGBTQ",
+    "female": "Female",
+    "male": "Male",
+    "total": "Total",
+    "countries": {
+        "afghanistan": {
+            "fullName": "Afghanistan",
+            "shortName": "afg"
+        },
+        "belize": {
+            "fullName": "Belize",
+            "shortName": "blz" 
+        },
+        "cambodia": {
+            "fullName": "Cambodia",
+            "shortName": "khm" 
+        },
+        "djibouti": {
+            "fullName": "Djibouti",
+            "shortName": "dji" 
+        },
+        "ecuador": {
+            "fullName": "Ecuador",
+            "shortName": "ecu" 
+        },
+        "finland": {
+            "fullName": "Finland",
+            "shortName": "fin" 
+        },
+        "galapagos": {
+            "fullName": "Ghana",
+            "shortName": "gha"
+        }
+    }
 }
