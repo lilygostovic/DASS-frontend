@@ -7,10 +7,11 @@ export const Nav = () => (
       width: "100%",
       height: "8vh",
       display: "flex",
-      justifyContent: "end"
+      justifyContent: "end",
+      alignItems: "center"
     }}>
       <div style={{ backgroundColor: "#000000", width: "100%", height: "100%", position: 'absolute', opacity: "0.5", zIndex: "0" }}/>
-      <div style={{ zIndex: 1 }}>
+      <div style={{ zIndex: 1, padding: "20px" }}>
         <LanguagePicker />
       </div>
     </div>

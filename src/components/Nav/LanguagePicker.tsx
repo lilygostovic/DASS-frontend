@@ -7,9 +7,22 @@ export const LanguagePicker = () => {
   }
 
   return (
-    <select name="language" onChange={handleLanguageChange}>
-      <option value="da">Dansk</option>
-      <option value="en">English</option>
+    <select
+      name="language"
+      onChange={handleLanguageChange}
+      style={{
+        appearance: "none",
+        backgroundColor: "transparent",
+        color: "white",
+        border: "none",
+        padding: "0 1em 0 0",
+        margin: "0px",
+        paddingBlock: "5px",
+        paddingInline: "10px"
+      }}
+    >
+      <option value="da">DA</option>
+      <option value="en">EN</option>
     </select>
   )
 };
