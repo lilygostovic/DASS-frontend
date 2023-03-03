@@ -12,12 +12,12 @@ export const Home = () => {
 
   return (
     <div style ={{
-      backgroundColor: "#141C27",
+      backgroundColor: "#ECF2FF",
       maxHeight: "100vh",
       minHeight: "100vh"
     }}>
     <Nav />
-      <div style={{ color: "white", marginBottom: "20px", justifyContent: "center", alignItems: "center", height: "15vh", display: "flex", flexDirection: "column" }}>
+      <div style={{ color: "black", marginBottom: "20px", justifyContent: "center", alignItems: "center", height: "15vh", display: "flex", flexDirection: "column" }}>
         {text}
       </div>
     </div>)

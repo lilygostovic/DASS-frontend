@@ -15,7 +15,8 @@ interface ButtonProps {
 }
 
 export const FilterButton = ({ text, isSelected, onClick }: ButtonProps) => {
-  const textColor = isSelected ? "white" : "grey";
+  const textColor = isSelected ? "black" : "grey";
+  const borderColor = isSelected ? "1px solid black" : "1px solid grey"
 
   return (
     <button
@@ -23,7 +24,8 @@ export const FilterButton = ({ text, isSelected, onClick }: ButtonProps) => {
         style={{
           color: `${textColor}`,
           backgroundColor: "transparent",
-          border: "none",
+          // border: "none",
+          border: `${borderColor}`,
           borderRadius: "8px",
           margin: "20px"
         }}>
