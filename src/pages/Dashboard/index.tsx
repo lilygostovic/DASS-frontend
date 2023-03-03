@@ -20,13 +20,13 @@ export const Dashboard = () => {
 
   return (
   <div style ={{
-    backgroundColor: "#141C27",
+    backgroundColor: "#ECF2FF",
     maxHeight: "100vh",
     minHeight: "100vh"
   }}>
     <Nav />
     <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingRight: "50px" }}>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", paddingRight: "50px", color: "black" }}>
         <FilterButton
           onClick={viewSex}
           isSelected={filter === "sex"}
@@ -39,7 +39,7 @@ export const Dashboard = () => {
         />
       </div>
       <div style={{ height: "87vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-        <div style={{ color: "white", marginBottom: "20px" }}>
+        <div style={{ color: "black", marginBottom: "20px" }}>
           {text}
         </div>
         <SummaryChart data={data} filter={filter} />
