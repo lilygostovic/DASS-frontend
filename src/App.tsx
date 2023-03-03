@@ -4,13 +4,14 @@ import {
   Routes
 } from 'react-router-dom';
 
-import { Dashboard } from './pages';
+import { Dashboard, Home } from './pages';
 import React from 'react';
 
 const App = () => (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard/>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/charts" element={<Dashboard/>} />
       </Routes>
     </BrowserRouter>
 );
