@@ -6,10 +6,9 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const Home = () => {
+export const Cases = () => {
   const { t } = useTranslation();
-
-  const text = t("Welcome to The Home of Asylum Seekers");
+  const text = t("Placeholder: specific cases could be read here");
 
   return (
     <div style ={{
@@ -18,11 +17,12 @@ export const Home = () => {
       minHeight: "100vh"
     }}>
     <Nav />
-      <div style={{ color: "black", marginBottom: "20px", justifyContent: "flex-start", alignItems: "center", height: "85vh", display: "flex", flexDirection: "column" }}>
-        {text}
+      <div style={{ color: "black", marginBottom: "20px", justifyContent: "center", alignItems: "center", height: "85vh", display: "flex", flexDirection: "column" }}>
+          {text}
       </div>
       <div style={{ alignItems: "flex-end" }} >
         <Footer />
       </div>
-    </div>)
+    </div>
+  )
 }
