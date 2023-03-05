@@ -1,8 +1,41 @@
-# Getting Started with Create React App
+# Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dependencies
 
-## Available Scripts
+The following dependencies must be installed on your computer to be able to run the app locally. You can install these using npm.
+- TypeScript
+- Node.js
+
+## Cloning the Repo
+Next, you must clone the repo locally. This can be done with the following steps:
+1. Open a new terminal
+2. Navigate to the folder where you want to keep the code
+3. Click on green button with text `<>Code` and copy the HTTPS url to your clipboard
+4. Run `git clone <REPOSITORY_ADDRESS>` in terminal
+Once this is done, you now have access to the code locally so you can begin development!
+
+## Starting the App
+1. Navigate to your local folder of the code in the terminal
+2. Run `npm run start`. This will open the app on localhost:3000 in your default web browser.
+
+
+# Development Lifecycle
+Below are the complete instructions for the steps that should be taken with each new task.
+1. Create a new branch `git checkout -b "new-branch"`. Try to use meaningful names for branches to make reviewing easier
+2. Make changes to code
+3. Stage changes by clicking `+` icon beside the file in the Source Control tab of VScode
+4. Type a commit message that describes the changes you are commiting
+5. Press blue Commit button
+6. Push changes to remote using the same blue button you used to commit
+7. Repeat steps 2-6 until you have made all the changes you want to make on that branch
+8. Fix linting errors if there are any
+9. In GitHub, create a Pull Request for your branch and request people to review it
+10. Create the pull request and wait for reviews!
+
+Once your pull request has been approved and merged, use the command `git checkout master` to return to the master branch and start the next task.
+
+
+# Available Scripts
 
 In the project directory, you can run:
 
@@ -38,9 +71,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
