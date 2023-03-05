@@ -22,15 +22,16 @@ Once this is done, you now have access to the code locally so you can begin deve
 # Development Lifecycle
 Below are the complete instructions for the steps that should be taken with each new task.
 1. Create a new branch `git checkout -b "new-branch"`. Try to use meaningful names for branches to make reviewing easier
-2. Make changes to code
-3. Stage changes by clicking `+` icon beside the file in the Source Control tab of VScode
-4. Type a commit message that describes the changes you are commiting
-5. Press blue Commit button
-6. Push changes to remote using the same blue button you used to commit
-7. Repeat steps 2-6 until you have made all the changes you want to make on that branch
-8. Fix linting errors if there are any
-9. In GitHub, create a Pull Request for your branch and request people to review it
-10. Create the pull request and wait for reviews!
+2. Publish branch by clicking blue "Publish Branch" button in the Source Control tab of VScode
+3. Make changes to code
+4. Stage changes by clicking `+` icon beside the file in the Source Control tab of VScode
+5. Type a commit message that describes the changes you are commiting
+6. Press blue Commit button
+7. Push changes to remote using the same blue button you used to commit
+8. Repeat steps 3-7 until you have made all the changes you want to make on that branch
+9. Fix linting errors if there are any
+10. In GitHub, create a Pull Request for your branch and request people to review it
+11. Create the pull request and wait for reviews!
 
 Once your pull request has been approved and merged, use the command `git checkout master` to return to the master branch and start the next task.
 
