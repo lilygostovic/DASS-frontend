@@ -20,7 +20,7 @@ export const Nav = () => {
     }}>
       <div style={{ backgroundColor: "#3E54AC", width: "100%", height: "100%", position: 'absolute', opacity: "1", zIndex: "0" }}/>
       <div style={{ zIndex: 1, padding: "20px", justifyContent: "space-between", width: "100%", display: "flex" }}>
-        <div>
+        <div style={{ fontWeight: "bold" }}>
           <NavButton to="/">
             {homeText}
           </NavButton>

@@ -18,8 +18,8 @@ export const Home = () => {
       minHeight: "100vh"
     }}>
     <Nav />
-      <div style={{ color: "black", marginBottom: "20px", justifyContent: "flex-start", alignItems: "center", height: "85vh", display: "flex", flexDirection: "column" }}>
-        {text}
+      <div style={{ marginBottom: "20px", justifyContent: "center", alignItems: "center", height: "85vh", display: "flex", flexDirection: "column" }}>
+        <div style={{ color: "black", height: "80vh", fontSize: "25px", fontWeight: "bold" }}>{text}</div>
       </div>
       <div style={{ alignItems: "flex-end" }} >
         <Footer />
