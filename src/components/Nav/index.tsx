@@ -1,13 +1,9 @@
 import { LanguagePicker } from './LanguagePicker';
 import { NavButton } from './NavButton';
 import React from 'react';
-import { useMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export const Nav = () => {
-  const isHome = useMatch("/");
-  const isCharts = useMatch("/charts");
-
   const { t } = useTranslation();
 
   const homeText = t("Home");
@@ -24,16 +20,10 @@ export const Nav = () => {
       <div style={{ backgroundColor: "#3E54AC", width: "100%", height: "100%", position: 'absolute', opacity: "1", zIndex: "0" }}/>
       <div style={{ zIndex: 1, padding: "20px", justifyContent: "space-between", width: "100%", display: "flex" }}>
         <div>
-          <NavButton
-            // className={isHome?"active":""}
-            to="/"
-          >
+          <NavButton to="/">
             {homeText}
           </NavButton>
-          <NavButton
-            // className={isCharts?"active":""}
-            to="/charts"
-          >
+          <NavButton to="/charts">
             {chartsText}
           </NavButton>
         </div>
@@ -42,11 +32,3 @@ export const Nav = () => {
     </div>
   )
 };
-
-// stage changes
-// commit message
-// click commit
-// click sync
-
-// git checkout existing branch
-// git checkout -b "new-branch"

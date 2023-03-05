@@ -24,7 +24,6 @@ export const FilterButton = ({ text, isSelected, onClick }: ButtonProps) => {
         style={{
           color: `${textColor}`,
           backgroundColor: "transparent",
-          // border: "none",
           border: `${borderColor}`,
           borderRadius: "8px",
           margin: "20px"
