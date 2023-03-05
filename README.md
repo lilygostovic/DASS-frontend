@@ -12,6 +12,7 @@ Next, you must clone the repo locally. This can be done with the following steps
 2. Navigate to the folder where you want to keep the code
 3. Click on green button with text `<>Code` and copy the HTTPS url to your clipboard
 4. Run `git clone <REPOSITORY_ADDRESS>` in terminal
+5. Run `npm install` to install all dependent libraries locally
 Once this is done, you now have access to the code locally so you can begin development!
 
 ## Starting the App
