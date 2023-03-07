@@ -18,7 +18,8 @@ export const LanguagePicker = () => {
         padding: "0 1em 0 0",
         margin: "0px",
         paddingBlock: "5px",
-        paddingInline: "10px"
+        paddingInline: "10px",
+        fontWeight: "bold"
       }}
     >
       <option value="da">DA</option>
