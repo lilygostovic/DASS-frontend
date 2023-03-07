@@ -1,51 +1,51 @@
 export const data = [
   {
-    country: 'afghanistan',
+    country: "afghanistan",
     total: 4000,
     female: 2400,
     male: 1600,
-    lgbtq: 3000
+    lgbtq: 3000,
   },
   {
-    country: 'belize',
+    country: "belize",
     total: 3000,
     female: 1398,
     male: 1602,
-    lgbtq: 1800
+    lgbtq: 1800,
   },
   {
-    country: 'cambodia',
+    country: "cambodia",
     total: 2000,
     female: 910,
     male: 1090,
-    lgbtq: 1500
+    lgbtq: 1500,
   },
   {
-    country: 'djibouti',
+    country: "djibouti",
     total: 2780,
     female: 2000,
     male: 780,
-    lgbtq: 2000
+    lgbtq: 2000,
   },
   {
-    country: 'ecuador',
+    country: "ecuador",
     total: 4800,
     female: 2181,
     male: 2619,
-    lgbtq: 4000
+    lgbtq: 4000,
   },
   {
-    country: 'finland',
+    country: "finland",
     total: 500,
     female: 162,
     male: 338,
-    lgbtq: 400
+    lgbtq: 400,
   },
   {
-    country: 'galapagos',
+    country: "galapagos",
     total: 3490,
     female: 2100,
     male: 1390,
-    lgbtq: 3100
-  }
+    lgbtq: 3100,
+  },
 ];
