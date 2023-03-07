@@ -65,7 +65,7 @@ export const Dashboard = () => {
           }}
         >
           <div style={{ color: "black", marginBottom: "20px" }}>{text}</div>
-          <SummaryChart data={data} filter={filter} />
+          <SummaryChart data={data} filter={filter} w={900} h={600} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>

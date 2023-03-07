@@ -24,15 +24,17 @@ interface Country {
 interface SummaryChartProps {
   data: Country[];
   filter: "sex" | "lgbtq";
+  w: number
+  h: number
 }
 
-export const SummaryChart = ({ data, filter }: SummaryChartProps) => {
+export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
   const { t } = useTranslation();
 
   return (
     <AreaChart
-      width={900}
-      height={600}
+      width={w}
+      height={h}
       data={data}
       margin={{
         top: 10,

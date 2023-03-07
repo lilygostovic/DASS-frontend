@@ -1,10 +1,12 @@
 import { Footer, Nav } from "../../components";
-
-import React from "react";
+import React, { useState } from "react";
+import { SummaryChart } from "../Dashboard/components";
+import { data } from "../Dashboard/data";
 import { useTranslation } from "react-i18next";
 
 export const Home = () => {
   const { t } = useTranslation();
+  const [filter] = useState<"sex" | "lgbtq">("sex");
 
   const text = t("Welcome to The Home of Asylum Seekers");
 
@@ -20,11 +22,11 @@ export const Home = () => {
       <div
         style={{
           marginBottom: "20px",
-          justifyContent: "center",
-          alignItems: "center",
+          justifyContent: "space-bewteen",
+          alignItems: "right",
           height: "85vh",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
         }}
       >
         <div
@@ -33,6 +35,7 @@ export const Home = () => {
             height: "80vh",
             fontSize: "25px",
             fontWeight: "bold",
+            width: "100%",
             justifyContent: "center",
           }}
         >
@@ -40,20 +43,16 @@ export const Home = () => {
         </div>
         <div
           style={{
+            color: "black",
+            height: "50vh",
             backgroundColor: "#ffffff",
-            height: "800vh",
-            width: "150vh",
-            border: "2px solid #3E54AC",
-            justifyContent: "left",
+            border: "1px solid #3E54AC",
+            width: "100%",
             display: "flex",
+            justifyContent: "flex-start",
           }}
         >
-          <div>
-            <h1 style={{ fontSize: "20px" }}>About Us</h1>
-            We could have something like this for the home page content with
-            links and such. Just a bad looking idea, you are welcome to do
-            something else :D
-          </div>
+          <SummaryChart data={data} filter={filter} w={800} h={400} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>
