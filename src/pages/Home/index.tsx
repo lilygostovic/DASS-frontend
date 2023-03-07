@@ -8,7 +8,7 @@ export const Home = () => {
   const { t } = useTranslation();
   const [filter] = useState<"sex" | "lgbtq">("sex");
 
-  const text = t("Welcome to The Home of Asylum Seekers");
+  const text = t("WELCOME TO THE HOME OF ASYLUM SEEKERS");
 
   return (
     <div
@@ -31,30 +31,51 @@ export const Home = () => {
       >
         <div
           style={{
-            color: "black",
-            height: "80vh",
+            color: "white",
+            height: "3.5vh",
             fontSize: "25px",
             fontWeight: "bold",
             width: "100%",
             justifyContent: "center",
+            flexDirection: "column",
+            backgroundColor: "#577ACB",
           }}
         >
           {text}
-        </div>
-        <div
-          style={{
-            color: "black",
-            height: "50vh",
-            backgroundColor: "#ffffff",
-            border: "1px solid #3E54AC",
-            width: "100%",
-            display: "flex",
-            justifyContent: "flex-start",
-          }}
-        >
-          <SummaryChart data={data} filter={filter} w={800} h={400} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+          <div
+            style={{
+              color: "blue",
+              backgroundColor: "#ffffff",
+              height: "84vh",
+              width: "100%",
+              border: "4px solid #78A6F5",
+            }}
+          >
+            PlaceholderText
+          </div>
+          <div
+            style={{
+              height: "85vh",
+              backgroundColor: "#ffffff",
+              border: "4px solid #78A6F5",
+              width: "50%",
+              display: "flex",
+              justifyContent: "flex-start",
+              fontSize: "13px",
+              fontWeight: "normal",
+            }}
+          >
+            <SummaryChart data={data} filter={filter} w={600} h={400} />
+          </div>
         </div>
       </div>
+    </div>
       <div style={{ alignItems: "flex-end" }}>
         <Footer />
       </div>
