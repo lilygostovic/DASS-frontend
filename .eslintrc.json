@@ -19,6 +19,7 @@
   "plugins": ["react"],
   "ignorePatterns": ["*.svg", "*.css"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/semi": "off",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/no-floating-promises": "off",
