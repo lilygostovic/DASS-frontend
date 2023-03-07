@@ -5,6 +5,10 @@
     "female": "Female",
     "male": "Male",
     "total": "Total",
+    "Welcome to The Home of Asylum Seekers": "Welcome to The Home of Asylum Seekers",
+    "Home": "Home",
+    "Summary": "Summary",
+    "Cases": "Cases",
     "countries": {
         "afghanistan": {
             "fullName": "Afghanistan",
