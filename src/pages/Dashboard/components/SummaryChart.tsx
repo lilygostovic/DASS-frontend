@@ -5,13 +5,13 @@ import {
   Legend,
   Tooltip,
   XAxis,
-  YAxis
-} from 'recharts';
+  YAxis,
+} from "recharts";
 
 // test merge to master
-import React from 'react';
-import i18n from '../../../i18n/config';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import i18n from "../../../i18n/config";
+import { useTranslation } from "react-i18next";
 
 interface Country {
   country: string;
@@ -31,15 +31,15 @@ export const SummaryChart = ({ data, filter }: SummaryChartProps) => {
 
   return (
     <AreaChart
-        width={900}
-        height={600}
-        data={data}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 0,
-          bottom: 0
-        }}
+      width={900}
+      height={600}
+      data={data}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0,
+      }}
     >
       <defs>
         <linearGradient id="colorTotal" x1="0" x2="0" y1="0" y2="1">
@@ -82,18 +82,18 @@ export const SummaryChart = ({ data, filter }: SummaryChartProps) => {
         dataKey="country"
         axisLine={false}
         tickLine={false}
-        tickFormatter={(country: string) => t(`countries.${country}.shortName`).toUpperCase()}
+        tickFormatter={(country: string) =>
+          t(`countries.${country}.shortName`).toUpperCase()
+        }
       />
-      <YAxis
-        axisLine={false}
-        tickLine={false}
-        tickCount={8}
-      />
+      <YAxis axisLine={false} tickLine={false} tickCount={8} />
       <Tooltip />
       <Legend
         verticalAlign="top"
-        formatter={(value, entry, index) => i18n.language === "english" ? value : t(value)}
+        formatter={(value, entry, index) =>
+          i18n.language === "english" ? value : t(value)
+        }
       />
     </AreaChart>
-  )
+  );
 };
