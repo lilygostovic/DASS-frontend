@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 export const Home = () => {
   const { t } = useTranslation();
 
-  const text = t("Welcome to The Home of Asylum Seekers");
+  const text = t(`homepage.title`);
 
   return (
     <div style ={{

@@ -1,14 +1,24 @@
 {
-    "welcome": "Velkommen!",
-    "sex": "Køn",
-    "lgbtq": "LGBT+",
+    "homepage": {
+        "title": "Velkommen til Centralen for Asylansøgere"
+    },
+
+    "nav": {
+        "Home": "Hjem",
+        "Summary": "Overblik",
+        "Cases": "Sager"
+    },
+
+    "dashboard": {
+        "welcome": "Velkommen!",
+        "sex": "Køn",
+        "lgbtq": "LGBT+"
+    },
+
     "female": "Kvinde",
     "male": "Mandlige",
     "total": "I alt",
-    "Welcome to The Home of Asylum Seekers": "Velkommen til Centralen for Asylansøgere",
-    "Home": "Hjem",
-    "Summary": "Overblik",
-    "Cases": "Sager",
+
     "countries": {
         "afghanistan": {
             "fullName": "Afghanistan",
