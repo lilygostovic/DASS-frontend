@@ -65,7 +65,9 @@ export const Home = () => {
                 justifyContent: "flex-start",
                 fontSize: "13px",
                 fontWeight: "normal",
+                cursor: "pointer",
               }}
+              onClick={() => { window.location.href = "/summary"; }}
             >
               <SummaryChart data={data} filter={filter} w={600} h={400} />
             </div>
