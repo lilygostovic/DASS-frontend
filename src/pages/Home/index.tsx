@@ -52,17 +52,37 @@ export const Home = () => {
             <HomeText />
           <div
             style={{
-              height: "47vh",
-              backgroundColor: "#ffffff",
-              border: "4px solid #78A6F5",
-              width: "50%",
               display: "flex",
-              justifyContent: "flex-start",
-              fontSize: "13px",
-              fontWeight: "normal",
+              flexDirection: "column",
             }}
           >
-            <SummaryChart data={data} filter={filter} w={600} h={400} />
+            <div
+              style={{
+                height: "47vh",
+                backgroundColor: "#ffffff",
+                border: "4px solid #78A6F5",
+                display: "flex",
+                justifyContent: "flex-start",
+                fontSize: "13px",
+                fontWeight: "normal",
+              }}
+            >
+              <SummaryChart data={data} filter={filter} w={600} h={400} />
+            </div>
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                height: "100%",
+                border: "4px solid #78A6F5",
+              }}
+            >
+              <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
+                Something Cool
+                <div style={{ fontSize: "12px", color: "black" }}>
+                  Something else cool...... description of above graph?
+                </div>
+              </h1>
+            </div>
           </div>
         </div>
       </div>
