@@ -60,7 +60,7 @@ export const Home = () => {
               style={{
                 height: "47vh",
                 backgroundColor: "#ffffff",
-                border: "4px solid #78A6F5",
+                border: "3px solid #78A6F5",
                 display: "flex",
                 justifyContent: "flex-start",
                 fontSize: "13px",
@@ -73,13 +73,13 @@ export const Home = () => {
               style={{
                 backgroundColor: "#ffffff",
                 height: "100%",
-                border: "4px solid #78A6F5",
+                border: "3px solid #78A6F5",
               }}
             >
               <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
                 Something Cool
                 <div style={{ fontSize: "12px", color: "black" }}>
-                  Something else cool...... description of above graph?
+                  Something else cool...... description of above graph? Some kind of help?
                 </div>
               </h1>
             </div>

@@ -6,7 +6,7 @@ export const HomeText = () =>
       backgroundColor: "#ffffff",
       height: "84vh",
       width: "100%",
-      border: "4px solid #78A6F5",
+      border: "3px solid #78A6F5",
     }}
   >
     <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
@@ -39,4 +39,24 @@ export const HomeText = () =>
         IDK what else could be interesting to place in the empty corner? :DDD
       </div>
     </h1>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        color: "black",
+        justifyContent: "space-between",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#EDF4F7",
+          border: "3px solid black",
+        }}
+      >
+        Placeholder div for possible images/gif?
+      </div>
+      <div>
+        some other thing
+      </div>
+    </div>
   </div>
