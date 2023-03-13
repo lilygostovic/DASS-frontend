@@ -1,15 +1,15 @@
 {
-    "homepage": {
+    "homePage": {
         "title": "Velkommen til Centralen for Asylansøgere"
     },
 
     "nav": {
-        "Home": "Hjem",
-        "Summary": "Overblik",
-        "Cases": "Sager"
+        "home": "Hjem",
+        "summary": "Overblik",
+        "cases": "Sager"
     },
 
-    "dashboard": {
+    "dashBoard": {
         "welcome": "Velkommen!",
         "sex": "Køn",
         "lgbtq": "LGBT+"

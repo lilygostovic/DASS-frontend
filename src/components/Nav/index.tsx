@@ -6,9 +6,9 @@ import { useTranslation } from "react-i18next";
 export const Nav = () => {
   const { t } = useTranslation();
 
-  const homeText = t(`nav.Home`);
-  const chartsText = t(`nav.Summary`);
-  const casesText = t(`nav.Cases`);
+  const homeText = t(`nav.home`);
+  const chartsText = t(`nav.summary`);
+  const casesText = t(`nav.cases`);
 
   return (
     <div

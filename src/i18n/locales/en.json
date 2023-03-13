@@ -1,15 +1,15 @@
 {
-    "homepage": {
+    "homePage": {
         "title": "Welcome to The Home of Asylum Seekers"
     },
 
     "nav": {
-        "Home": "Home",
-        "Summary": "Summary",
-        "Cases": "Cases"
+        "home": "Home",
+        "summary": "Summary",
+        "cases": "Cases"
     },
 
-    "dashboard": {
+    "dashBoard": {
         "welcome": "Welcome!",
         "sex": "Sex",
         "lgbtq": "LGBTQ"
