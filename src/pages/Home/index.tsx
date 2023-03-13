@@ -12,11 +12,14 @@ export const Home = () => {
   const text = t("WELCOME TO THE HOME OF ASYLUM SEEKERS");
 
   return (
-    <div style ={{
-      backgroundColor: "#ECF2FF",
-      maxHeight: "100vh",
-      minHeight: "100vh",
-    }}>
+    <div
+      style={{
+        backgroundColor: "#ECF2FF",
+        maxHeight: "100vh",
+        minHeight: "100vh",
+      }}
+    >
+      <Nav />
       <div
         style={{
           marginBottom: "20px",
@@ -27,7 +30,6 @@ export const Home = () => {
           flexDirection: "row",
         }}
       >
-        <Nav />
         <div
           style={{
             color: "white",
