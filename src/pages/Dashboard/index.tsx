@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const [filter, setFilter] = useState<"sex" | "lgbtq">("sex");
   const { t } = useTranslation();
 
-  const text = t("welcome");
+  const text = t(`dashBoard.welcome`);
 
   const viewSex = () => {
     setFilter("sex");
@@ -47,12 +47,12 @@ export const Dashboard = () => {
           <FilterButton
             onClick={viewSex}
             isSelected={filter === "sex"}
-            text={t("sex")}
+            text={t(`dashBoard.sex`)}
           />
           <FilterButton
             onClick={viewLGBTQ}
             isSelected={filter === "lgbtq"}
-            text={t("lgbtq")}
+            text={t(`dashBoard.lgbtq`)}
           />
         </div>
         <div
@@ -65,7 +65,7 @@ export const Dashboard = () => {
           }}
         >
           <div style={{ color: "black", marginBottom: "20px" }}>{text}</div>
-          <SummaryChart data={data} filter={filter} />
+          <SummaryChart data={data} filter={filter} w={900} h={600} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>

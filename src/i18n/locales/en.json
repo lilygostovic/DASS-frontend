@@ -1,10 +1,24 @@
 {
-    "welcome": "Welcome!",
-    "sex": "Sex",
-    "lgbtq": "LGBTQ",
+    "homePage": {
+        "title": "Welcome to The Home of Asylum Seekers"
+    },
+
+    "nav": {
+        "home": "Home",
+        "summary": "Summary",
+        "cases": "Cases"
+    },
+
+    "dashBoard": {
+        "welcome": "Welcome!",
+        "sex": "Sex",
+        "lgbtq": "LGBTQ"
+    },
+
     "female": "Female",
     "male": "Male",
     "total": "Total",
+
     "countries": {
         "afghanistan": {
             "fullName": "Afghanistan",
