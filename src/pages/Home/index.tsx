@@ -1,69 +1,96 @@
 import { Footer, Nav } from "../../components";
-
-import React from "react";
+import React, { useState } from "react";
+import { HomeText } from "./components/HomeText";
+import { SummaryChart } from "../Dashboard/components";
+import { data } from "../Dashboard/data";
 import { useTranslation } from "react-i18next";
 
 export const Home = () => {
   const { t } = useTranslation();
+  const [filter] = useState<"sex" | "lgbtq">("sex");
 
-  const text = t(`homePage.title`);
+  const text = t("WELCOME TO THE HOME OF ASYLUM SEEKERS");
 
   return (
-    <div style ={{
-      backgroundColor: "#ECF2FF",
-      maxHeight: "100vh",
-      minHeight: "100vh",
-    }}>
+    <div
+      style={{
+        backgroundColor: "#ECF2FF",
+        maxHeight: "100vh",
+        minHeight: "100vh",
+      }}
+    >
+      <Nav />
       <div
         style={{
-          backgroundColor: "#ECF2FF",
-          maxHeight: "100vh",
-          minHeight: "100vh",
+          marginBottom: "20px",
+          justifyContent: "space-bewteen",
+          alignItems: "right",
+          height: "85vh",
+          display: "flex",
+          flexDirection: "row",
         }}
       >
-        <Nav />
         <div
           style={{
-            marginBottom: "20px",
+            color: "white",
+            height: "3.5vh",
+            fontSize: "25px",
+            fontWeight: "bold",
+            width: "100%",
             justifyContent: "center",
-            alignItems: "center",
-            height: "85vh",
-            display: "flex",
             flexDirection: "column",
+            backgroundColor: "#577ACB",
           }}
         >
+          {text}
           <div
             style={{
-              color: "black",
-              height: "80vh",
-              fontSize: "25px",
-              fontWeight: "bold",
-              justifyContent: "center",
-            }}
-          >
-            {text}
-          </div>
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              height: "800vh",
-              width: "150vh",
-              border: "2px solid #3E54AC",
-              justifyContent: "left",
               display: "flex",
+              flexDirection: "row",
             }}
           >
-            <div>
-              <h1 style={{ fontSize: "20px" }}>About Us</h1>
-              We could have something like this for the home page content with
-              links and such. Just a bad looking idea, you are welcome to do
-              something else :D
+            <HomeText />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                height: "47vh",
+                backgroundColor: "#ffffff",
+                border: "3px solid #78A6F5",
+                display: "flex",
+                justifyContent: "flex-start",
+                fontSize: "13px",
+                fontWeight: "normal",
+                cursor: "pointer",
+              }}
+              onClick={() => { window.location.href = "/summary"; }}
+            >
+              <SummaryChart data={data} filter={filter} w={600} h={400} />
+            </div>
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                height: "100%",
+                border: "3px solid #78A6F5",
+              }}
+            >
+              <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
+                Something Cool
+                <div style={{ fontSize: "12px", color: "black" }}>
+                  Something else cool...... description of above graph? Some kind of help?
+                </div>
+              </h1>
             </div>
           </div>
         </div>
-        <div style={{ alignItems: "flex-end" }}>
-          <Footer />
-        </div>
+      </div>
+    </div>
+      <div style={{ alignItems: "flex-end" }}>
+        <Footer />
       </div>
     </div>
   );

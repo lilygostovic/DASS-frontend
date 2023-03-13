@@ -8,11 +8,11 @@ export const Footer = () => {
     <div style={{ height: "5vh", position: "relative" }}>
       <div
         style={{
-          backgroundColor: "#000000",
+          backgroundColor: "#919591",
           width: "100%",
           height: "100%",
           position: "absolute",
-          opacity: "0.5",
+          opacity: "1",
           zIndex: 0,
         }}
       />
