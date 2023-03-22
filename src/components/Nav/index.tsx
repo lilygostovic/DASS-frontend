@@ -1,14 +1,14 @@
-import { LanguagePicker } from "./LanguagePicker";
-import { NavButton } from "./NavButton";
-import React from "react";
-import { useTranslation } from "react-i18next";
+import { LanguagePicker } from './LanguagePicker';
+import { NavButton } from './NavButton';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Nav = () => {
   const { t } = useTranslation();
 
-  const homeText = t(`nav.home`);
-  const chartsText = t(`nav.summary`);
-  const casesText = t(`nav.cases`);
+  const homeText = t("nav.home");
+  const chartsText = t("nav.summary");
+  const casesText = t("nav.cases");
 
   return (
     <div

@@ -1,11 +1,9 @@
 import { Footer, Nav } from "../../components";
 
 import React from "react";
-import { useTranslation } from "react-i18next";
 
 export const Cases = () => {
-  const { t } = useTranslation();
-  const text = t("Placeholder: specific cases could be read here");
+  const text = "Placeholder: specific cases could be read here"; // todo:: update this text
 
   return (
     <div
