@@ -1,5 +1,6 @@
 import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
+
 import { HomeText } from "./components/HomeText";
 import { SummaryChart } from "../Dashboard/components";
 import { data } from "../Dashboard/data";
@@ -9,7 +10,7 @@ export const Home = () => {
   const { t } = useTranslation();
   const [filter] = useState<"sex" | "lgbtq">("sex");
 
-  const text = t("WELCOME TO THE HOME OF ASYLUM SEEKERS");
+  const title = t("homePage.title");
 
   return (
     <div
@@ -42,7 +43,7 @@ export const Home = () => {
             backgroundColor: "#577ACB",
           }}
         >
-          {text}
+          {title.toUpperCase()}
           <div
             style={{
               display: "flex",
@@ -50,45 +51,48 @@ export const Home = () => {
             }}
           >
             <HomeText />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
             <div
               style={{
-                height: "47vh",
-                backgroundColor: "#ffffff",
-                border: "3px solid #78A6F5",
                 display: "flex",
-                justifyContent: "flex-start",
-                fontSize: "13px",
-                fontWeight: "normal",
-                cursor: "pointer",
-              }}
-              onClick={() => { window.location.href = "/summary"; }}
-            >
-              <SummaryChart data={data} filter={filter} w={600} h={400} />
-            </div>
-            <div
-              style={{
-                backgroundColor: "#ffffff",
-                height: "100%",
-                border: "3px solid #78A6F5",
+                flexDirection: "column",
               }}
             >
-              <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
-                Something Cool
-                <div style={{ fontSize: "12px", color: "black" }}>
-                  Something else cool...... description of above graph? Some kind of help?
-                </div>
-              </h1>
+              <div
+                style={{
+                  height: "47vh",
+                  backgroundColor: "#ffffff",
+                  border: "3px solid #78A6F5",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  fontSize: "13px",
+                  fontWeight: "normal",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  window.location.href = "/summary";
+                }}
+              >
+                <SummaryChart data={data} filter={filter} w={600} h={400} />
+              </div>
+              <div
+                style={{
+                  backgroundColor: "#ffffff",
+                  height: "100%",
+                  border: "3px solid #78A6F5",
+                }}
+              >
+                <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
+                  Something Cool
+                  <div style={{ fontSize: "12px", color: "black" }}>
+                    Something else cool...... description of above graph? Some
+                    kind of help?
+                  </div>
+                </h1>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
       <div style={{ alignItems: "flex-end" }}>
         <Footer />
       </div>
