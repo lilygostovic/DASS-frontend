@@ -1,7 +1,6 @@
 import { CaseHighlights, type CaseHighlightsProps } from "./CaseHighlights";
 
 import { CaseBody } from "./CaseBody";
-import { Title } from "./StyledComponents";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
@@ -29,7 +28,7 @@ export const CaseView = ({ caseNumber, filters, text }: CaseViewProps) => {
 
   return (
     <Container>
-      <Title>{title}</Title>
+      <h1>{title}</h1>
       <CaseHighlights filters={filters} />
       <CaseBody text={text} />
     </Container>
