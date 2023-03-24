@@ -66,6 +66,16 @@ export const Cases = () => {
     try {
       setFilters(data as Filters);
       fetchCase(data as Filters);
+
+      setTimeout(() => {
+        const caseView = document.getElementById("case-view");
+
+        caseView?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }, 100);
     } catch {
       const dataStr = data as string;
 
@@ -85,6 +95,7 @@ export const Cases = () => {
         />
         {caseNumber !== undefined && text !== undefined && (
           <div
+            id="case-view"
             style={{
               display: "flex",
               flexDirection: "column",

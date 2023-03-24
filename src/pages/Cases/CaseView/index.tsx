@@ -11,7 +11,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 150px;
   padding: 10px 80px 40px 80px;
 
   background-color: #ffffffa2;
