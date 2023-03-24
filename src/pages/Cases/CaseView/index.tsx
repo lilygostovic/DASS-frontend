@@ -24,7 +24,7 @@ export type CaseViewProps = {
 
 export const CaseView = ({ caseNumber, filters, text }: CaseViewProps) => {
   const { t } = useTranslation();
-  const title = `${t("Case #")}${caseNumber}`; // todo:: update text
+  const title = `${t("filterPage.caseViewTitle")}${caseNumber}`; // todo:: update text
 
   return (
     <Container>

@@ -1,5 +1,6 @@
 import { type Filters } from "./Types";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: flex;
@@ -20,17 +21,33 @@ export interface CaseHighlightsProps {
   filters: Filters;
 }
 
-export const CaseHighlights = ({ filters }: CaseHighlightsProps) => (
-  <Container>
-    <FilterProperty filter="Accepted?" value={filters.accepted} />
-    <FilterProperty filter="Motive" value={filters.motive} />
-    <FilterProperty filter="Country" value={filters.country} />
-    <FilterProperty filter="Sex" value={filters.sex.toString()} />
-    {filters.minAge !== undefined && filters.minAge !== "" && (
-      <FilterProperty filter="Minimum Age" value={filters.minAge.toString()} />
-    )}
-    {filters.maxAge !== undefined && filters.maxAge !== "" && (
-      <FilterProperty filter="Maximum Age" value={filters.maxAge.toString()} />
-    )}
-  </Container>
-);
+export const CaseHighlights = ({ filters }: CaseHighlightsProps) => {
+  const { t } = useTranslation();
+  const acceptedLabel = t("filterPage.accepted.label");
+  const motiveLabel = t("filterPage.motive.label");
+  const countryLabel = t("filterPage.country.label");
+  const sexLabel = t("filterPage.sex.label");
+  const minAgeLabel = t("filterPage.ageFilter.minLabel");
+  const maxAgeLabel = t("filterPage.ageFilter.maxLabel");
+
+  return (
+    <Container>
+      <FilterProperty filter={acceptedLabel} value={filters.accepted} />
+      <FilterProperty filter={motiveLabel} value={filters.motive} />
+      <FilterProperty filter={countryLabel} value={filters.country} />
+      <FilterProperty filter={sexLabel} value={filters.sex.toString()} />
+      {filters.minAge !== undefined && filters.minAge !== "" && (
+        <FilterProperty
+          filter={minAgeLabel}
+          value={filters.minAge.toString()}
+        />
+      )}
+      {filters.maxAge !== undefined && filters.maxAge !== "" && (
+        <FilterProperty
+          filter={maxAgeLabel}
+          value={filters.maxAge.toString()}
+        />
+      )}
+    </Container>
+  );
+};
