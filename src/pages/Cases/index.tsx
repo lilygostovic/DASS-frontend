@@ -4,14 +4,9 @@ import { CaseView } from "./CaseView";
 import { type Filters } from "./CaseView/Types";
 import { Form } from "./Form";
 import { Nav } from "../../components";
-import { PageBreak } from "./components/Helper";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 
-const DassDiv = styled.div`
-  background-color: #ecf2ff;
-  height: 2000px; // todo:: get rid of hard coded 2000px
-`;
 const Content = styled.div`
   margin: 50px 10vw;
   height: 80vh;
@@ -22,14 +17,18 @@ const Content = styled.div`
   align-items: center;
 `;
 const RefreshButton = styled.button`
-  margin-top: 40px;
+  width: 150px;
+  margin: 40px 0px;
   padding: 20px;
 
   border-radius: 8px;
-  border: 1px solid lightGrey;
-  background-color: white;
+  border: none;
 
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px 0px;
+  color: white;
+  font-size: 14px;
+  background-color: #151515c7;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 export const Cases = () => {
@@ -76,7 +75,7 @@ export const Cases = () => {
   };
 
   return (
-    <DassDiv>
+    <div>
       <Nav />
       <Content>
         <Form
@@ -84,19 +83,26 @@ export const Cases = () => {
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
         />
-        <PageBreak />
         {caseNumber !== undefined && text !== undefined && (
-          <CaseView caseNumber={caseNumber} filters={filters} text={text} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <CaseView caseNumber={caseNumber} filters={filters} text={text} />
+            <RefreshButton
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onClick={async () => {
+                await fetchCase(filters);
+              }}
+            >
+              View New Case
+            </RefreshButton>
+          </div>
         )}
-        <RefreshButton
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onClick={async () => {
-            await fetchCase(filters);
-          }}
-        >
-          View New Case
-        </RefreshButton>
       </Content>
-    </DassDiv>
+    </div>
   );
 };

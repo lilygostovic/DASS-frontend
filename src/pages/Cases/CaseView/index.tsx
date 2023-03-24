@@ -10,11 +10,13 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  margin-top: 150px;
   padding: 10px 80px 40px 80px;
 
   background-color: #ffffffa2;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
 export type CaseViewProps = {
