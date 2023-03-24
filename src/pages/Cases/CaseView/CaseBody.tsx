@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  line-height: 1.5;
-  padding: 20px 0px;
+  line-height: 1.25;
+  padding-top: 20px;
 `;
 
 interface CaseBodyProps {
