@@ -10,7 +10,7 @@
     },
 
     "dashBoard": {
-        "welcome": "Welcome!",
+        "overviewStats": "Overview of Cases",
         "sex": "Sex",
         "lgbtq": "LGBTQ"
     },

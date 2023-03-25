@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const [filter, setFilter] = useState<"sex" | "lgbtq">("sex");
   const { t } = useTranslation();
 
-  const text = t("dashBoard.welcome");
+  const text = t("dashBoard.overviewStats");
 
   const viewSex = () => {
     setFilter("sex");
@@ -30,42 +30,47 @@ export const Dashboard = () => {
       <Nav />
       <div
         style={{
+          backgroundColor: "#ffffff",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
         }}
       >
         <div
           style={{
+            backgroundColor: "#ffffff",
+            width: "20%",
+            height: "87vh",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            paddingRight: "50px",
-            color: "black",
+            border: "3px solid #78A6F5",
           }}
         >
-          <FilterButton
+          <h1 style={{ fontSize: "19px", color: "#577ACB" }}>Filter Options</h1>
+           <FilterButton
             onClick={viewSex}
             isSelected={filter === "sex"}
             text={t("dashBoard.sex")}
           />
+
           <FilterButton
             onClick={viewLGBTQ}
             isSelected={filter === "lgbtq"}
             text={t("dashBoard.lgbtq")}
           />
         </div>
+
         <div
           style={{
-            height: "87vh",
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
+            flexDirection: "column",
+            border: "3px solid #78A6F5",
+            width: "100%",
             alignItems: "center",
           }}
         >
-          <div style={{ color: "black", marginBottom: "20px" }}>{text}</div>
-          <SummaryChart data={data} filter={filter} w={900} h={600} />
+          <h1 style={{ fontSize: "19px", color: "#577ACB", marginBottom: "20px" }}>{text}</h1>
+          <SummaryChart data={data} filter={filter} w={1200} h={600} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>
