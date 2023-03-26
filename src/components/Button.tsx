@@ -12,11 +12,20 @@ interface ButtonProps {
   text: string;
   isSelected: boolean;
   onClick: () => void;
+  selectColor: string;
+  deselectColor: string
 }
 
-export const FilterButton = ({ text, isSelected, onClick }: ButtonProps) => {
+export const FilterButton = (
+  {
+    text,
+    isSelected,
+    onClick,
+    selectColor,
+    deselectColor,
+  }: ButtonProps) => {
   const textColor = isSelected ? "black" : "grey";
-  const borderColor = isSelected ? "1px solid black" : "1px solid grey";
+  const borderColor = isSelected ? ("3px solid " + `${selectColor}`) : "3px solid " + `${deselectColor}`;
 
   return (
     <button
@@ -27,6 +36,7 @@ export const FilterButton = ({ text, isSelected, onClick }: ButtonProps) => {
         border: `${borderColor}`,
         borderRadius: "8px",
         margin: "20px",
+        fontWeight: "bold",
       }}
     >
       {text}

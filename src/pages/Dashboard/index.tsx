@@ -50,12 +50,16 @@ export const Dashboard = () => {
             onClick={viewSex}
             isSelected={filter === "sex"}
             text={t("dashBoard.sex")}
+            selectColor="red"
+            deselectColor="#FF9595"
           />
 
           <FilterButton
             onClick={viewLGBTQ}
             isSelected={filter === "lgbtq"}
             text={t("dashBoard.lgbtq")}
+            selectColor="green"
+            deselectColor="#95B992"
           />
         </div>
 
