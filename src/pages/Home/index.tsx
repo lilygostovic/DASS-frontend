@@ -72,7 +72,7 @@ export const Home = () => {
                   window.location.href = "/summary";
                 }}
               >
-                <SummaryChart data={data} filter={filter} w={600} h={400} />
+                <SummaryChart data={data} filter={filter} w={600} h={400} isSummaryPage={false} />
               </div>
               <div
                 style={{

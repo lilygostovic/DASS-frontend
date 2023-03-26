@@ -74,7 +74,7 @@ export const Dashboard = () => {
           }}
         >
           <h1 style={{ fontSize: "19px", color: "#577ACB", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} filter={filter} w={1200} h={600} />
+          <SummaryChart data={data} filter={filter} w={1200} h={600} isSummaryPage={true} />
           <DropDown options={["Gender", "Country", "Motive"]} />
         </div>
       </div>

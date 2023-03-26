@@ -2,6 +2,7 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
+  Label,
   Legend,
   Tooltip,
   XAxis,
@@ -26,10 +27,15 @@ interface SummaryChartProps {
   filter: "sex" | "lgbtq";
   w: number
   h: number
+  isSummaryPage: boolean
 }
 
-export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
+export const SummaryChart = ({ data, filter, w, h, isSummaryPage }: SummaryChartProps) => {
   const { t } = useTranslation();
+
+  let leftMargin = 0;
+
+  if (isSummaryPage) { leftMargin = 18 };
 
   return (
     <AreaChart
@@ -39,7 +45,7 @@ export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
       margin={{
         top: 10,
         right: 30,
-        left: 0,
+        left: leftMargin,
         bottom: 0,
       }}
     >
@@ -88,7 +94,17 @@ export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
           t(`countries.${country}.shortName`).toUpperCase()
         }
       />
-      <YAxis axisLine={false} tickLine={false} tickCount={8} />
+      <YAxis axisLine={false} tickLine={false} tickCount={8} >
+      {isSummaryPage && (
+        <Label
+          value="Number of Cases"
+          angle={-90}
+          position="insideLeft"
+          offset={-10}
+          style={{ fontWeight: "bold", fontSize: "19px", fill: "black" }}
+        />
+      )}
+      </YAxis>
       <Tooltip />
       <Legend
         verticalAlign="top"
