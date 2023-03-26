@@ -1,8 +1,8 @@
+import { DropDown, SummaryChart } from "./components";
 import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
 import { FilterButton } from "../../components/Button";
-import { SummaryChart } from "./components";
 import { data } from "./data";
 import { useTranslation } from "react-i18next";
 
@@ -75,6 +75,7 @@ export const Dashboard = () => {
         >
           <h1 style={{ fontSize: "19px", color: "#577ACB", marginBottom: "20px" }}>{text}</h1>
           <SummaryChart data={data} filter={filter} w={1200} h={600} />
+          <DropDown options={["Gender", "Country", "Motive"]} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>
