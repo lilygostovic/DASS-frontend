@@ -38,6 +38,8 @@ export const FilterButton = (
         margin: "20px",
         fontWeight: "bold",
         boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+        width: "90px",
+        padding: "10px",
       }}
     >
       {text}

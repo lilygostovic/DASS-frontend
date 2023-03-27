@@ -42,10 +42,13 @@ export const Dashboard = () => {
             height: "87vh",
             display: "flex",
             flexDirection: "column",
-            border: "3px solid #78A6F5",
+            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+            borderRadius: "8px",
+            margin: "20px 10px",
+            alignItems: "center",
           }}
         >
-          <h1 style={{ fontSize: "19px", color: "#577ACB" }}>Filter Options</h1>
+          <h1 style={{ fontSize: "19px", color: "black" }}>Filter Options</h1>
            <FilterButton
             onClick={viewSex}
             isSelected={filter === "sex"}
@@ -68,14 +71,16 @@ export const Dashboard = () => {
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
-            border: "3px solid #78A6F5",
             width: "100%",
             alignItems: "center",
+            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+            borderRadius: "8px",
+            margin: "20px 20px",
           }}
         >
-          <h1 style={{ fontSize: "19px", color: "#577ACB", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} filter={filter} w={1200} h={600} isSummaryPage={true} />
-          <DropDown options={["Gender", "Country", "Motive"]} />
+          <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
+          <SummaryChart data={data} filter={filter} w={1150} h={600} isSummaryPage={true} />
+          <DropDown options={["Country", "Gender", "Motive"]} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>

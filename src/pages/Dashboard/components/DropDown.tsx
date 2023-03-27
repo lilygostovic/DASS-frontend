@@ -15,13 +15,14 @@ export const DropDown = ({ options }: dropDownProps) => {
     <select value={selectedOption} onChange={handleMenuChange}
       style={{
         height: "40px",
-        width: "100px",
+        width: "125px",
         fontWeight: "bold",
         border: "4px outset #78A6F5",
         backgroundColor: "#3E54AC",
         color: "white",
         boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
         borderRadius: "8px",
+        fontSize: "19px",
       }} >
       {options.map((option, index) => (
         <option key={index} value={option} >

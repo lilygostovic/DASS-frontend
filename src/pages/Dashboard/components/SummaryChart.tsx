@@ -35,7 +35,7 @@ export const SummaryChart = ({ data, filter, w, h, isSummaryPage }: SummaryChart
 
   let leftMargin = 0;
 
-  if (isSummaryPage) { leftMargin = 18 };
+  if (isSummaryPage) { leftMargin = 38 };
 
   return (
     <AreaChart
@@ -100,7 +100,7 @@ export const SummaryChart = ({ data, filter, w, h, isSummaryPage }: SummaryChart
           value="Number of Cases"
           angle={-90}
           position="insideLeft"
-          offset={-10}
+          offset={-30}
           style={{ fontWeight: "bold", fontSize: "19px", fill: "black" }}
         />
       )}
