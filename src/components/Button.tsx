@@ -37,6 +37,7 @@ export const FilterButton = (
         borderRadius: "8px",
         margin: "20px",
         fontWeight: "bold",
+        boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
       }}
     >
       {text}
