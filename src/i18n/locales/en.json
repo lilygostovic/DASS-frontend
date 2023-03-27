@@ -1,52 +1,82 @@
 {
-    "homePage": {
-        "title": "Welcome to The Home of Asylum Seekers"
+  "nav": {
+    "home": "Home",
+    "summary": "Summary",
+    "cases": "Cases"
+  },
+  "homePage": {
+    "title": "Welcome to The Home of Asylum Seekers"
+  },
+  "dashboardPage": {
+    "welcome": "Welcome!",
+    "sex": "Sex",
+    "lgbtq": "LGBTQ"
+  },
+  "filterPage": {
+    "accepted": {
+      "label": "Accepted/Rejected",
+      "accepted": "Accepted",
+      "rejected": "Rejected"
     },
-
-    "nav": {
-        "home": "Home",
-        "summary": "Summary",
-        "cases": "Cases"
+    "motive": {
+      "label": "Motive"
     },
-
-    "dashBoard": {
-        "welcome": "Welcome!",
-        "sex": "Sex",
-        "lgbtq": "LGBTQ"
+    "country": {
+      "label": "Country of Origin",
+      "afghanistan": "Afghanistan",
+      "iran": "Iran",
+      "syria": "Syria"
     },
-
-    "female": "Female",
-    "male": "Male",
-    "total": "Total",
-
-    "countries": {
-        "afghanistan": {
-            "fullName": "Afghanistan",
-            "shortName": "afg"
-        },
-        "belize": {
-            "fullName": "Belize",
-            "shortName": "blz" 
-        },
-        "cambodia": {
-            "fullName": "Cambodia",
-            "shortName": "khm" 
-        },
-        "djibouti": {
-            "fullName": "Djibouti",
-            "shortName": "dji" 
-        },
-        "ecuador": {
-            "fullName": "Ecuador",
-            "shortName": "ecu" 
-        },
-        "finland": {
-            "fullName": "Finland",
-            "shortName": "fin" 
-        },
-        "galapagos": {
-            "fullName": "Ghana",
-            "shortName": "gha"
-        }
+    "sex": {
+      "label": "Sex",
+      "female": "Female",
+      "male": "Male",
+      "indeterminable": "Indeterminable"
+    },
+    "ageFilter": {
+      "label": "Age",
+      "minPlaceholder": "Min",
+      "minLabel": "Minimum Age",
+      "maxPlaceholder": "Max",
+      "maxLabel": "Maximum Age"
+    },
+    "allOption": "All",
+    "form": {
+      "title": "Filter For Specific Cases"
+    },
+    "caseViewTitle": "Case #"
+  },
+  "female": "Female",
+  "male": "Male",
+  "total": "Total",
+  "countries": {
+    "afghanistan": {
+      "fullName": "Afghanistan",
+      "shortName": "afg"
+    },
+    "belize": {
+      "fullName": "Belize",
+      "shortName": "blz"
+    },
+    "cambodia": {
+      "fullName": "Cambodia",
+      "shortName": "khm"
+    },
+    "djibouti": {
+      "fullName": "Djibouti",
+      "shortName": "dji"
+    },
+    "ecuador": {
+      "fullName": "Ecuador",
+      "shortName": "ecu"
+    },
+    "finland": {
+      "fullName": "Finland",
+      "shortName": "fin"
+    },
+    "galapagos": {
+      "fullName": "Ghana",
+      "shortName": "gha"
     }
+  }
 }
