@@ -8,7 +8,7 @@
     "title": "Welcome to The Home of Asylum Seekers"
   },
   "dashboardPage": {
-    "welcome": "Welcome!",
+    "overviewStats": "Overview of Cases",
     "sex": "Sex",
     "lgbtq": "LGBTQ"
   },

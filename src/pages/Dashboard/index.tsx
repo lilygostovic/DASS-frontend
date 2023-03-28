@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const [filter, setFilter] = useState<"sex" | "lgbtq">("sex");
   const { t } = useTranslation();
 
-  const text = t("dashboardPage.welcome");
+  const text = t("dashboardPage.overviewStats");
 
   const viewSex = () => {
     setFilter("sex");
@@ -52,7 +52,7 @@ export const Dashboard = () => {
            <FilterButton
             onClick={viewSex}
             isSelected={filter === "sex"}
-            text={t("dashBoard.sex")}
+            text={t("dashboardPage.sex")}
             selectColor="red"
             deselectColor="#FF9595"
           />
@@ -60,7 +60,7 @@ export const Dashboard = () => {
           <FilterButton
             onClick={viewLGBTQ}
             isSelected={filter === "lgbtq"}
-            text={t("dashBoard.lgbtq")}
+            text={t("dashboardPage.lgbtq")}
             selectColor="green"
             deselectColor="#95B992"
           />
