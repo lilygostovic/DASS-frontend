@@ -45,16 +45,16 @@ export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
     >
       <defs>
         <linearGradient id="colorTotal" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="5%" stopColor="#2451B7" stopOpacity={0.5} />
-          <stop offset="75%" stopColor="#2451B7" stopOpacity={0.7} />
+          <stop offset="5%" stopColor="grey" stopOpacity={0.5} />
+          <stop offset="75%" stopColor="grey" stopOpacity={0.7} />
         </linearGradient>
         <linearGradient id="colorFemale" x1="0" x2="0" y1="0" y2="1">
           <stop offset="5%" stopColor="#b72424" stopOpacity={0.5} />
           <stop offset="75%" stopColor="#b72424" stopOpacity={0.7} />
         </linearGradient>
         <linearGradient id="colorMale" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="5%" stopColor="#24b75f" stopOpacity={0.5} />
-          <stop offset="75%" stopColor="#24b75f" stopOpacity={0.7} />
+          <stop offset="5%" stopColor="#2451B7" stopOpacity={0.5} />
+          <stop offset="75%" stopColor="#2451B7" stopOpacity={0.7} />
         </linearGradient>
       </defs>
 
@@ -62,21 +62,21 @@ export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
         type="monotone"
         dataKey={filter === "sex" ? "male" : ""}
         stackId="1"
-        stroke="#24b75f"
+        stroke="#2451B7"
         fill="url(#colorMale)"
       />
       <Bar
         type="monotone"
         dataKey={filter === "sex" ? "female" : "lgbtq"}
-        stackId="1"
+        stackId="2"
         stroke="#b72424"
         fill="url(#colorFemale)"
       />
       <Bar
         type="monotone"
         dataKey="total"
-        stackId="1"
-        stroke="#2451B7"
+        stackId="3"
+        stroke="black"
         fill="url(#colorTotal)"
       />
       <CartesianGrid strokeDasharray="2 3" opacity={0.1} vertical={false} />
