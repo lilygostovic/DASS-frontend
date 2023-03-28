@@ -82,13 +82,13 @@ export const SummaryChart = ({ data, filter, w, h }: SummaryChartProps) => {
       <CartesianGrid strokeDasharray="2 3" opacity={0.1} vertical={false} />
       <XAxis
         dataKey="country"
-        axisLine={false}
-        tickLine={false}
+        axisLine={true}
+        tickLine={true}
         tickFormatter={(country: string) =>
           t(`countries.${country}.shortName`).toUpperCase()
         }
       />
-      <YAxis axisLine={false} tickLine={false} tickCount={8} />
+      <YAxis axisLine={true} tickLine={false} tickCount={8} />
       <Tooltip />
       <Legend
         verticalAlign="top"
