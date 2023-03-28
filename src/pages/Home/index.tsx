@@ -65,7 +65,7 @@ export const Home = () => {
                   display: "flex",
                   justifyContent: "center",
                   fontSize: "13px",
-                  fontWeight: "normal",
+                  fontWeight: "bold",
                   cursor: "pointer",
                   color: "black",
                 }}
