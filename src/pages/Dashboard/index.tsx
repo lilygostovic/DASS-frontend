@@ -10,7 +10,7 @@ export const Dashboard = () => {
   const [filter, setFilter] = useState<"sex" | "lgbtq">("sex");
   const { t } = useTranslation();
 
-  const text = t("dashBoard.overviewStats");
+  const text = t("dashboardPage.welcome");
 
   const viewSex = () => {
     setFilter("sex");

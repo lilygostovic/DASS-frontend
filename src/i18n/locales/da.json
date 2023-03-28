@@ -1,52 +1,48 @@
 {
-    "homePage": {
-        "title": "Velkommen til Centralen for Asylansøgere"
+  "nav": {
+    "home": "Hjem",
+    "summary": "Overblik",
+    "cases": "Sager"
+  },
+  "home": {
+    "title": "Velkommen til Centralen for Asylansøgere"
+  },
+  "dashboard": {
+    "welcome": "Velkommen!",
+    "sex": "Køn",
+    "lgbtq": "LGBT+"
+  },
+  "female": "Kvinde",
+  "male": "Mandlige",
+  "total": "I alt",
+  "countries": {
+    "afghanistan": {
+      "fullName": "Afghanistan",
+      "shortName": "afg"
     },
-
-    "nav": {
-        "home": "Hjem",
-        "summary": "Overblik",
-        "cases": "Sager"
+    "belize": {
+      "fullName": "Belize",
+      "shortName": "blz"
     },
-
-    "dashBoard": {
-        "overviewStats": "Overblik over Sager",
-        "sex": "Køn",
-        "lgbtq": "LGBT+"
+    "cambodia": {
+      "fullName": "Cambodja",
+      "shortName": "khm"
     },
-
-    "female": "Kvinde",
-    "male": "Mandlige",
-    "total": "I alt",
-
-    "countries": {
-        "afghanistan": {
-            "fullName": "Afghanistan",
-            "shortName": "afg"
-        },
-        "belize": {
-            "fullName": "Belize",
-            "shortName": "blz" 
-        },
-        "cambodia": {
-            "fullName": "Cambodja",
-            "shortName": "khm" 
-        },
-        "djibouti": {
-            "fullName": "Djibouti",
-            "shortName": "dji" 
-        },
-        "ecuador": {
-            "fullName": "Ecuador",
-            "shortName": "ecu" 
-        },
-        "finland": {
-            "fullName": "Finland",
-            "shortName": "fin" 
-        },
-        "galapagos": {
-            "fullName": "Ghana",
-            "shortName": "gha"
-        }
+    "djibouti": {
+      "fullName": "Djibouti",
+      "shortName": "dji"
+    },
+    "ecuador": {
+      "fullName": "Ecuador",
+      "shortName": "ecu"
+    },
+    "finland": {
+      "fullName": "Finland",
+      "shortName": "fin"
+    },
+    "galapagos": {
+      "fullName": "Ghana",
+      "shortName": "gha"
     }
+  }
 }
