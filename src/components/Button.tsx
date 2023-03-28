@@ -25,7 +25,7 @@ export const FilterButton = (
     deselectColor,
   }: ButtonProps) => {
   const textColor = isSelected ? "black" : "grey";
-  const borderColor = isSelected ? ("3px solid " + `${selectColor}`) : "3px solid " + `${deselectColor}`;
+  const borderColor = isSelected ? ("5px outset " + `${selectColor}`) : "5px inset " + `${deselectColor}`;
 
   return (
     <button

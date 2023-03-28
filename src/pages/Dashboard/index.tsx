@@ -49,6 +49,7 @@ export const Dashboard = () => {
           }}
         >
           <h1 style={{ fontSize: "19px", color: "black" }}>Filter Options</h1>
+          <hr style={{ width: "99%", height: "2px", backgroundColor: "black" }}/>
            <FilterButton
             onClick={viewSex}
             isSelected={filter === "sex"}
