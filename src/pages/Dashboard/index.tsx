@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
   const [filter, setFilter] = useState<"sex" | "lgbtq">("sex");
+  const [dropDownOption, setDropDown] = useState<string>("");
+
   const { t } = useTranslation();
 
   const text = t("dashboardPage.overviewStats");
@@ -80,8 +82,8 @@ export const Dashboard = () => {
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} filter={filter} w={1150} h={600} isSummaryPage={true} />
-          <DropDown/>
+          <SummaryChart data={data} filter={filter} w={1150} h={600} isSummaryPage={true} axisOption={dropDownOption} />
+          <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>

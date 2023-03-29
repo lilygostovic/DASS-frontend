@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+interface dropDownProps {
+  selectedOption: string
+  setOption: React.Dispatch<React.SetStateAction<string>>
+}
 
-export const DropDown = () => {
-  const [selectedOption, setOption] = useState<string>("");
-
+export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
   const handleMenuChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setOption(event.target.value)
   }
