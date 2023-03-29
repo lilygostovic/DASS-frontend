@@ -81,7 +81,7 @@ export const Dashboard = () => {
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
           <SummaryChart data={data} filter={filter} w={1150} h={600} isSummaryPage={true} />
-          <DropDown options={["Country", "Gender", "Motive"]} />
+          <DropDown/>
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>

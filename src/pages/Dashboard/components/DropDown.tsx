@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-interface dropDownProps {
-  options: string[];
-}
-
-export const DropDown = ({ options }: dropDownProps) => {
+export const DropDown = () => {
   const [selectedOption, setOption] = useState<string>("");
 
   const handleMenuChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -23,12 +19,11 @@ export const DropDown = ({ options }: dropDownProps) => {
         boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
         borderRadius: "8px",
         fontSize: "19px",
-      }} >
-      {options.map((option, index) => (
-        <option key={index} value={option} >
-          {option}
-        </option>
-      ))}
+      }}
+    >
+        <option value="country">Country</option>
+        <option value="gender">Gender</option>
+        <option value="motive">Motive</option>
     </select>
   )
 }
