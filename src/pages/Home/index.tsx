@@ -2,6 +2,7 @@ import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
 import { HomeText } from "./components/HomeText";
+import { Link } from 'react-router-dom';
 import { SummaryChart } from "../Dashboard/components";
 import { data } from "../Dashboard/data";
 import { useTranslation } from "react-i18next";
@@ -68,11 +69,10 @@ export const Home = () => {
                   fontWeight: "normal",
                   cursor: "pointer",
                 }}
-                onClick={() => {
-                  window.location.href = "/summary";
-                }}
               >
-                <SummaryChart data={data} filter={filter} w={600} h={400} isSummaryPage={false} />
+                <Link to="/summary">
+                  <SummaryChart data={data} filter={filter} w={600} h={400} isSummaryPage={false} />
+                </Link>
               </div>
               <div
                 style={{
