@@ -38,6 +38,8 @@ export const Dashboard = () => {
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
             borderRadius: "8px",
             margin: "30px 30px",
+            color: "black",
+            fontSize: "20px",
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
