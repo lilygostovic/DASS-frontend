@@ -38,9 +38,6 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption }: SummaryC
   // The y-axis label needs more space to be displayed if we are on summary
   if (isSummaryPage) { leftMargin = 38 };
 
-  // NOTE: this is just a test to see if changing the drop down to a different value actually affects the chart
-  if (axisOption === "gender") { w = 500; h = 200 }
-
   return (
     <AreaChart
       width={w}
