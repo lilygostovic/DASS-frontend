@@ -83,8 +83,9 @@
   "summaryDropDown": {
     "options": {
       "gender": "Gender",
-      "motive": "Motive",
-      "country": "Country"
+      "motive": "Asylum Motive",
+      "country": "Country",
+      "lgbtq": "LGBTQ"
     }
   }
 }
