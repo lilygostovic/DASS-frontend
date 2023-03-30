@@ -7,7 +7,7 @@ import { data } from "./data";
 import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
-  const [filter, setFilter] = useState<"sex" | "lgbtq">("sex");
+  const [filter, setFilter] = useState<"sex" | "lgbtq" | "result">("sex");
   const [dropDownOption, setDropDown] = useState<string>("");
 
   const { t } = useTranslation();
@@ -20,6 +20,10 @@ export const Dashboard = () => {
   const viewLGBTQ = () => {
     setFilter("lgbtq");
   };
+
+  const viewResult = () => {
+    setFilter("result")
+  }
 
   return (
     <div
@@ -66,6 +70,14 @@ export const Dashboard = () => {
             text={t("dashboardPage.lgbtq")}
             selectColor="green"
             deselectColor="#95B992"
+          />
+
+          <FilterButton
+            onClick={viewResult}
+            isSelected={filter === "result"}
+            text={t("dashboardPage.result")}
+            selectColor="blue"
+            deselectColor="#546BC9"
           />
         </div>
 

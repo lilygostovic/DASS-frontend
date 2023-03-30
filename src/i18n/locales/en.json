@@ -10,7 +10,8 @@
   "dashboardPage": {
     "overviewStats": "Overview of Cases",
     "sex": "Sex",
-    "lgbtq": "LGBTQ"
+    "lgbtq": "LGBTQ",
+    "result": "Accepted/Rejected" 
   },
   "filterPage": {
     "accepted": {

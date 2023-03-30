@@ -5,6 +5,8 @@ export const data = [
     female: 2400,
     male: 1600,
     lgbtq: 3000,
+    accepted: 1500,
+    rejected: 2500,
   },
   {
     country: "belize",
@@ -12,6 +14,8 @@ export const data = [
     female: 1398,
     male: 1602,
     lgbtq: 1800,
+    accepted: 500,
+    rejected: 2500,
   },
   {
     country: "cambodia",
@@ -19,6 +23,8 @@ export const data = [
     female: 910,
     male: 1090,
     lgbtq: 1500,
+    accepted: 300,
+    rejected: 1700,
   },
   {
     country: "djibouti",
@@ -26,6 +32,8 @@ export const data = [
     female: 2000,
     male: 780,
     lgbtq: 2000,
+    accepted: 1000,
+    rejected: 1780,
   },
   {
     country: "ecuador",
@@ -33,6 +41,8 @@ export const data = [
     female: 2181,
     male: 2619,
     lgbtq: 4000,
+    accepted: 2600,
+    rejected: 2200,
   },
   {
     country: "finland",
@@ -40,6 +50,8 @@ export const data = [
     female: 162,
     male: 338,
     lgbtq: 400,
+    accepted: 90,
+    rejected: 410,
   },
   {
     country: "galapagos",
@@ -47,5 +59,7 @@ export const data = [
     female: 2100,
     male: 1390,
     lgbtq: 3100,
+    accepted: 1300,
+    rejected: 2190,
   },
 ];
