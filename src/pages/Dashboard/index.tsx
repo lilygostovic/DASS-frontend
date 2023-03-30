@@ -62,9 +62,10 @@ export const Dashboard = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            fontWeight: "bold",
           }}
         >
-          <div style={{ color: "black", marginBottom: "20px" }}>{text}</div>
+          <div style={{ color: "black", marginBottom: "20px", fontWeight: "normal" }}>{text}</div>
           <SummaryChart data={data} filter={filter} w={900} h={600} />
         </div>
       </div>
