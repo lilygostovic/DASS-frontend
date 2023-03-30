@@ -24,14 +24,13 @@ interface Country {
 
 interface SummaryChartProps {
   data: Country[];
-  filter: "sex" | "lgbtq" | "result";
   w: number
   h: number
   isSummaryPage: boolean
   axisOption?: string
 }
 
-export const SummaryChart = ({ data, filter, w, h, isSummaryPage, axisOption }: SummaryChartProps) => {
+export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption }: SummaryChartProps) => {
   const { t } = useTranslation();
 
   let leftMargin = 0;
@@ -41,13 +40,6 @@ export const SummaryChart = ({ data, filter, w, h, isSummaryPage, axisOption }: 
 
   // NOTE: this is just a test to see if changing the drop down to a different value actually affects the chart
   if (axisOption === "gender") { w = 500; h = 200 }
-
-  let key1 = "";
-  let key2 = "";
-
-  if (filter === "sex") { key1 = "male"; key2 = "female" }
-  if (filter === "lgbtq") { key1 = ""; key2 = "lgbtq" }
-  if (filter === "result") { key1 = "accepted"; key2 = "rejected" }
 
   return (
     <AreaChart
@@ -77,14 +69,14 @@ export const SummaryChart = ({ data, filter, w, h, isSummaryPage, axisOption }: 
       </defs>
       <Area
         type="monotone"
-        dataKey={key1}
+        dataKey={"male"}
         stackId="1"
         stroke="#24b75f"
         fill="url(#colorMale)"
       />
       <Area
         type="monotone"
-        dataKey={key2}
+        dataKey={"female"}
         stackId="1"
         stroke="#b72424"
         fill="url(#colorFemale)"

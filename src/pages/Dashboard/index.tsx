@@ -2,28 +2,15 @@ import { DropDown, SummaryChart } from "./components";
 import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
-import { FilterButton } from "../../components/Button";
 import { data } from "./data";
 import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
-  const [filter, setFilter] = useState<"sex" | "lgbtq" | "result">("sex");
   const [dropDownOption, setDropDown] = useState<string>("");
 
   const { t } = useTranslation();
 
   const text = t("dashboardPage.overviewStats");
-
-  const viewSex = () => {
-    setFilter("sex");
-  };
-  const viewLGBTQ = () => {
-    setFilter("lgbtq");
-  };
-
-  const viewResult = () => {
-    setFilter("result")
-  }
 
   return (
     <div
@@ -43,58 +30,18 @@ export const Dashboard = () => {
       >
         <div
           style={{
-            backgroundColor: "#ffffff",
-            width: "20%",
-            height: "87vh",
             display: "flex",
-            flexDirection: "column",
-            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
-            borderRadius: "8px",
-            margin: "20px 10px",
-            alignItems: "center",
-          }}
-        >
-          <h1 style={{ fontSize: "19px", color: "black" }}>Filter Options</h1>
-          <hr style={{ width: "99%", height: "2px", backgroundColor: "black" }}/>
-           <FilterButton
-            onClick={viewSex}
-            isSelected={filter === "sex"}
-            text={t("dashboardPage.sex")}
-            selectColor="red"
-            deselectColor="#FF9595"
-          />
-
-          <FilterButton
-            onClick={viewLGBTQ}
-            isSelected={filter === "lgbtq"}
-            text={t("dashboardPage.lgbtq")}
-            selectColor="green"
-            deselectColor="#95B992"
-          />
-
-          <FilterButton
-            onClick={viewResult}
-            isSelected={filter === "result"}
-            text={t("dashboardPage.result")}
-            selectColor="blue"
-            deselectColor="#546BC9"
-          />
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-bewteen",
             flexDirection: "column",
             width: "100%",
             alignItems: "center",
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
             borderRadius: "8px",
-            margin: "20px 20px",
+            margin: "30px 30px",
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} filter={filter} w={1150} h={600} isSummaryPage={true} axisOption={dropDownOption} />
+          <SummaryChart data={data} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} />
           <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
         </div>
       </div>

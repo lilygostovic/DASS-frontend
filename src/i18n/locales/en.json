@@ -79,5 +79,12 @@
       "fullName": "Ghana",
       "shortName": "gha"
     }
+  },
+  "summaryDropDown": {
+    "options": {
+      "gender": "Gender",
+      "motive": "Motive",
+      "country": "Country"
+    }
   }
 }
