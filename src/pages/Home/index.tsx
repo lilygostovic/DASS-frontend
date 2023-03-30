@@ -63,12 +63,10 @@ export const Home = () => {
                   border: "3px solid #78A6F5",
                   display: "flex",
                   justifyContent: "center",
-                  fontSize: "13px",
-                  fontWeight: "bold",
                   cursor: "pointer",
                 }}
               >
-                <Link to="/summary" style={{ color: "black", fontSize: "15px" }}>
+                <Link to="/summary" style={{ color: "black", fontSize: "15px", fontWeight: "normal" }}>
                   <SummaryChart data={data} w={600} h={400} isSummaryPage={false} />
                 </Link>
               </div>
