@@ -1,1 +1,1 @@
-export { HomeText } from './HomeText';
+export { HomeText } from "./HomeText";
