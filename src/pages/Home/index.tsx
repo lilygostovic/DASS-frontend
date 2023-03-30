@@ -62,10 +62,11 @@ export const Home = () => {
                   backgroundColor: "#ffffff",
                   border: "3px solid #78A6F5",
                   display: "flex",
-                  justifyContent: "flex-start",
+                  justifyContent: "center",
                   fontSize: "13px",
-                  fontWeight: "normal",
+                  fontWeight: "bold",
                   cursor: "pointer",
+                  color: "black",
                 }}
               >
                 <Link to="/summary">
