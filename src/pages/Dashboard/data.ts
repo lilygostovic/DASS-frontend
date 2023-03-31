@@ -7,6 +7,7 @@ export const data = [
     lgbtq: 3000,
     Accepted: 1500,
     Rejected: 2500,
+    continent: "asia",
   },
   {
     country: "belize",
@@ -16,6 +17,7 @@ export const data = [
     lgbtq: 1800,
     Accepted: 500,
     Rejected: 2500,
+    continent: "america",
   },
   {
     country: "cambodia",
@@ -25,6 +27,7 @@ export const data = [
     lgbtq: 1500,
     Accepted: 300,
     Rejected: 1700,
+    continent: "asia",
   },
   {
     country: "djibouti",
@@ -34,6 +37,7 @@ export const data = [
     lgbtq: 2000,
     Accepted: 1000,
     Rejected: 1780,
+    continent: "africa",
   },
   {
     country: "ecuador",
@@ -43,6 +47,7 @@ export const data = [
     lgbtq: 4000,
     Accepted: 2600,
     Rejected: 2200,
+    continent: "america",
   },
   {
     country: "finland",
@@ -52,14 +57,16 @@ export const data = [
     lgbtq: 400,
     Accepted: 90,
     Rejected: 410,
+    continent: "europe",
   },
   {
-    country: "galapagos",
+    country: "ghana",
     total: 3490,
     female: 2100,
     male: 1390,
     lgbtq: 3100,
     Accepted: 1300,
     Rejected: 2190,
+    continent: "africa",
   },
 ];

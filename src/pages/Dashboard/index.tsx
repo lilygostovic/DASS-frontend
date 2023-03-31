@@ -44,7 +44,7 @@ export const Dashboard = () => {
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} />
+          <SummaryChart data={data} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} continentOption={continentOption} />
           <div style={{
             display: "flex",
             flexDirection: "column",

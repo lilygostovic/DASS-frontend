@@ -20,6 +20,9 @@ interface Country {
   female: number;
   male: number;
   lgbtq: number;
+  Accepted: number;
+  Rejected: number;
+  continent: string;
 }
 
 interface SummaryChartProps {
@@ -28,9 +31,10 @@ interface SummaryChartProps {
   h: number
   isSummaryPage: boolean
   axisOption?: string
+  continentOption?: string
 }
 
-export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption }: SummaryChartProps) => {
+export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption, continentOption }: SummaryChartProps) => {
   const { t } = useTranslation();
 
   let leftMargin = 0;
@@ -38,11 +42,19 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption }: SummaryC
   // The y-axis label needs more space to be displayed if we are on summary
   if (isSummaryPage) { leftMargin = 38 };
 
+  let displayedData = data;
+  let ticks = data.length;
+
+  if (axisOption === "country" && continentOption !== "all") {
+    displayedData = data.filter((c) => (c.continent === continentOption));
+    ticks = displayedData.length;
+  }
+
   return (
     <BarChart
       width={w}
       height={h}
-      data={data}
+      data={displayedData}
       margin={{
         top: 10,
         right: 30,
@@ -83,7 +95,7 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption }: SummaryC
           t(`countries.${country}.fullName`)
         }
       />
-      <YAxis axisLine={true} tickLine={false} tickCount={8} >
+      <YAxis axisLine={true} tickLine={false} tickCount={ticks} >
       {isSummaryPage && (
         <Label
           value="Number of Cases"
