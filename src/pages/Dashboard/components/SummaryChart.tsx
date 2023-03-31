@@ -111,7 +111,7 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
         }
       />
       )}
-      {axisOption === "country" && (
+      {((axisOption === "country") || (!isSummaryPage)) && (
         <XAxis
         dataKey="country"
         axisLine={true}

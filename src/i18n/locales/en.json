@@ -5,7 +5,8 @@
     "cases": "Cases"
   },
   "homePage": {
-    "title": "Welcome to The Home of Asylum Seekers"
+    "title": "Danish\nAsylum Seeker\nStatistics",
+    "subtitle": "A summary of statistics about Asylum Seekers in Denmark. "
   },
   "dashboardPage": {
     "overviewStats": "Overview of Cases",
