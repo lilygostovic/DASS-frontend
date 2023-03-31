@@ -7,8 +7,8 @@ i18n
   .use(initReactI18next) // passes i18n instance to react-i18next
   // init i18next
   .init({
-    lng: "da", // initialized language
-    fallbackLng: "da", // fallback language
+    lng: "en", // todo:: change back to danish
+    fallbackLng: "en", // todo:: change back to danish
     resources: {
       // key connection to json files
       da: {

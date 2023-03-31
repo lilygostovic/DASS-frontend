@@ -1,8 +1,8 @@
-import { Footer, Nav } from "../../components";
-import { HomeText } from "./components/HomeText";
-import { Link } from 'react-router-dom';
+import { HomeTextBlock } from "./components/HomeText";
+import { Nav } from "../../components";
 import React from "react";
-import { SummaryChart } from "../Dashboard/components";
+import { StyledDiv } from "../../components/common/StyledDiv";
+import { TitleBlock } from "./components/TitleBlock";
 import { data } from "../Dashboard/data";
 import { useTranslation } from "react-i18next";
 
@@ -10,88 +10,30 @@ export const Home = () => {
   const { t } = useTranslation();
 
   const title = t("homePage.title");
+  const subtitle = t("homePage.subtitle");
 
   return (
-    <div
-      style={{
-        backgroundColor: "#ECF2FF",
-        maxHeight: "100vh",
-        minHeight: "100vh",
-      }}
-    >
+    <div>
       <Nav />
-      <div
-        style={{
-          marginBottom: "20px",
-          justifyContent: "space-bewteen",
-          alignItems: "right",
-          height: "85vh",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <div
-          style={{
-            color: "white",
-            height: "3.5vh",
-            fontSize: "25px",
-            fontWeight: "bold",
-            width: "100%",
-            justifyContent: "center",
-            flexDirection: "column",
-            backgroundColor: "#577ACB",
-          }}
-        >
-          {title.toUpperCase()}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <HomeText />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <div
-                style={{
-                  height: "47vh",
-                  backgroundColor: "#ffffff",
-                  border: "3px solid #78A6F5",
-                  display: "flex",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                }}
-              >
-                <Link to="/summary" style={{ color: "black", fontSize: "15px", fontWeight: "normal" }}>
-                  <SummaryChart data={data} w={600} h={400} isSummaryPage={false} />
-                </Link>
-              </div>
-              <div
-                style={{
-                  backgroundColor: "#ffffff",
-                  height: "100%",
-                  border: "3px solid #78A6F5",
-                }}
-              >
-                <h1 style={{ fontSize: "19px", color: "#577ACB" }}>
-                  Something Cool
-                  <div style={{ fontSize: "12px", color: "black" }}>
-                    Something else cool...... description of above graph? Some
-                    kind of help?
-                  </div>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style={{ alignItems: "flex-end" }}>
-        <Footer />
-      </div>
+      <StyledDiv mb="100px">
+        <TitleBlock title={title} subtitle={subtitle} data={data} />
+        <HomeTextBlock
+          title="About This Project"
+          text="Here we could maybe add reasons for why this is the best project ever"
+        />
+        <HomeTextBlock
+          title="What YOU have to do"
+          text="Maybe instructions for what the user can do??? What each page shows, and how to operate them?"
+        />
+        <HomeTextBlock
+          title="Resources"
+          text="The website/tools we have used? What kind of data is used?"
+        />
+        <HomeTextBlock
+          title="Contact Us"
+          text="Contact information like emails and some links perhaps? Maybe some info like this could also be placed in the empty bottom right corner? IDK what else could be interesting to place in the empty corner? :DDD"
+        />
+      </StyledDiv>
     </div>
   );
 };
