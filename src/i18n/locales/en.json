@@ -9,9 +9,10 @@
     "subtitle": "A summary of statistics about Asylum Seekers in Denmark. "
   },
   "dashboardPage": {
-    "welcome": "Welcome!",
+    "overviewStats": "Overview of Cases",
     "sex": "Sex",
-    "lgbtq": "LGBTQ"
+    "lgbtq": "LGBTQ",
+    "result": "Accepted/Rejected" 
   },
   "filterPage": {
     "accepted": {
@@ -78,6 +79,14 @@
     "galapagos": {
       "fullName": "Ghana",
       "shortName": "gha"
+    }
+  },
+  "summaryDropDown": {
+    "options": {
+      "gender": "Gender",
+      "motive": "Asylum Motive",
+      "country": "Country",
+      "lgbtq": "LGBTQ"
     }
   }
 }

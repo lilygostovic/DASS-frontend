@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
 import { HomeTextBlock } from "./components/HomeText";
 import { Nav } from "../../components";
+import React from "react";
 import { StyledDiv } from "../../components/common/StyledDiv";
 import { TitleBlock } from "./components/TitleBlock";
 import { data } from "../Dashboard/data";
@@ -9,7 +8,6 @@ import { useTranslation } from "react-i18next";
 
 export const Home = () => {
   const { t } = useTranslation();
-  const [filter] = useState<"sex" | "lgbtq">("sex");
 
   const title = t("homePage.title");
   const subtitle = t("homePage.subtitle");
@@ -18,12 +16,7 @@ export const Home = () => {
     <div>
       <Nav />
       <StyledDiv mb="100px">
-        <TitleBlock
-          title={title}
-          subtitle={subtitle}
-          data={data}
-          filter={filter}
-        />
+        <TitleBlock title={title} subtitle={subtitle} data={data} />
         <HomeTextBlock
           title="About This Project"
           text="Here we could maybe add reasons for why this is the best project ever"
