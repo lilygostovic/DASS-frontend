@@ -46,7 +46,7 @@ export type TextVariant =
   | "button"
   | "graphSmall";
 
-type ForgetTextProps = {
+type StyledTextProps = {
   variant: TextVariant;
 } & ColorProps &
   FlexboxProps &
@@ -54,7 +54,7 @@ type ForgetTextProps = {
   SpaceProps &
   TypographyProps;
 
-export const StyledText = styled.text<ForgetTextProps>`
+export const StyledText = styled.text<StyledTextProps>`
   ${({ variant }) => {
     switch (variant) {
       case "title":

@@ -14,11 +14,11 @@ import {
   layout,
   position,
   space,
-} from "styled-system";
+} from 'styled-system';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-type ForgetViewProps = SpaceProps &
+type StyledDivProps = SpaceProps &
   LayoutProps &
   FlexboxProps &
   ColorProps &
@@ -26,7 +26,7 @@ type ForgetViewProps = SpaceProps &
   PositionProps &
   BoxShadowProps;
 
-export const StyledDiv = styled.div<ForgetViewProps>`
+export const StyledDiv = styled.div<StyledDivProps>`
   ${color}
   ${space}
   ${layout}
