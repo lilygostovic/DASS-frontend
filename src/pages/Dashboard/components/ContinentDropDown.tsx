@@ -12,6 +12,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
 
   const { t } = useTranslation();
 
+  const allText = t("continentDropDown.options.all");
   const asiaText = t("continentDropDown.options.asia");
   const euroText = t("continentDropDown.options.europe");
   const americaText = t("continentDropDown.options.america");
@@ -35,6 +36,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
         marginBottom: "25px",
       }}
     >
+        <option value="all">{allText}</option>
         <option value="asia">{asiaText}</option>
         <option value="america">{americaText}</option>
         <option value="africa">{africaText}</option>

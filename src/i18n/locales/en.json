@@ -90,6 +90,7 @@
   },
   "continentDropDown": {
     "options": {
+      "all": "All",
       "america": "America",
       "asia": "Asia",
       "europe": "Europe",

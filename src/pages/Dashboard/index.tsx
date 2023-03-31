@@ -6,8 +6,8 @@ import { data } from "./data";
 import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
-  const [dropDownOption, setDropDown] = useState<string>("");
-  const [continentOption, setContinentOption] = useState<string>("");
+  const [dropDownOption, setDropDown] = useState<string>("country");
+  const [continentOption, setContinentOption] = useState<string>("all");
 
   const { t } = useTranslation();
 
@@ -52,7 +52,9 @@ export const Dashboard = () => {
           }}
           >
             <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
-            <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />
+            {dropDownOption === "country" && (
+              <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />
+            )}
           </div>
         </div>
       </div>
