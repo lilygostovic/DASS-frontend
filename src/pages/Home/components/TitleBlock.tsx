@@ -12,15 +12,9 @@ interface TitleBlockProps {
     male: number;
     lgbtq: number;
   }>;
-  filter: "sex" | "lgbtq";
 }
 
-export const TitleBlock = ({
-  title,
-  subtitle,
-  data,
-  filter,
-}: TitleBlockProps) => (
+export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (
   <StyledDiv
     display="flex"
     flexDirection="row"
@@ -41,7 +35,7 @@ export const TitleBlock = ({
         window.location.href = "/summary";
       }}
     >
-      <SummaryChart data={data} filter={filter} w={600} h={400} />
+      <SummaryChart data={data} w={600} h={400} isSummaryPage={false} />
     </StyledDiv>
   </StyledDiv>
 );
