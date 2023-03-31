@@ -3,6 +3,7 @@ import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
 import { data } from "./data";
+import { genderData } from "./testGenderData";
 import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
@@ -44,7 +45,7 @@ export const Dashboard = () => {
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} continentOption={continentOption} />
+          <SummaryChart data={data} genderData={genderData} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} continentOption={continentOption} />
           <div style={{
             display: "flex",
             flexDirection: "column",

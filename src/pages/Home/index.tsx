@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import React from "react";
 import { SummaryChart } from "../Dashboard/components";
 import { data } from "../Dashboard/data";
+import { genderData } from "../Dashboard/testGenderData";
 import { useTranslation } from "react-i18next";
 
 export const Home = () => {
@@ -67,7 +68,7 @@ export const Home = () => {
                 }}
               >
                 <Link to="/summary" style={{ color: "black", fontSize: "15px", fontWeight: "normal" }}>
-                  <SummaryChart data={data} w={600} h={400} isSummaryPage={false} />
+                  <SummaryChart data={data} genderData={genderData} w={600} h={400} isSummaryPage={false} />
                 </Link>
               </div>
               <div

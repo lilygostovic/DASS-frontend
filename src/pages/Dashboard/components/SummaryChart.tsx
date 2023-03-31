@@ -25,8 +25,16 @@ interface Country {
   continent: string;
 }
 
+interface Gender {
+  gender: string;
+  total: number;
+  Accepted: number;
+  Rejected: number;
+}
+
 interface SummaryChartProps {
   data: Country[];
+  genderData: Gender[];
   w: number
   h: number
   isSummaryPage: boolean
@@ -34,7 +42,7 @@ interface SummaryChartProps {
   continentOption?: string
 }
 
-export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption, continentOption }: SummaryChartProps) => {
+export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption, continentOption }: SummaryChartProps) => {
   const { t } = useTranslation();
 
   let leftMargin = 0;
@@ -42,8 +50,13 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption, continentO
   // The y-axis label needs more space to be displayed if we are on summary
   if (isSummaryPage) { leftMargin = 38 };
 
-  let displayedData = data;
+  let displayedData: Country[] | Gender[] = data;
   let ticks = data.length;
+
+  if (axisOption === "gender") {
+    displayedData = genderData;
+    ticks = displayedData.length;
+  }
 
   if (axisOption === "country" && continentOption !== "all") {
     displayedData = data.filter((c) => (c.continent === continentOption));
@@ -87,7 +100,18 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption, continentO
         fill="url(#colorRejected)"
       />
       <CartesianGrid strokeDasharray="2 3" opacity={0.1} vertical={false} />
-      <XAxis
+      {axisOption === "gender" && (
+        <XAxis
+        dataKey="gender"
+        axisLine={true}
+        tickLine={true}
+        tickFormatter={(gender: string) =>
+          t(`${gender}`)
+        }
+      />
+      )}
+      {axisOption === "country" && (
+        <XAxis
         dataKey="country"
         axisLine={true}
         tickLine={true}
@@ -95,6 +119,7 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption, continentO
           t(`countries.${country}.fullName`)
         }
       />
+      )}
       <YAxis axisLine={true} tickLine={false} tickCount={ticks} >
       {isSummaryPage && (
         <Label
