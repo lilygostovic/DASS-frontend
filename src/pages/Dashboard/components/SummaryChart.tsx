@@ -80,7 +80,7 @@ export const SummaryChart = ({ data, w, h, isSummaryPage, axisOption }: SummaryC
         axisLine={true}
         tickLine={true}
         tickFormatter={(country: string) =>
-          t(`countries.${country}.shortName`).toUpperCase()
+          t(`countries.${country}.fullName`)
         }
       />
       <YAxis axisLine={true} tickLine={false} tickCount={8} >

@@ -87,5 +87,13 @@
       "country": "Country",
       "lgbtq": "LGBTQ"
     }
+  },
+  "continentDropDown": {
+    "options": {
+      "america": "America",
+      "asia": "Asia",
+      "europe": "Europe",
+      "africa": "Africa"
+    }
   }
 }

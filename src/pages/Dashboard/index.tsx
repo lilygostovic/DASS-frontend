@@ -1,4 +1,4 @@
-import { DropDown, SummaryChart } from "./components";
+import { ContinentDropDown, DropDown, SummaryChart } from "./components";
 import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
   const [dropDownOption, setDropDown] = useState<string>("");
+  const [continentOption, setContinentOption] = useState<string>("");
 
   const { t } = useTranslation();
 
@@ -44,7 +45,15 @@ export const Dashboard = () => {
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
           <SummaryChart data={data} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} />
-          <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+          >
+            <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
+            <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />
+          </div>
         </div>
       </div>
       <div style={{ alignItems: "flex-end" }}>
