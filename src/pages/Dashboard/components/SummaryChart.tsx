@@ -85,6 +85,7 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
           <stop offset="75%" stopColor="#F01406" stopOpacity={0.7} />
         </linearGradient>
       </defs>
+      <Tooltip />
       <Bar
         type="monotone"
         dataKey={"Accepted"}
@@ -131,7 +132,6 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
         />
       )}
       </YAxis>
-      <Tooltip />
       <Legend
         verticalAlign="top"
         formatter={(value, entry, index) =>

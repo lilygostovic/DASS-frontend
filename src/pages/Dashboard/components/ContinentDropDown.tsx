@@ -34,6 +34,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
         marginRight: "25px",
         marginTop: "1px",
         marginBottom: "25px",
+        cursor: "pointer",
       }}
     >
         <option value="all">{allText}</option>

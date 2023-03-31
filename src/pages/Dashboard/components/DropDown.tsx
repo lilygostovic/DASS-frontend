@@ -30,6 +30,7 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
         borderRadius: "8px",
         fontSize: "19px",
         margin: "20px 25px",
+        cursor: "pointer",
       }}
     >
         <option value="country">{countryText}</option>
