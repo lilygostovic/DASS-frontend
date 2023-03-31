@@ -8,9 +8,10 @@
     "title": "Welcome to The Home of Asylum Seekers"
   },
   "dashboardPage": {
-    "welcome": "Welcome!",
+    "overviewStats": "Overview of Cases",
     "sex": "Sex",
-    "lgbtq": "LGBTQ"
+    "lgbtq": "LGBTQ",
+    "result": "Accepted/Rejected" 
   },
   "filterPage": {
     "accepted": {
@@ -77,6 +78,14 @@
     "galapagos": {
       "fullName": "Ghana",
       "shortName": "gha"
+    }
+  },
+  "summaryDropDown": {
+    "options": {
+      "gender": "Gender",
+      "motive": "Asylum Motive",
+      "country": "Country",
+      "lgbtq": "LGBTQ"
     }
   }
 }
