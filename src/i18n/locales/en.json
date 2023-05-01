@@ -6,7 +6,12 @@
   },
   "homePage": {
     "title": "Danish\nAsylum Seeker\nStatistics",
-    "subtitle": "A summary of statistics about Asylum Seekers in Denmark. "
+    "subtitle": "A summary of statistics about Asylum Seekers in Denmark. ",
+    "images": {
+      "homeChart": "(Navigate to case summaries)",
+      "summary": "(Change case category)",
+      "cases": "(Search for a specific case)"
+    }
   },
   "dashboardPage": {
     "overviewStats": "Overview of Cases",

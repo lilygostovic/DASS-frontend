@@ -1,7 +1,10 @@
 import React from "react";
 import { StyledDiv } from "../../../components/common/StyledDiv";
 import { StyledText } from "../../../components/common/StyledText";
-import pic from "./test.png";
+import casesPic from "./cases.png";
+import chartPic from "./caseSum.png";
+import sumPic from "./sum.png";
+import { useTranslation } from "react-i18next";
 
 interface GuideBlockProps {
   title: string;
@@ -9,7 +12,10 @@ interface GuideBlockProps {
 }
 
 export const GuideBlock = ({ title, text }: GuideBlockProps) => {
-  const t1 = "(Navigate to case summaries)";
+  const { t } = useTranslation();
+  const t1 = t("homePage.images.homeChart");
+  const t2 = t("homePage.images.summary");
+  const t3 = t("homePage.images.cases");
 
   return (
     <StyledDiv
@@ -27,20 +33,20 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
         >
             <StyledDiv margin="10px">
               <figure>
-                <img src={pic} alt="hjhjh" width="800px" height="500px"></img>
+                <img src={chartPic} alt="hjhjh" width="800px" height="500px" style={{ border: "solid black 4px" }}></img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t1}</figcaption>
               </figure>
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={pic} alt="hjhjh" width="800px" height="500px"></img>
-                <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>TBD</figcaption>
+                <img src={sumPic} alt="hjhjh" width="800px" height="500px" style={{ border: "solid black 4px" }}></img>
+                <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t2}</figcaption>
               </figure>
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={pic} alt="hjhjh" width="800px" height="500px"></img>
-                <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>TBD</figcaption>
+                <img src={casesPic} alt="hjhjh" width="800px" height="500px" style={{ border: "solid black 4px" }}></img>
+                <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t3}</figcaption>
               </figure>
             </StyledDiv>
         </StyledDiv>
