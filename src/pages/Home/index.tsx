@@ -1,3 +1,4 @@
+import { GuideBlock } from "./components/GuideBlock";
 import { HomeTextBlock } from "./components/HomeText";
 import { Nav } from "../../components";
 import React from "react";
@@ -33,6 +34,7 @@ export const Home = () => {
           title="Contact Us"
           text="Contact information like emails and some links perhaps? Maybe some info like this could also be placed in the empty bottom right corner? IDK what else could be interesting to place in the empty corner? :DDD"
         />
+        <GuideBlock title="User Guide" text="Follow these steps to find yout cases"/>
       </StyledDiv>
     </div>
   );
