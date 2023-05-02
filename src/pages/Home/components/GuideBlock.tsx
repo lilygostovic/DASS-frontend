@@ -19,6 +19,10 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
   const t3 = t("homePage.images.summary");
   const t4 = t("homePage.images.cases");
 
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   return (
     <StyledDiv
         display="flex"
@@ -35,10 +39,11 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
         >
             <StyledDiv margin="10px">
               <figure>
-                <img src={navPic} alt="hjhjh" width="900px" height="500px"
+                <img src={navPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
+                  cursor: "pointer",
                 }}>
                 </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t1}</figcaption>
@@ -46,10 +51,11 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={chartPic} alt="hjhjh" width="900px" height="500px"
+                <img src={chartPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
+                  cursor: "pointer",
                 }}>
                 </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t2}</figcaption>
@@ -57,10 +63,11 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={sumPic} alt="hjhjh" width="900px" height="500px"
+                <img src={sumPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
+                  cursor: "pointer",
                 }}>
                 </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t3}</figcaption>
@@ -68,10 +75,11 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={casesPic} alt="hjhjh" width="900px" height="500px"
+                <img src={casesPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
+                  cursor: "pointer",
                 }}>
                 </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t4}</figcaption>
