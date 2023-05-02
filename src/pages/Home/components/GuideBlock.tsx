@@ -33,19 +33,34 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
         >
             <StyledDiv margin="10px">
               <figure>
-                <img src={chartPic} alt="hjhjh" width="800px" height="500px" style={{ border: "solid black 4px" }}></img>
+                <img src={chartPic} alt="hjhjh" width="800px" height="500px"
+                style={{
+                  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+                  borderRadius: "8px",
+                }}>
+                </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t1}</figcaption>
               </figure>
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={sumPic} alt="hjhjh" width="800px" height="500px" style={{ border: "solid black 4px" }}></img>
+                <img src={sumPic} alt="hjhjh" width="800px" height="500px"
+                style={{
+                  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+                  borderRadius: "8px",
+                }}>
+                </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t2}</figcaption>
               </figure>
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={casesPic} alt="hjhjh" width="800px" height="500px" style={{ border: "solid black 4px" }}></img>
+                <img src={casesPic} alt="hjhjh" width="800px" height="500px"
+                style={{
+                  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+                  borderRadius: "8px",
+                }}>
+                </img>
                 <figcaption style={{ fontWeight: "bold", textAlign: "center" }}>{t3}</figcaption>
               </figure>
             </StyledDiv>
