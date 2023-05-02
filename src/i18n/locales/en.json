@@ -10,7 +10,8 @@
     "images": {
       "homeChart": "(Navigate to case summaries)",
       "summary": "(Change case category)",
-      "cases": "(Search for a specific case)"
+      "cases": "(Search for a specific case)",
+      "nav": "(Navigation of our app)"
     }
   },
   "dashboardPage": {
