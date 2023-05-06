@@ -36,6 +36,7 @@ export const Dashboard = () => {
             justifyContent: "space-bewteen",
             flexDirection: "column",
             width: "100%",
+            height: "830px",
             alignItems: "center",
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
             borderRadius: "8px",
@@ -45,16 +46,38 @@ export const Dashboard = () => {
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
-          <SummaryChart data={data} genderData={genderData} w={1400} h={590} isSummaryPage={true} axisOption={dropDownOption} continentOption={continentOption} />
+
+          <SummaryChart
+          data={data}
+          genderData={genderData}
+          w={1400} h={590}
+          isSummaryPage={true}
+          axisOption={dropDownOption}
+          continentOption={continentOption} />
+
           <div style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
           }}
           >
-            <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
+            {dropDownOption !== "country" && (
+              <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
+            )}
+
             {dropDownOption === "country" && (
-              <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                // marginLeft: "240px",
+                marginTop: "15px",
+                boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+                borderRadius: "8px",
+                height: "140px",
+              }}>
+                <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
+                <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />
+              </div>
             )}
           </div>
         </div>
