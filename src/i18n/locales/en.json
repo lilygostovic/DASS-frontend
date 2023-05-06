@@ -8,10 +8,13 @@
     "title": "Danish\nAsylum Seeker\nStatistics",
     "subtitle": "A summary of statistics about Asylum Seekers in Denmark. ",
     "images": {
-      "homeChart": "(Navigate to case summaries)",
-      "summary": "(Change case category)",
-      "cases": "(Search for a specific case)",
-      "nav": "(Navigation of our app)"
+      "homeChart":
+        "READ: You can also find our case statistics by clicking the chart above",
+      "summary": "READ: Browse our general case statistics by using the blue button marked by the arrow",
+      "cases":
+        "READ: You can read specific cases on our Cases page by (1) choosing a selection of filters, (2) selecting an age range if you wish and (3) hitting the Send button",
+      "nav":
+        "READ: Navigate to the different pages of this site by clicking the page links marked in red by the arrows"
     }
   },
   "dashboardPage": {

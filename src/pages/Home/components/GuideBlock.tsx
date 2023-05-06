@@ -28,7 +28,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        mx="200px"
+        mx="500px"
         py="40px"
     >
         <StyledText variant="headerBig">{title}</StyledText>
@@ -39,7 +39,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
         >
             <StyledDiv margin="10px">
               <figure>
-                <img src={navPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
+                <img src={navPic} width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
@@ -51,7 +51,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={chartPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
+                <img src={chartPic} width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
@@ -63,7 +63,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={sumPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
+                <img src={sumPic} width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
@@ -75,7 +75,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
             </StyledDiv>
             <StyledDiv margin="10px">
               <figure>
-                <img src={casesPic} alt="hjhjh" width="900px" height="500px" onClick={handleClick}
+                <img src={casesPic} width="900px" height="500px" onClick={handleClick}
                 style={{
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                   borderRadius: "8px",
