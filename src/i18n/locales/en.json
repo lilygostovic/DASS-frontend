@@ -12,7 +12,9 @@
     "overviewStats": "Overview of Cases",
     "sex": "Sex",
     "lgbtq": "LGBTQ",
-    "result": "Accepted/Rejected" 
+    "result": "Accepted/Rejected" ,
+    "checkBox": "Select a Country To Add",
+    "boxHeader": "Countries:"
   },
   "filterPage": {
     "accepted": {

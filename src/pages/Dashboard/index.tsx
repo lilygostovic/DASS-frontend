@@ -1,4 +1,4 @@
-import { ContinentDropDown, DropDown, SummaryChart } from "./components";
+import { ContinentDropDown, CountryCheckBox, DropDown, SummaryChart } from "./components";
 import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
@@ -13,6 +13,18 @@ export const Dashboard = () => {
   const { t } = useTranslation();
 
   const text = t("dashboardPage.overviewStats");
+  const boxText = t("dashboardPage.checkBox");
+
+  let chartAreaWidth: string;
+  let chartWidth: number;
+
+  if (dropDownOption === "country") {
+    chartAreaWidth = "1200px";
+    chartWidth = 1100;
+  } else {
+    chartAreaWidth = "100%";
+    chartWidth = 1400;
+  }
 
   return (
     <div
@@ -35,7 +47,7 @@ export const Dashboard = () => {
             display: "flex",
             justifyContent: "space-bewteen",
             flexDirection: "column",
-            width: "100%",
+            width: chartAreaWidth,
             height: "830px",
             alignItems: "center",
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
@@ -50,7 +62,7 @@ export const Dashboard = () => {
           <SummaryChart
           data={data}
           genderData={genderData}
-          w={1400} h={590}
+          w={chartWidth} h={590}
           isSummaryPage={true}
           axisOption={dropDownOption}
           continentOption={continentOption} />
@@ -81,6 +93,31 @@ export const Dashboard = () => {
             )}
           </div>
         </div>
+        {dropDownOption === "country" && (
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+            borderRadius: "8px",
+            width: "250px",
+            margin: "30px 30px",
+          }}>
+            <div style={{
+              display: "flex",
+              fontWeight: "bold",
+              backgroundColor: "#3E54AC",
+              color: "white",
+              marginBottom: "20px",
+              borderRadius: "8px 8px 0 0",
+              height: "80px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}>
+              {boxText}
+            </div>
+            <CountryCheckBox options={["test1", "test2", "test3"]}/>
+          </div>
+        )}
       </div>
       <div style={{ alignItems: "flex-end" }}>
         <Footer />
