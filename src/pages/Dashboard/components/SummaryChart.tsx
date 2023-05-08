@@ -49,7 +49,8 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
   let leftMargin;
 
   // The default displayed data is the fake country dataset
-  let displayedData: Country[] | Gender[] = data;
+  // displayedData: Country[] | Gender[] ???, could we allow any[]?
+  let displayedData: any[] = data;
   let ticks = data.length;
 
   // The y-axis label needs more space to be displayed if we are on summary
@@ -68,13 +69,77 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
     ticks = displayedData.length;
   }
 
-  // READ: lines 66-71 are a test to see if the chart correctly reacts to what you select in the checkbox
-  // The chart will contract if you have Test3 selected
+  // READ: The below dummy lines are a test to see if the chart correctly reacts to what you select in the checkbox.
+  // It's the same code duplicated 3 times for each test entry.
+  // When we have to generalize with real back-end data, it should be a matter of looping through
+  // the list of checkbox options and doing the below code within that loop
+
+  // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
   if ((checkedCountryOptions !== undefined)) {
+    if (checkedCountryOptions.includes("test1")) {
+      const test1: Country = {
+        country: "test1",
+        total: 4000,
+        female: 2400,
+        male: 1600,
+        lgbtq: 3000,
+        Accepted: 1500,
+        Rejected: 2500,
+        continent: "europe",
+      };
+
+      if (!displayedData.some((c) => c.country === "test1")) {
+        displayedData.push(test1);
+        ticks = ticks + 1;
+      }
+    } else {
+      displayedData = displayedData.filter((c) => c.country !== "test1");
+      if (displayedData.length !== data.length) { ticks = ticks - 1; }
+    }
+
+    if (checkedCountryOptions.includes("test2")) {
+      const test2: Country = {
+        country: "test2",
+        total: 4000,
+        female: 2400,
+        male: 1600,
+        lgbtq: 3000,
+        Accepted: 1500,
+        Rejected: 2500,
+        continent: "europe",
+      };
+
+      if (!displayedData.some((c) => c.country === "test2")) {
+        displayedData.push(test2);
+        ticks = ticks + 1;
+      }
+    } else {
+      displayedData = displayedData.filter((c) => c.country !== "test2");
+      if (displayedData.length !== data.length) { ticks = ticks - 1; }
+    }
+
     if (checkedCountryOptions.includes("test3")) {
-      leftMargin = 1000;
+      const test3: Country = {
+        country: "test3",
+        total: 4000,
+        female: 2400,
+        male: 1600,
+        lgbtq: 3000,
+        Accepted: 1500,
+        Rejected: 2500,
+        continent: "europe",
+      };
+
+      if (!displayedData.some((c) => c.country === "test3")) {
+        displayedData.push(test3);
+        ticks = ticks + 1;
+      }
+    } else {
+      displayedData = displayedData.filter((c) => c.country !== "test3");
+      if (displayedData.length !== data.length) { ticks = ticks - 1; }
     }
   }
+  // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
 
   return (
     <BarChart

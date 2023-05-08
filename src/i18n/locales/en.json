@@ -82,6 +82,18 @@
     "ghana": {
       "fullName": "Ghana",
       "shortName": "gha"
+    },
+    "test1": {
+      "fullName": "Test1",
+      "shortName": "Test1"
+    },
+    "test2": {
+      "fullName": "Test2",
+      "shortName": "Test2"
+    },
+    "test3": {
+      "fullName": "Test3",
+      "shortName": "Test3"
     }
   },
   "summaryDropDown": {
