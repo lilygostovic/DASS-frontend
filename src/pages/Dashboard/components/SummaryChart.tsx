@@ -40,27 +40,40 @@ interface SummaryChartProps {
   isSummaryPage: boolean
   axisOption?: string
   continentOption?: string
+  checkedCountryOptions?: string[]
 }
 
-export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption, continentOption }: SummaryChartProps) => {
+export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption, continentOption, checkedCountryOptions }: SummaryChartProps) => {
   const { t } = useTranslation();
 
-  let leftMargin = 0;
+  let leftMargin;
+
+  // The default displayed data is the fake country dataset
+  let displayedData: Country[] | Gender[] = data;
+  let ticks = data.length;
 
   // The y-axis label needs more space to be displayed if we are on summary
   if (isSummaryPage) { leftMargin = 38 };
 
-  let displayedData: Country[] | Gender[] = data;
-  let ticks = data.length;
-
+  // Display the fake gender dataset if selected in the dropdown
   if (axisOption === "gender") {
     displayedData = genderData;
     ticks = displayedData.length;
   }
 
+  // Display the fake country dataset if selected in the dropdown
+  // and display only countries from the selected continent
   if (axisOption === "country" && continentOption !== "all") {
     displayedData = data.filter((c) => (c.continent === continentOption));
     ticks = displayedData.length;
+  }
+
+  // READ: lines 66-71 are a test to see if the chart correctly reacts to what you select in the checkbox
+  // The chart will contract if you have Test3 selected
+  if ((checkedCountryOptions !== undefined)) {
+    if (checkedCountryOptions.includes("test3")) {
+      leftMargin = 1000;
+    }
   }
 
   return (

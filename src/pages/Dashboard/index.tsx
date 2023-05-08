@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 export const Dashboard = () => {
   const [dropDownOption, setDropDown] = useState<string>("country");
   const [continentOption, setContinentOption] = useState<string>("all");
+  const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
 
   const { t } = useTranslation();
 
@@ -18,6 +19,7 @@ export const Dashboard = () => {
   let chartAreaWidth: string;
   let chartWidth: number;
 
+  // Resize the chart appropriately when x-axis is set to country
   if (dropDownOption === "country") {
     chartAreaWidth = "1200px";
     chartWidth = 1100;
@@ -65,7 +67,9 @@ export const Dashboard = () => {
           w={chartWidth} h={590}
           isSummaryPage={true}
           axisOption={dropDownOption}
-          continentOption={continentOption} />
+          continentOption={continentOption}
+          checkedCountryOptions={checkedOptionsChart}
+          />
 
           <div style={{
             display: "flex",
@@ -115,7 +119,10 @@ export const Dashboard = () => {
             }}>
               {boxText}
             </div>
-            <CountryCheckBox options={["test1", "test2", "test3"]}/>
+            <CountryCheckBox
+              options={["test1", "test2", "test3"]}
+              setCheckedOptionsChart={setCheckedOptionsChart}
+            />
           </div>
         )}
       </div>

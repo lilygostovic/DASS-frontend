@@ -13,7 +13,7 @@
     "sex": "Sex",
     "lgbtq": "LGBTQ",
     "result": "Accepted/Rejected" ,
-    "checkBox": "Select a Country To Add",
+    "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
     "addButton": "Add Choices"
   },

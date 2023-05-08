@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface CountryCheckBoxProps {
+
+  // "options" is the total list of options that the chart supplies to the checkbox
   options: string[]
+
+  setCheckedOptionsChart: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-export const CountryCheckBox = ({ options }: CountryCheckBoxProps) => {
+export const CountryCheckBox = ({ options, setCheckedOptionsChart }: CountryCheckBoxProps) => {
   const [checkedOptions, setCheckedOptions] = useState<string[]>([]);
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,6 +21,8 @@ export const CountryCheckBox = ({ options }: CountryCheckBoxProps) => {
       setCheckedOptions(checkedOptions.filter((o) => o !== opt));
     }
   };
+
+  const handleSubmitClick = () => { setCheckedOptionsChart(checkedOptions); }
 
   const { t } = useTranslation();
   const boxHeader = t("dashboardPage.boxHeader");
@@ -47,7 +53,7 @@ export const CountryCheckBox = ({ options }: CountryCheckBoxProps) => {
           </label>
         </div>
       ))}
-      <input type="submit" value={addText} style={{
+      <input type="submit" value={addText} onClick={handleSubmitClick} style={{
         width: "100%",
         height: "40px",
         marginTop: "15px",
