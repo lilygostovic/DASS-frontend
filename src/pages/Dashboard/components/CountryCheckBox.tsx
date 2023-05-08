@@ -20,6 +20,7 @@ export const CountryCheckBox = ({ options }: CountryCheckBoxProps) => {
 
   const { t } = useTranslation();
   const boxHeader = t("dashboardPage.boxHeader");
+  const addText = t("dashboardPage.addButton");
 
   return (
     <div style={{
@@ -46,6 +47,11 @@ export const CountryCheckBox = ({ options }: CountryCheckBoxProps) => {
           </label>
         </div>
       ))}
+      <input type="submit" value={addText} style={{
+        width: "100%",
+        height: "40px",
+        marginTop: "15px",
+      }}></input>
     </div>
   );
 }

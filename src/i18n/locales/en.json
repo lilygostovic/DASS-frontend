@@ -14,7 +14,8 @@
     "lgbtq": "LGBTQ",
     "result": "Accepted/Rejected" ,
     "checkBox": "Select a Country To Add",
-    "boxHeader": "Countries:"
+    "boxHeader": "Countries:",
+    "addButton": "Add Choices"
   },
   "filterPage": {
     "accepted": {
