@@ -70,7 +70,7 @@ export const Dashboard = () => {
             justifyContent: "space-bewteen",
             flexDirection: "column",
             width: chartAreaWidth,
-            height: "830px",
+            height: "810px",
             alignItems: "center",
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
             borderRadius: "8px",
@@ -108,7 +108,7 @@ export const Dashboard = () => {
                 marginTop: "15px",
                 boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                 borderRadius: "8px",
-                height: "140px",
+                height: "110px",
               }}>
                 <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
                 <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />

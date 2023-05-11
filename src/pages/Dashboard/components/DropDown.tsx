@@ -20,14 +20,12 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
   return (
     <select value={selectedOption} onChange={handleMenuChange}
       style={{
-        height: "40px",
+        height: "35px",
         width: "190px",
         fontWeight: "bold",
-        border: "4px outset #78A6F5",
-        backgroundColor: "#3E54AC",
-        color: "white",
-        boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
-        borderRadius: "8px",
+        border: "1px solid grey",
+        color: "black",
+        borderRadius: "4px",
         fontSize: "19px",
         margin: "20px 25px",
         cursor: "pointer",

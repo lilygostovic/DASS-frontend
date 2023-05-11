@@ -21,19 +21,17 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
   return (
     <select value={selectedOption} onChange={handleMenuChange}
       style={{
-        height: "30px",
+        height: "20px",
         width: "140px",
         fontWeight: "bold",
-        border: "4px outset #78A6F5",
-        backgroundColor: "#3E54AC",
-        color: "white",
-        boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
-        borderRadius: "8px",
-        fontSize: "13px",
+        color: "black",
+        borderRadius: "4px",
+        border: "1px solid grey",
+        fontSize: "15px",
         marginLeft: "25px",
         marginRight: "25px",
         marginTop: "1px",
-        marginBottom: "25px",
+        marginBottom: "20px",
         cursor: "pointer",
       }}
     >
