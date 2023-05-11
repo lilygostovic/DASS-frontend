@@ -33,6 +33,7 @@ export const Home = () => {
           data={data}
           genderData={genderData}
         />
+        <HomeTextBlock title="========" text={text} />
         <HomeTextBlock
           title="About This Project"
           text="Here we could maybe add reasons for why this is the best project ever"
