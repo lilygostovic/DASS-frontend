@@ -7,17 +7,25 @@ import {
 } from "./components";
 
 import { Footer, Nav } from "../../components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { data } from "./data";
 import { genderData } from "./testGenderData";
 import { useTranslation } from "react-i18next";
+
+interface Country {
+  id: number,
+  name: string,
+  lastModified: Date,
+}
 
 export const Dashboard = () => {
   const [dropDownOption, setDropDown] = useState<string>("country");
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
   const [checkBoxDropDownOption, setCheckBoxDropDownOption] = useState<string>("all");
+
+  const [countries, setCountries] = useState<Country[]>([]);
 
   const { t } = useTranslation();
 
@@ -29,9 +37,31 @@ export const Dashboard = () => {
   let chartWidth: number;
   let boxItems: string[];
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/countries");
+        const data = await response.json();
+
+        setCountries(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // console.log(countries);
+  const countryNames: string[] = countries.map((c) => c.name)
+
   if (checkBoxDropDownOption === "all") {
     // Can we make a back-end request so that boxItems is the list of all country names in the database?
-    boxItems = ["test1", "test2", "test3", "testAsianCountry"];
+    // boxItems = ["test1", "test2", "test3", "testAsianCountry"];
+    // const country = countries[0].name;
+
+    // boxItems = [country];
+    boxItems = countryNames;
   } else if (checkBoxDropDownOption === "asia") {
     // Similarly, a back-end request gets all Asian country names and so on...?
     boxItems = ["testAsianCountry"]
