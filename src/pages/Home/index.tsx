@@ -4,6 +4,7 @@ import React from "react";
 import { StyledDiv } from "../../components/common/StyledDiv";
 import { TitleBlock } from "./components/TitleBlock";
 import { data } from "../Dashboard/data";
+import { genderData } from "../Dashboard/testGenderData";
 import { useTranslation } from "react-i18next";
 
 export const Home = () => {
@@ -16,7 +17,7 @@ export const Home = () => {
     <div>
       <Nav />
       <StyledDiv mb="100px">
-        <TitleBlock title={title} subtitle={subtitle} data={data} />
+        <TitleBlock title={title} subtitle={subtitle} data={data} genderData={genderData} />
         <HomeTextBlock
           title="About This Project"
           text="Here we could maybe add reasons for why this is the best project ever"

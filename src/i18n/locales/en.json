@@ -12,7 +12,11 @@
     "overviewStats": "Overview of Cases",
     "sex": "Sex",
     "lgbtq": "LGBTQ",
-    "result": "Accepted/Rejected" 
+    "result": "Accepted/Rejected" ,
+    "checkBox": "Find a Country To Add",
+    "boxHeader": "Countries:",
+    "addButton": "Confirm Choices",
+    "boxDropDownText": "Find your continent:"
   },
   "filterPage": {
     "accepted": {
@@ -76,9 +80,21 @@
       "fullName": "Finland",
       "shortName": "fin"
     },
-    "galapagos": {
+    "ghana": {
       "fullName": "Ghana",
       "shortName": "gha"
+    },
+    "test1": {
+      "fullName": "Test1",
+      "shortName": "Test1"
+    },
+    "test2": {
+      "fullName": "Test2",
+      "shortName": "Test2"
+    },
+    "test3": {
+      "fullName": "Test3",
+      "shortName": "Test3"
     }
   },
   "summaryDropDown": {
@@ -87,6 +103,15 @@
       "motive": "Asylum Motive",
       "country": "Country",
       "lgbtq": "LGBTQ"
+    }
+  },
+  "continentDropDown": {
+    "options": {
+      "all": "All",
+      "america": "America",
+      "asia": "Asia",
+      "europe": "Europe",
+      "africa": "Africa"
     }
   }
 }

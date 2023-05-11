@@ -11,10 +11,19 @@ interface TitleBlockProps {
     female: number;
     male: number;
     lgbtq: number;
+    Accepted: number;
+    Rejected: number;
+    continent: string
   }>;
+  genderData: Array<{
+    gender: string;
+    total: number;
+    Accepted: number;
+    Rejected: number;
+  }>
 }
 
-export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (
+export const TitleBlock = ({ title, subtitle, data, genderData }: TitleBlockProps) => (
   <StyledDiv
     display="flex"
     flexDirection="row"
@@ -35,7 +44,7 @@ export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (
         window.location.href = "/summary";
       }}
     >
-      <SummaryChart data={data} w={600} h={400} isSummaryPage={false} />
+      <SummaryChart data={data} genderData={genderData} w={600} h={400} isSummaryPage={false}/>
     </StyledDiv>
   </StyledDiv>
 );
