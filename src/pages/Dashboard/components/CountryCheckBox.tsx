@@ -37,22 +37,28 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart }: CountryChec
       <div style={{
         fontWeight: "bold",
         marginBottom: "5px",
+        fontSize: "18px",
       }}>
         {boxHeader}
       </div>
-      {options.map((o) => (
-        <div key={o}>
-          <label>
-            <input
-              type="checkbox"
-              value={o}
-              checked={checkedOptions.includes(o)}
-              onChange={handleCheckboxChange}>
-            </input>
-            <span>{o.charAt(0).toUpperCase() + o.slice(1)}</span>
-          </label>
-        </div>
-      ))}
+      <div style={{
+        border: "1px solid grey",
+        borderRadius: "4px",
+      }}>
+        {options.map((o) => (
+          <div key={o} style={{ fontSize: "15px" }}>
+            <label>
+              <input
+                type="checkbox"
+                value={o}
+                checked={checkedOptions.includes(o)}
+                onChange={handleCheckboxChange}>
+              </input>
+              <span>{o.charAt(0).toUpperCase() + o.slice(1)}</span>
+            </label>
+          </div>
+        ))}
+      </div>
       <input type="submit" value={addText} onClick={handleSubmitClick} style={{
         width: "100%",
         height: "40px",

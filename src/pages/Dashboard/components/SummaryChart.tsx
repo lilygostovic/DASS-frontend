@@ -49,7 +49,8 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
   let leftMargin;
 
   // The default displayed data is the fake country dataset
-  // displayedData: Country[] | Gender[] ???, could we allow any[]?
+  // displayedData: Country[] | Gender[] ???
+  // eslint-disable-next-line
   let displayedData: any[] = data;
   let ticks = data.length;
 
@@ -75,7 +76,7 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
   // the list of checkbox options and doing the below code within that loop
 
   // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
-  if ((checkedCountryOptions !== undefined)) {
+  if ((checkedCountryOptions !== undefined) && (axisOption === "country")) {
     if (checkedCountryOptions.includes("test1")) {
       const test1: Country = {
         country: "test1",
@@ -127,7 +128,7 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
         lgbtq: 3000,
         Accepted: 1500,
         Rejected: 2500,
-        continent: "europe",
+        continent: "asia",
       };
 
       if (!displayedData.some((c) => c.country === "test3")) {

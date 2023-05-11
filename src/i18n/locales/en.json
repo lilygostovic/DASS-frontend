@@ -15,7 +15,8 @@
     "result": "Accepted/Rejected" ,
     "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
-    "addButton": "Add Choices"
+    "addButton": "Confirm Choices",
+    "boxDropDownText": "Find your continent:"
   },
   "filterPage": {
     "accepted": {

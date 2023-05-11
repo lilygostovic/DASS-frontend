@@ -1,4 +1,11 @@
-import { ContinentDropDown, CountryCheckBox, DropDown, SummaryChart } from "./components";
+import {
+  CheckBoxDropDown,
+  ContinentDropDown,
+  CountryCheckBox,
+  DropDown,
+  SummaryChart,
+} from "./components";
+
 import { Footer, Nav } from "../../components";
 import React, { useState } from "react";
 
@@ -10,14 +17,27 @@ export const Dashboard = () => {
   const [dropDownOption, setDropDown] = useState<string>("country");
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
+  const [checkBoxDropDownOption, setCheckBoxDropDownOption] = useState<string>("all");
 
   const { t } = useTranslation();
 
   const text = t("dashboardPage.overviewStats");
   const boxText = t("dashboardPage.checkBox");
+  const boxDropDownText = t("dashboardPage.boxDropDownText")
 
   let chartAreaWidth: string;
   let chartWidth: number;
+  let boxItems: string[];
+
+  if (checkBoxDropDownOption === "all") {
+    // Can we make a back-end request so that boxItems is the list of all country names in the database?
+    boxItems = ["test1", "test2", "test3", "testAsianCountry"];
+  } else if (checkBoxDropDownOption === "asia") {
+    // Similarly, a back-end request gets all Asian country names and so on...?
+    boxItems = ["testAsianCountry"]
+  } else {
+    boxItems = [];
+  }
 
   // Resize the chart appropriately when x-axis is set to country
   if (dropDownOption === "country") {
@@ -85,7 +105,6 @@ export const Dashboard = () => {
               <div style={{
                 display: "flex",
                 flexDirection: "column",
-                // marginLeft: "240px",
                 marginTop: "15px",
                 boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                 borderRadius: "8px",
@@ -109,6 +128,7 @@ export const Dashboard = () => {
             <div style={{
               display: "flex",
               fontWeight: "bold",
+              fontSize: "19px",
               backgroundColor: "#3E54AC",
               color: "white",
               marginBottom: "20px",
@@ -119,8 +139,20 @@ export const Dashboard = () => {
             }}>
               {boxText}
             </div>
+            <div style={{
+              fontWeight: "bold",
+              fontSize: "18px",
+              marginLeft: "15px",
+              marginBottom: "5px",
+            }}>
+              {boxDropDownText}
+            </div>
+            <CheckBoxDropDown
+              selectedOption={checkBoxDropDownOption}
+              setOption={setCheckBoxDropDownOption}
+            />
             <CountryCheckBox
-              options={["test1", "test2", "test3"]}
+              options={boxItems}
               setCheckedOptionsChart={setCheckedOptionsChart}
             />
           </div>
