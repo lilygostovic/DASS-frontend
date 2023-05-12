@@ -52,16 +52,10 @@ export const Dashboard = () => {
     fetchData();
   }, []);
 
-  // console.log(countries);
   const countryNames: string[] = countries.map((c) => c.name)
 
   if (checkBoxDropDownOption === "all") {
-    // Can we make a back-end request so that boxItems is the list of all country names in the database?
-    // boxItems = ["test1", "test2", "test3", "testAsianCountry"];
-    // const country = countries[0].name;
-
-    // boxItems = [country];
-    boxItems = countryNames;
+    boxItems = ["test1", "test2", "test3", ...countryNames];
   } else if (checkBoxDropDownOption === "asia") {
     // Similarly, a back-end request gets all Asian country names and so on...?
     boxItems = ["testAsianCountry"]

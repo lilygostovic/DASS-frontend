@@ -44,6 +44,8 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart }: CountryChec
       <div style={{
         border: "1px solid grey",
         borderRadius: "4px",
+        height: "550px",
+        overflowY: "scroll",
       }}>
         {options.map((o) => (
           <div key={o} style={{ fontSize: "15px" }}>
