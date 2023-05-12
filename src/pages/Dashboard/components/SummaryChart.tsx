@@ -41,9 +41,10 @@ interface SummaryChartProps {
   axisOption?: string
   continentOption?: string
   checkedCountryOptions?: string[]
+  countryNames?: string[];
 }
 
-export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption, continentOption, checkedCountryOptions }: SummaryChartProps) => {
+export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption, continentOption, checkedCountryOptions, countryNames }: SummaryChartProps) => {
   const { t } = useTranslation();
 
   let leftMargin;
@@ -77,68 +78,28 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
 
   // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
   if ((checkedCountryOptions !== undefined) && (axisOption === "country")) {
-    if (checkedCountryOptions.includes("test1")) {
-      const test1: Country = {
-        country: "test1",
-        total: 4000,
-        female: 2400,
-        male: 1600,
-        lgbtq: 3000,
-        Accepted: 1500,
-        Rejected: 2500,
-        continent: "europe",
-      };
+    countryNames?.forEach((c) => {
+      if (checkedCountryOptions.includes(c)) {
+        const test: Country = {
+          country: c,
+          total: 4000,
+          female: 2400,
+          male: 1600,
+          lgbtq: 3000,
+          Accepted: 1500,
+          Rejected: 2500,
+          continent: "europe",
+        };
 
-      if (!displayedData.some((c) => c.country === "test1")) {
-        displayedData.push(test1);
-        ticks = ticks + 1;
+        if (!displayedData.some((cou) => cou.country === c)) {
+          displayedData.push(test);
+          ticks = ticks + 1;
+        }
+      } else {
+        displayedData = displayedData.filter((cou) => cou.country !== c);
+        if (displayedData.length !== data.length) { ticks = ticks - 1; }
       }
-    } else {
-      displayedData = displayedData.filter((c) => c.country !== "test1");
-      if (displayedData.length !== data.length) { ticks = ticks - 1; }
-    }
-
-    if (checkedCountryOptions.includes("test2")) {
-      const test2: Country = {
-        country: "test2",
-        total: 4000,
-        female: 2400,
-        male: 1600,
-        lgbtq: 3000,
-        Accepted: 1500,
-        Rejected: 2500,
-        continent: "europe",
-      };
-
-      if (!displayedData.some((c) => c.country === "test2")) {
-        displayedData.push(test2);
-        ticks = ticks + 1;
-      }
-    } else {
-      displayedData = displayedData.filter((c) => c.country !== "test2");
-      if (displayedData.length !== data.length) { ticks = ticks - 1; }
-    }
-
-    if (checkedCountryOptions.includes("test3")) {
-      const test3: Country = {
-        country: "test3",
-        total: 4000,
-        female: 2400,
-        male: 1600,
-        lgbtq: 3000,
-        Accepted: 1500,
-        Rejected: 2500,
-        continent: "asia",
-      };
-
-      if (!displayedData.some((c) => c.country === "test3")) {
-        displayedData.push(test3);
-        ticks = ticks + 1;
-      }
-    } else {
-      displayedData = displayedData.filter((c) => c.country !== "test3");
-      if (displayedData.length !== data.length) { ticks = ticks - 1; }
-    }
+    });
   }
   // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
 

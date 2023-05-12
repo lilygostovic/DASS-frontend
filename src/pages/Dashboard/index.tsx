@@ -24,7 +24,6 @@ export const Dashboard = () => {
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
   const [checkBoxDropDownOption, setCheckBoxDropDownOption] = useState<string>("all");
-
   const [countries, setCountries] = useState<Country[]>([]);
 
   const { t } = useTranslation();
@@ -36,7 +35,9 @@ export const Dashboard = () => {
   let chartAreaWidth: string;
   let chartWidth: number;
   let boxItems: string[];
+  let countryNames: string[] = [];
 
+  // HTTP request that gets a list of all country entries from the database
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -45,6 +46,7 @@ export const Dashboard = () => {
 
         setCountries(data);
       } catch (error) {
+        // eslint-disable-next-line
         console.error('Error fetching data:', error);
       }
     };
@@ -52,10 +54,14 @@ export const Dashboard = () => {
     fetchData();
   }, []);
 
-  const countryNames: string[] = countries.map((c) => c.name)
+  // Get the name values of all countries from the response
+  countryNames = countries.map((c) => c.name).sort();
+
+  // Filter out all country names that are already displayed on the default chart
+  const deafultFilteredCountryNames = countryNames.filter((name) => !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
 
   if (checkBoxDropDownOption === "all") {
-    boxItems = ["test1", "test2", "test3", ...countryNames];
+    boxItems = deafultFilteredCountryNames;
   } else if (checkBoxDropDownOption === "asia") {
     // Similarly, a back-end request gets all Asian country names and so on...?
     boxItems = ["testAsianCountry"]
@@ -113,6 +119,7 @@ export const Dashboard = () => {
           axisOption={dropDownOption}
           continentOption={continentOption}
           checkedCountryOptions={checkedOptionsChart}
+          countryNames={countryNames}
           />
 
           <div style={{
