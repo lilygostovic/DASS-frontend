@@ -72,7 +72,6 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
   }
 
   // READ: The below dummy lines are a test to see if the chart correctly reacts to what you select in the checkbox.
-  // It's the same code duplicated 3 times for each test entry.
   // When we have to generalize with real back-end data, it should be a matter of looping through
   // the list of checkbox options and doing the below code within that loop
 
