@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 interface Country {
   id: number,
   name: string,
+  continent: string,
   lastModified: Date,
 }
 
@@ -34,7 +35,7 @@ export const Dashboard = () => {
 
   let chartAreaWidth: string;
   let chartWidth: number;
-  let boxItems: string[];
+  let boxItems: string[] = [];
   let countryNames: string[] = [];
 
   // HTTP request that gets a list of all country entries from the database
@@ -54,17 +55,42 @@ export const Dashboard = () => {
     fetchData();
   }, []);
 
-  // Get the name values of all countries from the response
   countryNames = countries.map((c) => c.name).sort();
 
-  // Filter out all country names that are already displayed on the default chart
-  const deafultFilteredCountryNames = countryNames.filter((name) => !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
-
+  // Displayed countries on the checkbox are sorted by continent
   if (checkBoxDropDownOption === "all") {
+    const deafultFilteredCountryNames = countryNames.filter((name) =>
+      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+
     boxItems = deafultFilteredCountryNames;
   } else if (checkBoxDropDownOption === "asia") {
-    // Similarly, a back-end request gets all Asian country names and so on...?
-    boxItems = ["testAsianCountry"]
+    const countriesAsia = countries.filter((c) => c.continent === "Asien");
+    const countryNamesAsia = countriesAsia.map((c) => c.name).sort();
+    const filteredCountryNamesAsia = countryNamesAsia.filter((name) =>
+      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+
+    boxItems = filteredCountryNamesAsia;
+  } else if (checkBoxDropDownOption === "america") {
+    const countriesMurica = countries.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
+    const countryNamesMurica = countriesMurica.map((c) => c.name).sort();
+    const filteredCountryNamesMurica = countryNamesMurica.filter((name) =>
+      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+
+    boxItems = filteredCountryNamesMurica;
+  } else if (checkBoxDropDownOption === "africa") {
+    const countriesAfrica = countries.filter((c) => c.continent === "Afrika");
+    const countryNamesAfrica = countriesAfrica.map((c) => c.name).sort();
+    const filteredCountryNamesAfrica = countryNamesAfrica.filter((name) =>
+      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+
+    boxItems = filteredCountryNamesAfrica;
+  } else if (checkBoxDropDownOption === "europe") {
+    const countriesEurope = countries.filter((c) => c.continent === "Europa");
+    const countryNamesEurope = countriesEurope.map((c) => c.name).sort();
+    const filteredCountryNamesEurope = countryNamesEurope.filter((name) =>
+      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+
+    boxItems = filteredCountryNamesEurope;
   } else {
     boxItems = [];
   }
