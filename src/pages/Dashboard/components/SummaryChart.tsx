@@ -112,6 +112,9 @@ export const SummaryChart = ({
     }
   }
 
+  // Sort displayed data according to number of cases
+  displayedData = displayedData.sort((a, b) => (b.Total - a.Total))
+
   return (
     <BarChart
       width={w}
