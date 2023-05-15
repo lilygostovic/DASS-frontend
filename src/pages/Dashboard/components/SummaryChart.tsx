@@ -65,6 +65,9 @@ export const SummaryChart = ({
   // eslint-disable-next-line
   let displayedData: any[] = data;
   let ticks = data.length;
+  let xTextSize;
+  const initialTextSize = 20;
+  const TextSizeDecreaseRate = 5;
 
   // The y-axis label needs more space to be displayed if we are on summary
   if (isSummaryPage) { leftMargin = 38 };
@@ -78,7 +81,7 @@ export const SummaryChart = ({
   // The below block is responsible for adding checked countries to the chart.
   // It loops through all country names in the database,
   // and every name that appears as "checked" is added to the currently displayed dataset
-  if ((checkedCountryOptions !== undefined) && (countryEntries !== undefined) && (axisOption === "country")) {
+  if ((checkedCountryOptions !== undefined) && (countryEntries !== undefined) && (axisOption === "country") && isSummaryPage) {
     countryNames?.forEach((c) => {
       if (checkedCountryOptions.includes(c)) {
         const singleCountryDataPoint = countryEntries.find((x) => x.name === c);
@@ -102,7 +105,7 @@ export const SummaryChart = ({
   }
 
   // Display only countries from the selected continent
-  if (axisOption === "country" && continentOption !== "all") {
+  if (axisOption === "country" && continentOption !== "all" && isSummaryPage) {
     if (continentOption === "Amerika") {
       displayedData = displayedData.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
       ticks = displayedData.length;
@@ -113,7 +116,12 @@ export const SummaryChart = ({
   }
 
   // Sort displayed data according to number of cases
-  displayedData = displayedData.sort((a, b) => (b.Total - a.Total))
+  displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
+
+  // Decrease x-axis text size as the number of added countries increase
+  if (isSummaryPage) {
+    xTextSize = Math.max(10, initialTextSize - (TextSizeDecreaseRate * Math.ceil(displayedData.length / 10)));
+  } else { xTextSize = 15 }
 
   return (
     <BarChart
@@ -163,7 +171,18 @@ export const SummaryChart = ({
         }
       />
       )}
-      {((axisOption === "country") || (!isSummaryPage)) && (
+      {((isSummaryPage) && (axisOption === "country")) && (
+        <XAxis
+        dataKey="name"
+        axisLine={true}
+        tickLine={true}
+        tick={{ fontSize: xTextSize }}
+        tickFormatter={(name: string) =>
+          t(`countries.${name}.fullName`)
+        }
+      />
+      )}
+      {((!isSummaryPage)) && (
         <XAxis
         dataKey="name"
         axisLine={true}
