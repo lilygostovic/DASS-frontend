@@ -15,14 +15,15 @@ import i18n from "../../../i18n/config";
 import { useTranslation } from "react-i18next";
 
 interface Country {
-  country: string;
-  total: number;
-  female: number;
-  male: number;
-  lgbtq: number;
+  id: number;
+  name: string;
+  continent: string;
+  last_modified: string;
   Accepted: number;
   Rejected: number;
-  continent: string;
+  Unknown: number;
+  Total: number;
+  LGBT: number;
 }
 
 interface Gender {
@@ -42,15 +43,25 @@ interface SummaryChartProps {
   continentOption?: string
   checkedCountryOptions?: string[]
   countryNames?: string[];
+  countryEntries?: Country[];
 }
 
-export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption, continentOption, checkedCountryOptions, countryNames }: SummaryChartProps) => {
+export const SummaryChart = ({
+  data, genderData,
+  w,
+  h,
+  isSummaryPage,
+  axisOption,
+  continentOption,
+  checkedCountryOptions,
+  countryNames,
+  countryEntries,
+}: SummaryChartProps) => {
   const { t } = useTranslation();
 
   let leftMargin;
 
   // The default displayed data is the fake country dataset
-  // displayedData: Country[] | Gender[] ???
   // eslint-disable-next-line
   let displayedData: any[] = data;
   let ticks = data.length;
@@ -64,43 +75,42 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
     ticks = displayedData.length;
   }
 
-  // Display the fake country dataset if selected in the dropdown
-  // and display only countries from the selected continent
-  if (axisOption === "country" && continentOption !== "all") {
-    displayedData = data.filter((c) => (c.continent === continentOption));
-    ticks = displayedData.length;
-  }
-
-  // READ: The below dummy lines are a test to see if the chart correctly reacts to what you select in the checkbox.
-  // When we have to generalize with real back-end data, it should be a matter of looping through
-  // the list of checkbox options and doing the below code within that loop
-
-  // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
-  if ((checkedCountryOptions !== undefined) && (axisOption === "country")) {
+  // The below block is responsible for adding checked countries to the chart.
+  // It loops through all country names in the database,
+  // and every name that appears as "checked" is added to the currently displayed dataset
+  if ((checkedCountryOptions !== undefined) && (countryEntries !== undefined) && (axisOption === "country")) {
     countryNames?.forEach((c) => {
       if (checkedCountryOptions.includes(c)) {
-        const test: Country = {
-          country: c,
-          total: 4000,
-          female: 2400,
-          male: 1600,
-          lgbtq: 3000,
-          Accepted: 1500,
-          Rejected: 2500,
-          continent: "europe",
-        };
+        const singleCountryDataPoint = countryEntries.find((x) => x.name === c);
 
-        if (!displayedData.some((cou) => cou.country === c)) {
-          displayedData.push(test);
-          ticks = ticks + 1;
+        // eslint-disable-next-line
+        if (!displayedData.some((cou) => cou.name === c) && (singleCountryDataPoint !== undefined)) {
+          displayedData.push(singleCountryDataPoint);
         }
       } else {
-        displayedData = displayedData.filter((cou) => cou.country !== c);
-        if (displayedData.length !== data.length) { ticks = ticks - 1; }
+        // NOTE: The below line is strange for multiple reasons
+        // (1) If you name the parameter variable within the filter call, anything other than "c"
+        // then the default countries are removed from the dataset.
+        // (2) If you comment out this line then the first country of every continent list on the checkbox
+        // will disappear once the option is unchecked again.
+        // For example, if you check off Albania, and then uncheck it, it's gone?
+        // However, keeping the below line makes the chart work :)
+        // If this part of the code becomes a problem later we will have to discuss what to do about it
+        displayedData = displayedData.filter((c) => (c.name !== c));
       }
     });
   }
-  // *** DUMMY COUNTRY ENTRIES THAT ARE ADDED TO THE CHART FROM THE CHECKBOX *** //
+
+  // Display only countries from the selected continent
+  if (axisOption === "country" && continentOption !== "all") {
+    if (continentOption === "Amerika") {
+      displayedData = displayedData.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
+      ticks = displayedData.length;
+    } else {
+      displayedData = displayedData.filter((c) => (c.continent === continentOption));
+      ticks = displayedData.length;
+    }
+  }
 
   return (
     <BarChart
@@ -152,11 +162,11 @@ export const SummaryChart = ({ data, genderData, w, h, isSummaryPage, axisOption
       )}
       {((axisOption === "country") || (!isSummaryPage)) && (
         <XAxis
-        dataKey="country"
+        dataKey="name"
         axisLine={true}
         tickLine={true}
-        tickFormatter={(country: string) =>
-          t(`countries.${country}.fullName`)
+        tickFormatter={(name: string) =>
+          t(`countries.${name}.fullName`)
         }
       />
       )}

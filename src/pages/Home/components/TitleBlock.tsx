@@ -6,14 +6,15 @@ interface TitleBlockProps {
   title: string;
   subtitle: string;
   data: Array<{
-    country: string;
-    total: number;
-    female: number;
-    male: number;
-    lgbtq: number;
+    id: number;
+    name: string;
+    continent: string;
+    last_modified: string;
     Accepted: number;
     Rejected: number;
-    continent: string
+    Unknown: number;
+    Total: number;
+    LGBT: number;
   }>;
   genderData: Array<{
     gender: string;

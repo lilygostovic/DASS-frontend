@@ -36,10 +36,10 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
       }}
     >
         <option value="all">{allText}</option>
-        <option value="asia">{asiaText}</option>
-        <option value="america">{americaText}</option>
-        <option value="africa">{africaText}</option>
-        <option value="europe">{euroText}</option>
+        <option value="Asien">{asiaText}</option>
+        <option value="Amerika">{americaText}</option>
+        <option value="Afrika">{africaText}</option>
+        <option value="Europa">{euroText}</option>
     </select>
   )
 }

@@ -56,31 +56,31 @@
   "male": "Male",
   "total": "Total",
   "countries": {
-    "afghanistan": {
+    "Afghanistan": {
       "fullName": "Afghanistan",
       "shortName": "afg"
     },
-    "belize": {
+    "Belize": {
       "fullName": "Belize",
       "shortName": "blz"
     },
-    "cambodia": {
+    "Cambodia": {
       "fullName": "Cambodia",
       "shortName": "khm"
     },
-    "djibouti": {
+    "Djibouti": {
       "fullName": "Djibouti",
       "shortName": "dji"
     },
-    "ecuador": {
+    "Ecuador": {
       "fullName": "Ecuador",
       "shortName": "ecu"
     },
-    "finland": {
+    "Finland": {
       "fullName": "Finland",
       "shortName": "fin"
     },
-    "ghana": {
+    "Ghana": {
       "fullName": "Ghana",
       "shortName": "gha"
     },

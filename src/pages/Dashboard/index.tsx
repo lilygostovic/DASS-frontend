@@ -14,10 +14,15 @@ import { genderData } from "./testGenderData";
 import { useTranslation } from "react-i18next";
 
 interface Country {
-  id: number,
-  name: string,
-  continent: string,
-  lastModified: Date,
+  id: number;
+  name: string;
+  continent: string;
+  last_modified: string;
+  Accepted: number;
+  Rejected: number;
+  Unknown: number;
+  Total: number;
+  LGBT: number;
 }
 
 export const Dashboard = () => {
@@ -37,6 +42,7 @@ export const Dashboard = () => {
   let chartWidth: number;
   let boxItems: string[] = [];
   let countryNames: string[] = [];
+  let countryEntries: Country[] = [];
 
   // HTTP request that gets a list of all country entries from the database
   useEffect(() => {
@@ -55,40 +61,45 @@ export const Dashboard = () => {
     fetchData();
   }, []);
 
+  // CountryNames is for having a list of names to display on checkbox
   countryNames = countries.map((c) => c.name).sort();
+
+  // CountryEntries is for the chart having a list of country datapoints.
+  // It's used in SummaryChart.tsx when we need to find the data for a single country to add
+  countryEntries = countries.filter((c1) => !data.some((c2) => c2.name.toLowerCase() === c1.name.toLowerCase()));
 
   // Displayed countries on the checkbox are sorted by continent
   if (checkBoxDropDownOption === "all") {
     const deafultFilteredCountryNames = countryNames.filter((name) =>
-      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = deafultFilteredCountryNames;
   } else if (checkBoxDropDownOption === "asia") {
     const countriesAsia = countries.filter((c) => c.continent === "Asien");
     const countryNamesAsia = countriesAsia.map((c) => c.name).sort();
     const filteredCountryNamesAsia = countryNamesAsia.filter((name) =>
-      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesAsia;
   } else if (checkBoxDropDownOption === "america") {
     const countriesMurica = countries.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
     const countryNamesMurica = countriesMurica.map((c) => c.name).sort();
     const filteredCountryNamesMurica = countryNamesMurica.filter((name) =>
-      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesMurica;
   } else if (checkBoxDropDownOption === "africa") {
     const countriesAfrica = countries.filter((c) => c.continent === "Afrika");
     const countryNamesAfrica = countriesAfrica.map((c) => c.name).sort();
     const filteredCountryNamesAfrica = countryNamesAfrica.filter((name) =>
-      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesAfrica;
   } else if (checkBoxDropDownOption === "europe") {
     const countriesEurope = countries.filter((c) => c.continent === "Europa");
     const countryNamesEurope = countriesEurope.map((c) => c.name).sort();
     const filteredCountryNamesEurope = countryNamesEurope.filter((name) =>
-      !data.some((c) => c.country.toLowerCase() === name.toLowerCase()));
+      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesEurope;
   } else {
@@ -146,6 +157,7 @@ export const Dashboard = () => {
           continentOption={continentOption}
           checkedCountryOptions={checkedOptionsChart}
           countryNames={countryNames}
+          countryEntries={countryEntries}
           />
 
           <div style={{
