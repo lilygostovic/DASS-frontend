@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
 import { HomeTextBlock } from "./components/HomeText";
 import { Nav } from "../../components";
+import React from "react";
 import { StyledDiv } from "../../components/common/StyledDiv";
 import { TitleBlock } from "./components/TitleBlock";
 import { data } from "../Dashboard/data";
@@ -13,15 +12,6 @@ export const Home = () => {
 
   const title = t("homePage.title");
   const subtitle = t("homePage.subtitle");
-  const [text] = useState("loading...");
-
-  const fetchText = async () => {
-    await fetch("localhost:8000/api/cases?id=50").then(async (res) => {
-      alert(res.json);
-    });
-  };
-
-  fetchText();
 
   return (
     <div>
@@ -33,7 +23,6 @@ export const Home = () => {
           data={data}
           genderData={genderData}
         />
-        <HomeTextBlock title="========" text={text} />
         <HomeTextBlock
           title="About This Project"
           text="Here we could maybe add reasons for why this is the best project ever"
