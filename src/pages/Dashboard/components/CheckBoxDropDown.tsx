@@ -17,6 +17,7 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
   const euroText = t("continentDropDown.options.europe");
   const americaText = t("continentDropDown.options.america");
   const africaText = t("continentDropDown.options.africa");
+  const otherText = t("continentDropDown.options.other");
 
   return (
     <select value={selectedOption} onChange={handleMenuChange}
@@ -37,6 +38,7 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
         <option value="america">{americaText}</option>
         <option value="africa">{africaText}</option>
         <option value="europe">{euroText}</option>
+        <option value="other">{otherText}</option>
     </select>
   )
 }

@@ -69,9 +69,11 @@ export const SummaryChart = ({
   const initialTextSize = 20;
   const TextSizeDecreaseRate = 2;
   const chartLayout = ((axisOption === "country") || !isSummaryPage) ? "vertical" : "horizontal";
+  const emptyPageText1 = t("dashboardPage.emptyPage1");
+  const emptyPageText2 = t("dashboardPage.emptyPage2");
 
   // The y-axis needs more space to be displayed if we are on summary
-  if (isSummaryPage) { leftMargin = 44 } else { leftMargin = 25 }
+  if (isSummaryPage) { leftMargin = 65 } else { leftMargin = 25 }
 
   // Display the fake gender dataset if selected in the dropdown
   if (axisOption === "gender") {
@@ -123,6 +125,22 @@ export const SummaryChart = ({
   if (isSummaryPage) {
     xTextSize = Math.max(10, initialTextSize - (TextSizeDecreaseRate * Math.ceil(displayedData.length / 10)));
   } else { xTextSize = 15 }
+
+  // Display a message to the user if the chosen category has no selected countries
+  if (displayedData.length === 0) {
+    return (
+      <div style={{
+        height: h,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+        <div style={{ marginBottom: "30px" }}>{emptyPageText1}</div>
+        <div>{emptyPageText2}</div>
+      </div>
+    )
+  }
 
   return (
     <BarChart

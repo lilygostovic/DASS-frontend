@@ -37,6 +37,7 @@ export const Dashboard = () => {
   const text = t("dashboardPage.overviewStats");
   const boxText = t("dashboardPage.checkBox");
   const boxDropDownText = t("dashboardPage.boxDropDownText")
+  const chartHeight = 590;
 
   let chartAreaWidth: string;
   let chartWidth: number;
@@ -102,8 +103,15 @@ export const Dashboard = () => {
       !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesEurope;
+
+  // Other has been selected
   } else {
-    boxItems = [];
+    const countriesOther = countries.filter((c) => c.continent === "Other");
+    const countryNamesOther = countriesOther.map((c) => c.name).sort();
+    const filteredCountryNamesOther = countryNamesOther.filter((name) =>
+      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+
+    boxItems = filteredCountryNamesOther
   }
 
   // Resize the chart appropriately when x-axis is set to country
@@ -151,7 +159,7 @@ export const Dashboard = () => {
           <SummaryChart
           data={data}
           genderData={genderData}
-          w={chartWidth} h={590}
+          w={chartWidth} h={chartHeight}
           isSummaryPage={true}
           axisOption={dropDownOption}
           continentOption={continentOption}

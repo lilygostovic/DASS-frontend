@@ -17,6 +17,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
   const euroText = t("continentDropDown.options.europe");
   const americaText = t("continentDropDown.options.america");
   const africaText = t("continentDropDown.options.africa");
+  const OtherText = t("continentDropDown.options.other");
 
   return (
     <select value={selectedOption} onChange={handleMenuChange}
@@ -40,6 +41,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
         <option value="Amerika">{americaText}</option>
         <option value="Afrika">{africaText}</option>
         <option value="Europa">{euroText}</option>
+        <option value="Other">{OtherText}</option>
     </select>
   )
 }

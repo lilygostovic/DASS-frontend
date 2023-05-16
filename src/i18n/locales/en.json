@@ -16,7 +16,9 @@
     "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
     "addButton": "Confirm Choices",
-    "boxDropDownText": "Find your continent:"
+    "boxDropDownText": "Find your continent:",
+    "emptyPage1": "No countries for this category currently selected",
+    "emptyPage2": "To see countries from this category, please select from the options to your right"
   },
   "filterPage": {
     "accepted": {
@@ -536,7 +538,20 @@
     "Østrig": {
       "fullName": "Austria",
       "shortName": "aus"
+    },
+    "Anonymiseret hjemland": {
+      "fullName": "Anonymized",
+      "shortName": "ahc"
+    },
+    "Diverse emner": {
+      "fullName": "Miscellaneous",
+      "shortName": "mis"
+    },
+    "Ukendt hjemland": {
+      "fullName": "Unknown",
+      "shortName": "mis"
     }
+
   },
   "summaryDropDown": {
     "options": {
@@ -552,7 +567,8 @@
       "america": "America",
       "asia": "Asia",
       "europe": "Europe",
-      "africa": "Africa"
+      "africa": "Africa",
+      "other": "Other"
     }
   }
 }
