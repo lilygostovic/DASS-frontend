@@ -2,7 +2,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Label,
+  // Label,
   Legend,
   Tooltip,
   XAxis,
@@ -67,10 +67,11 @@ export const SummaryChart = ({
   let ticks = data.length;
   let xTextSize;
   const initialTextSize = 20;
-  const TextSizeDecreaseRate = 5;
+  const TextSizeDecreaseRate = 2;
+  const chartLayout = ((axisOption === "country") || !isSummaryPage) ? "vertical" : "horizontal";
 
-  // The y-axis label needs more space to be displayed if we are on summary
-  if (isSummaryPage) { leftMargin = 38 };
+  // The y-axis needs more space to be displayed if we are on summary
+  if (isSummaryPage) { leftMargin = 44 } else { leftMargin = 25 }
 
   // Display the fake gender dataset if selected in the dropdown
   if (axisOption === "gender") {
@@ -118,7 +119,7 @@ export const SummaryChart = ({
   // Sort displayed data according to number of cases
   displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
 
-  // Decrease x-axis text size as the number of added countries increase
+  // Decrease x-axis text size as the number of added countries increases
   if (isSummaryPage) {
     xTextSize = Math.max(10, initialTextSize - (TextSizeDecreaseRate * Math.ceil(displayedData.length / 10)));
   } else { xTextSize = 15 }
@@ -128,6 +129,7 @@ export const SummaryChart = ({
       width={w}
       height={h}
       data={displayedData}
+      layout={chartLayout}
       margin={{
         top: 10,
         right: 30,
@@ -161,48 +163,70 @@ export const SummaryChart = ({
         fill="url(#colorRejected)"
       />
       <CartesianGrid strokeDasharray="2 3" opacity={0.1} vertical={false} />
-      {axisOption === "gender" && (
+
+      {!isSummaryPage && (
         <XAxis
-        dataKey="gender"
+        type="number"
         axisLine={true}
         tickLine={true}
-        tickFormatter={(gender: string) =>
-          t(`${gender}`)
-        }
-      />
-      )}
-      {((isSummaryPage) && (axisOption === "country")) && (
-        <XAxis
-        dataKey="name"
-        axisLine={true}
-        tickLine={true}
-        tick={{ fontSize: xTextSize }}
-        tickFormatter={(name: string) =>
-          t(`countries.${name}.fullName`)
-        }
-      />
-      )}
-      {((!isSummaryPage)) && (
-        <XAxis
-        dataKey="name"
-        axisLine={true}
-        tickLine={true}
-        tickFormatter={(name: string) =>
-          t(`countries.${name}.fullName`)
-        }
-      />
-      )}
-      <YAxis axisLine={true} tickLine={false} tickCount={ticks} >
-      {isSummaryPage && (
-        <Label
-          value="Number of Cases"
-          angle={-90}
-          position="insideLeft"
-          offset={-30}
-          style={{ fontWeight: "bold", fontSize: "19px", fill: "black" }}
         />
       )}
-      </YAxis>
+
+      {!isSummaryPage && (
+        <YAxis
+        axisLine={true}
+        tickLine={true}
+        tickCount={ticks}
+        type="category"
+        dataKey="name"
+        tickFormatter={(name: string) =>
+          t(`countries.${name}.fullName`)
+        }
+        >
+        </YAxis>
+      )}
+
+      {((axisOption === "country") && isSummaryPage) && (
+        <XAxis
+        type="number"
+        axisLine={true}
+        tickLine={true}
+        />
+      )}
+
+      {((axisOption === "gender") && isSummaryPage) && (
+        <XAxis
+        axisLine={true}
+        tickLine={true}
+        tickCount={ticks}
+        dataKey="gender"
+        tickFormatter={(gender: string) => t(gender)}
+        />
+      )}
+
+      {isSummaryPage && (axisOption === "country") && (
+        <YAxis
+        axisLine={true}
+        tickLine={true}
+        tickCount={ticks}
+        tick={{ fontSize: xTextSize }}
+        type="category"
+        dataKey="name"
+        tickFormatter={(name: string) =>
+          t(`countries.${name}.fullName`)
+        }
+        >
+        </YAxis>
+      )}
+
+      {isSummaryPage && (axisOption === "gender")} {
+        <YAxis
+        axisLine={true}
+        tickLine={true}
+        tickCount={ticks}
+        >
+        </YAxis>
+      }
       <Legend
         verticalAlign="top"
         formatter={(value, entry, index) =>
