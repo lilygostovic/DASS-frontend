@@ -2,7 +2,6 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  // Label,
   Legend,
   Tooltip,
   XAxis,
@@ -65,15 +64,17 @@ export const SummaryChart = ({
   // eslint-disable-next-line
   let displayedData: any[] = data;
   let ticks = data.length;
-  let xTextSize;
-  const initialTextSize = 20;
-  const TextSizeDecreaseRate = 2;
+  const xTextSize = 15;
   const chartLayout = ((axisOption === "country") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
 
   // The y-axis needs more space to be displayed if we are on summary
-  if (isSummaryPage) { leftMargin = 65 } else { leftMargin = 25 }
+  if (isSummaryPage) {
+    leftMargin = 65;
+  } else {
+    leftMargin = 25
+  }
 
   // Display the fake gender dataset if selected in the dropdown
   if (axisOption === "gender") {
@@ -120,11 +121,6 @@ export const SummaryChart = ({
 
   // Sort displayed data according to number of cases
   displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
-
-  // Decrease x-axis text size as the number of added countries increases
-  if (isSummaryPage) {
-    xTextSize = Math.max(10, initialTextSize - (TextSizeDecreaseRate * Math.ceil(displayedData.length / 10)));
-  } else { xTextSize = 15 }
 
   // Display a message to the user if the chosen category has no selected countries
   if (displayedData.length === 0) {

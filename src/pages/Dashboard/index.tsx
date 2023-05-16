@@ -37,13 +37,15 @@ export const Dashboard = () => {
   const text = t("dashboardPage.overviewStats");
   const boxText = t("dashboardPage.checkBox");
   const boxDropDownText = t("dashboardPage.boxDropDownText")
-  const chartHeight = 590;
+  const initialChartHeight = 590;
+  const [dynamicChartHeight, setChartHeight] = useState<number>(initialChartHeight);
 
   let chartAreaWidth: string;
   let chartWidth: number;
   let boxItems: string[] = [];
   let countryNames: string[] = [];
   let countryEntries: Country[] = [];
+  let chartHeight;
 
   // HTTP request that gets a list of all country entries from the database
   useEffect(() => {
@@ -118,9 +120,11 @@ export const Dashboard = () => {
   if (dropDownOption === "country") {
     chartAreaWidth = "1200px";
     chartWidth = 1100;
+    chartHeight = dynamicChartHeight;
   } else {
     chartAreaWidth = "100%";
     chartWidth = 1400;
+    chartHeight = initialChartHeight;
   }
 
   return (
@@ -149,24 +153,33 @@ export const Dashboard = () => {
             alignItems: "center",
             boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
             borderRadius: "8px",
-            margin: "30px 30px",
+            marginLeft: "30px",
+            marginTop: "30px",
+            marginBottom: "30px",
             color: "black",
             fontSize: "20px",
           }}
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
 
-          <SummaryChart
-          data={data}
-          genderData={genderData}
-          w={chartWidth} h={chartHeight}
-          isSummaryPage={true}
-          axisOption={dropDownOption}
-          continentOption={continentOption}
-          checkedCountryOptions={checkedOptionsChart}
-          countryNames={countryNames}
-          countryEntries={countryEntries}
-          />
+          <div id="scrollDiv" style={{
+            height: "600px",
+            overflowY: "scroll",
+            border: "2px solid grey",
+            borderRadius: "10px",
+          }}>
+            <SummaryChart
+            data={data}
+            genderData={genderData}
+            w={chartWidth} h={chartHeight}
+            isSummaryPage={true}
+            axisOption={dropDownOption}
+            continentOption={continentOption}
+            checkedCountryOptions={checkedOptionsChart}
+            countryNames={countryNames}
+            countryEntries={countryEntries}
+            />
+          </div>
 
           <div style={{
             display: "flex",
@@ -231,6 +244,8 @@ export const Dashboard = () => {
             <CountryCheckBox
               options={boxItems}
               setCheckedOptionsChart={setCheckedOptionsChart}
+              setHeight={setChartHeight}
+              initialChartHeight={initialChartHeight}
             />
           </div>
         )}

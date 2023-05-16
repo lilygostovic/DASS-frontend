@@ -23,12 +23,12 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
     <select value={selectedOption} onChange={handleMenuChange}
       style={{
         height: "20px",
-        width: "155px",
         color: "black",
         border: "none",
         borderRadius: "4px",
         fontSize: "15px",
         marginLeft: "15px",
+        marginRight: "15px",
         marginBottom: "15px",
         cursor: "pointer",
       }}

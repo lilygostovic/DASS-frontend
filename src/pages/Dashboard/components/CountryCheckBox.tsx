@@ -2,27 +2,51 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface CountryCheckBoxProps {
-
-  // "options" is the total list of options that the chart supplies to the checkbox
-  options: string[]
-
-  setCheckedOptionsChart: React.Dispatch<React.SetStateAction<string[]>>
+  options: string[];
+  setCheckedOptionsChart: React.Dispatch<React.SetStateAction<string[]>>;
+  setHeight: React.Dispatch<React.SetStateAction<number>>;
+  initialChartHeight: number;
 }
 
-export const CountryCheckBox = ({ options, setCheckedOptionsChart }: CountryCheckBoxProps) => {
+export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, initialChartHeight }: CountryCheckBoxProps) => {
   const [checkedOptions, setCheckedOptions] = useState<string[]>([]);
 
+  // Some limit to signal when the chart should increase
+  const optionslimit = 8;
+
+  // How much the chart grows for every added country
+  const chartGrowth = 50;
+
+  // State hook for counrting the number of selected countries in the box
+  const [numberOfCheckedOptions, setNumberOfCheckedOptions] = useState<number>(0);
+
+  // This function renders options as checked or unchecked
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const opt = event.target.value;
 
     if (event.target.checked) {
       setCheckedOptions([...checkedOptions, opt]);
+      setNumberOfCheckedOptions(numberOfCheckedOptions + 1)
     } else {
       setCheckedOptions(checkedOptions.filter((o) => o !== opt));
+      setNumberOfCheckedOptions(numberOfCheckedOptions - 1)
     }
   };
 
-  const handleSubmitClick = () => { setCheckedOptionsChart(checkedOptions); }
+  // This function sets the list of countries that the chart should render,
+  // and computes a new height for the chart if necessary
+  const handleSubmitClick = () => {
+    setCheckedOptionsChart(checkedOptions);
+
+    // Increase height if we are over the addition limit
+    if (numberOfCheckedOptions > optionslimit) {
+      const limitDiff = Math.abs(numberOfCheckedOptions - optionslimit);
+
+      setHeight(initialChartHeight + (chartGrowth * limitDiff));
+    } else {
+      setHeight(initialChartHeight);
+    }
+  }
 
   const { t } = useTranslation();
   const boxHeader = t("dashboardPage.boxHeader");
