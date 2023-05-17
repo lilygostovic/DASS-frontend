@@ -67,9 +67,9 @@ export const SummaryChart = ({
   let displayedData: any[] = data;
   let ticks = data.length;
   let height = h;
-  const numberOfDataPointLimit = 13;
+  const numberOfDataPointLimit = 15;
   const xTextSize = 15;
-  const chartLayout = ((axisOption === "country") || !isSummaryPage) ? "vertical" : "horizontal";
+  const chartLayout = ((axisOption === "country") || (axisOption === "lgbtq") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
 
@@ -89,7 +89,10 @@ export const SummaryChart = ({
   // The below block is responsible for adding checked countries to the chart.
   // It loops through all country names in the database,
   // and every name that appears as "checked" is added to the currently displayed dataset
-  if ((checkedCountryOptions !== undefined) && (countryEntries !== undefined) && (axisOption === "country") && isSummaryPage) {
+  if ((checkedCountryOptions !== undefined) &&
+      (countryEntries !== undefined) &&
+      ((axisOption === "country") || axisOption === "lgbtq") &&
+      isSummaryPage) {
     countryNames?.forEach((c) => {
       if (checkedCountryOptions.includes(c)) {
         const singleCountryDataPoint = countryEntries.find((x) => x.name === c);
@@ -113,7 +116,8 @@ export const SummaryChart = ({
   }
 
   // Display only countries from the selected continent
-  if (axisOption === "country" && continentOption !== "all" && isSummaryPage) {
+  if (((axisOption === "country") || (axisOption === "lgbtq")) &&
+        continentOption !== "all" && isSummaryPage) {
     if (continentOption === "Amerika") {
       displayedData = displayedData.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
       ticks = displayedData.length;
@@ -123,8 +127,13 @@ export const SummaryChart = ({
     }
   }
 
-  // Sort displayed data according to number of cases
-  displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
+  if (axisOption === "country") {
+    // Sort displayed data according to number of cases
+    displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
+  } else if (axisOption === "lgbtq") {
+    // Sort displayed data according to number of LGBTQ cases
+    displayedData = displayedData.sort((a, b) => (b.LGBT - a.LGBT));
+  }
 
   // If we are displaying few enough countries, we don't need to expand the chart height
   if ((displayedData.length < numberOfDataPointLimit) && (initialH !== undefined)) {
@@ -170,22 +179,42 @@ export const SummaryChart = ({
           <stop offset="5%" stopColor="#F01406" stopOpacity={0.6} />
           <stop offset="75%" stopColor="#F01406" stopOpacity={0.7} />
         </linearGradient>
+        <linearGradient id="colorLGBTQ" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="5%" stopColor="#0352F1" stopOpacity={0.6} />
+          <stop offset="75%" stopColor="#0352F1" stopOpacity={0.7} />
+        </linearGradient>
       </defs>
       <Tooltip />
-      <Bar
+
+      {((isSummaryPage && ((axisOption === "country") || (axisOption === "gender"))) || !isSummaryPage) && (
+        <>
+          <Bar
+            type="monotone"
+            dataKey={"Accepted"}
+            stackId="1"
+            stroke="green"
+            fill="url(#colorAccepted)"
+          />
+          <Bar
+            type="monotone"
+            dataKey={"Rejected"}
+            stackId="1"
+            stroke="red"
+            fill="url(#colorRejected)"
+          />
+        </>
+      )}
+
+      {isSummaryPage && (axisOption === "lgbtq") && (
+        <Bar
         type="monotone"
-        dataKey={"Accepted"}
+        dataKey={"LGBT"}
         stackId="1"
-        stroke="green"
-        fill="url(#colorAccepted)"
+        stroke="blue"
+        fill="url(#colorLGBTQ)"
       />
-      <Bar
-        type="monotone"
-        dataKey={"Rejected"}
-        stackId="1"
-        stroke="red"
-        fill="url(#colorRejected)"
-      />
+      )}
+
       <CartesianGrid strokeDasharray="2 3" opacity={0.1} vertical={false} />
 
       {!isSummaryPage && (
@@ -210,7 +239,7 @@ export const SummaryChart = ({
         </YAxis>
       )}
 
-      {((axisOption === "country") && isSummaryPage) && (
+      {(((axisOption === "country") || (axisOption === "lgbtq")) && isSummaryPage) && (
         <XAxis
         type="number"
         axisLine={true}
@@ -228,7 +257,7 @@ export const SummaryChart = ({
         />
       )}
 
-      {isSummaryPage && (axisOption === "country") && (
+      {isSummaryPage && ((axisOption === "country") || (axisOption === "lgbtq")) && (
         <YAxis
         axisLine={true}
         tickLine={true}
