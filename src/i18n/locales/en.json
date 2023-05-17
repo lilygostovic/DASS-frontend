@@ -10,9 +10,9 @@
   },
   "dashboardPage": {
     "overviewStats": "Overview of Cases",
-    "sex": "Sex",
+    "gender": "gender",
     "lgbtq": "LGBTQ",
-    "result": "Accepted/Rejected" ,
+    "result": "Accepted/Rejected",
     "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
     "addButton": "Confirm Choices",
@@ -22,7 +22,8 @@
     "accepted": {
       "label": "Accepted/Rejected",
       "accepted": "Accepted",
-      "rejected": "Rejected"
+      "rejected": "Rejected",
+      "unknown": "Unknown"
     },
     "motive": {
       "label": "Motive"
@@ -31,13 +32,13 @@
       "label": "Country of Origin",
       "afghanistan": "Afghanistan",
       "iran": "Iran",
-      "syria": "Syria"
+      "syrien": "Syrien"
     },
-    "sex": {
-      "label": "Sex",
+    "gender": {
+      "label": "Gender",
       "female": "Female",
       "male": "Male",
-      "indeterminable": "Indeterminable"
+      "unknown": "Unknown"
     },
     "ageFilter": {
       "label": "Age",

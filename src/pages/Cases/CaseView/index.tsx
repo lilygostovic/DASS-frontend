@@ -17,20 +17,15 @@ export const Container = styled.div`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
-export type CaseViewProps = {
-  caseNumber: number;
-  text: string;
-} & CaseHighlightsProps;
-
-export const CaseView = ({ caseNumber, filters, text }: CaseViewProps) => {
+export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
   const { t } = useTranslation();
-  const title = `${t("filterPage.caseViewTitle")}${caseNumber}`; // todo:: update text
+  const title = `${t("filterPage.caseViewTitle")}${randomCase.id}`; // todo:: update text
 
   return (
     <Container>
       <h1>{title}</h1>
-      <CaseHighlights filters={filters} />
-      <CaseBody text={text} />
+      <CaseHighlights randomCase={randomCase} />
+      <CaseBody text={randomCase.body} />
     </Container>
   );
 };

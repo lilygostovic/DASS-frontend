@@ -30,18 +30,19 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
   const acceptedLabel = t("filterPage.accepted.label");
   const acceptedOption = t("filterPage.accepted.accepted");
   const rejectedOption = t("filterPage.accepted.rejected");
+  const unknownOption = t("filterPage.accepted.unknown");
 
   const motiveLabel = t("filterPage.motive.label");
 
   const countryLabel = t("filterPage.country.label");
   const afghanistanOption = t("filterPage.country.afghanistan");
   const iranOption = t("filterPage.country.iran");
-  const syriaOption = t("filterPage.country.syria");
+  const syrienOption = t("filterPage.country.syrien");
 
-  const sexLabel = t("filterPage.sex.label");
-  const femaleOption = t("filterPage.sex.female");
-  const maleOption = t("filterPage.sex.male");
-  const indeterminableOption = t("filterPage.sex.indeterminable");
+  const genderLabel = t("filterPage.gender.label");
+  const femaleOption = t("filterPage.gender.female");
+  const maleOption = t("filterPage.gender.male");
+  const unknownGenderOption = t("filterPage.gender.unknown");
 
   const ageLabel = t("filterPage.ageFilter.label");
   const minAgePlaceholder = t("filterPage.ageFilter.minPlaceholder");
@@ -66,6 +67,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
               <option value={allOption}>{allOption}</option>
               <option value={acceptedOption}>{acceptedOption}</option>
               <option value={rejectedOption}>{rejectedOption}</option>
+              <option value={unknownOption}>{unknownOption}</option>
             </Select>
           </FormInput>
           <FormInput>
@@ -79,21 +81,20 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
           <FormInput>
             <Label>{countryLabel}</Label>
             <Select {...register("country")}>
+              {/* REMEMBER THIS MUST BE ALL ****DANISH**** COUNTRY NAMES AS VALUES so it hits the backend proper */}
               <option value={allOption}>{allOption}</option>
               <option value={afghanistanOption}>{afghanistanOption}</option>
               <option value={iranOption}>{iranOption}</option>
-              <option value={syriaOption}>{syriaOption}</option>
+              <option value={syrienOption}>{syrienOption}</option>
             </Select>
           </FormInput>
           <FormInput>
-            <Label>{sexLabel}</Label>
-            <Select {...register("sex")} placeholder="Sex">
+            <Label>{genderLabel}</Label>
+            <Select {...register("gender")} placeholder="Gender">
               <option value={allOption}>{allOption}</option>
               <option value={femaleOption}>{femaleOption}</option>
               <option value={maleOption}>{maleOption}</option>
-              <option value={indeterminableOption}>
-                {indeterminableOption}
-              </option>
+              <option value={unknownGenderOption}>{unknownGenderOption}</option>
             </Select>
           </FormInput>
         </FormRow>
