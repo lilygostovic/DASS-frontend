@@ -8,8 +8,6 @@ import {
 import React, { useState } from "react";
 
 import { Nav } from "../../components";
-import { StyledDiv } from "../../components/common/StyledDiv";
-import { StyledText } from "../../components/common/StyledText";
 import { data } from "./data";
 import { genderData } from "./testGenderData";
 import { useTranslation } from "react-i18next";
@@ -51,24 +49,42 @@ export const Dashboard = () => {
   }
 
   return (
-    <StyledDiv backgroundColor="#ECF2FF" maxHeight="100vh" minHeight="100vh">
+    <div
+      style={{
+        backgroundColor: "#ECF2FF",
+        maxHeight: "100vh",
+        minHeight: "100vh",
+      }}
+    >
       <Nav />
-      <StyledDiv bg="#ffffff" display="flex" flexDirection="row">
-        <StyledDiv
-          display="flex"
-          justifyContent="space-bewteen"
-          flexDirection="column"
-          width={chartAreaWidth}
-          height="810px"
-          alignItems="center"
-          boxShadow="0px 5px 15px rgba(0, 0, 0, 0.35)"
-          borderRadius="8px"
-          margin="30px 30px"
-          color="black"
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-bewteen",
+            flexDirection: "column",
+            width: chartAreaWidth,
+            height: "810px",
+            alignItems: "center",
+            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+            borderRadius: "8px",
+            margin: "30px 30px",
+            color: "black",
+            fontSize: "20px",
+          }}
         >
-          <StyledText variant="paragraphMedium" fontSize="20px" mb="20px">
+          <h1
+            style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}
+          >
             {text}
-          </StyledText>
+          </h1>
+
           <SummaryChart
             data={data}
             genderData={genderData}
@@ -116,32 +132,44 @@ export const Dashboard = () => {
               </div>
             )}
           </div>
-        </StyledDiv>
+        </div>
         {dropDownOption === "country" && (
-          <StyledDiv
-            display="flex"
-            flexDirection="column"
-            boxShadow="0px 5px 15px rgba(0, 0, 0, 0.35)"
-            borderRadius="8px"
-            width="250px"
-            margin="30px 30px"
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+              borderRadius: "8px",
+              width: "250px",
+              margin: "30px 30px",
+            }}
           >
-            <StyledDiv
-              display="flex"
-              bg="#3E54AC"
-              mb="20px"
-              borderRadius="8px 8px 0 0"
-              height="80px"
-              justifyContent="center"
-              alignItems="center"
+            <div
+              style={{
+                display: "flex",
+                fontWeight: "bold",
+                fontSize: "19px",
+                backgroundColor: "#3E54AC",
+                color: "white",
+                marginBottom: "20px",
+                borderRadius: "8px 8px 0 0",
+                height: "80px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              <StyledText variant="paragraphMediumBold" color="white">
-                {boxText}
-              </StyledText>
-            </StyledDiv>
-            <StyledDiv ml="15px" mb="5px">
+              {boxText}
+            </div>
+            <div
+              style={{
+                fontWeight: "bold",
+                fontSize: "18px",
+                marginLeft: "15px",
+                marginBottom: "5px",
+              }}
+            >
               {boxDropDownText}
-            </StyledDiv>
+            </div>
             <CheckBoxDropDown
               selectedOption={checkBoxDropDownOption}
               setOption={setCheckBoxDropDownOption}
@@ -150,9 +178,9 @@ export const Dashboard = () => {
               options={boxItems}
               setCheckedOptionsChart={setCheckedOptionsChart}
             />
-          </StyledDiv>
+          </div>
         )}
-      </StyledDiv>
-    </StyledDiv>
+      </div>
+    </div>
   );
 };
