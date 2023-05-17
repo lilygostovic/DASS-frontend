@@ -178,6 +178,7 @@ export const Dashboard = () => {
             checkedCountryOptions={checkedOptionsChart}
             countryNames={countryNames}
             countryEntries={countryEntries}
+            initialH={initialChartHeight}
             />
           </div>
 

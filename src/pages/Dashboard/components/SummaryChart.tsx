@@ -37,6 +37,7 @@ interface SummaryChartProps {
   genderData: Gender[];
   w: number
   h: number
+  initialH?: number;
   isSummaryPage: boolean
   axisOption?: string
   continentOption?: string
@@ -49,6 +50,7 @@ export const SummaryChart = ({
   data, genderData,
   w,
   h,
+  initialH,
   isSummaryPage,
   axisOption,
   continentOption,
@@ -64,6 +66,8 @@ export const SummaryChart = ({
   // eslint-disable-next-line
   let displayedData: any[] = data;
   let ticks = data.length;
+  let height = h;
+  const numberOfDataPointLimit = 13;
   const xTextSize = 15;
   const chartLayout = ((axisOption === "country") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
@@ -122,11 +126,17 @@ export const SummaryChart = ({
   // Sort displayed data according to number of cases
   displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
 
+  // If we are displaying few enough countries, we don't need to expand the chart height
+  if ((displayedData.length < numberOfDataPointLimit) && (initialH !== undefined)) {
+    height = initialH;
+  }
+
   // Display a message to the user if the chosen category has no selected countries
   if (displayedData.length === 0) {
     return (
       <div style={{
-        height: h,
+        height: initialH,
+        width: w,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -141,7 +151,7 @@ export const SummaryChart = ({
   return (
     <BarChart
       width={w}
-      height={h}
+      height={height}
       data={displayedData}
       layout={chartLayout}
       margin={{
