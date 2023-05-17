@@ -37,7 +37,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
   const countryLabel = t("filterPage.country.label");
   const afghanistanOption = t("filterPage.country.afghanistan");
   const iranOption = t("filterPage.country.iran");
-  const syrienOption = t("filterPage.country.syrien");
+  const syriaOption = t("filterPage.country.syria");
 
   const genderLabel = t("filterPage.gender.label");
   const femaleOption = t("filterPage.gender.female");
@@ -85,7 +85,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
               <option value={allOption}>{allOption}</option>
               <option value={afghanistanOption}>{afghanistanOption}</option>
               <option value={iranOption}>{iranOption}</option>
-              <option value={syrienOption}>{syrienOption}</option>
+              <option value={syriaOption}>{syriaOption}</option>
             </Select>
           </FormInput>
           <FormInput>
