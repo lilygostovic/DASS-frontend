@@ -10,11 +10,19 @@ interface TitleBlockProps {
     name: string;
     continent: string;
     last_modified: string;
-    Accepted: number;
-    Rejected: number;
-    Unknown: number;
-    Total: number;
-    LGBT: number;
+    total: number;
+    lgbt: number;
+    status: {
+      Accepted: number;
+      Rejected: number;
+      Unknown: number;
+    };
+    gender: {
+      Male: number;
+      Female: number;
+      Other: number;
+      Unknown: number;
+    };
   }>;
   genderData: Array<{
     gender: string;

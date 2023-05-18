@@ -18,11 +18,19 @@ interface Country {
   name: string;
   continent: string;
   last_modified: string;
-  Accepted: number;
-  Rejected: number;
-  Unknown: number;
-  Total: number;
-  LGBT: number;
+  total: number;
+  lgbt: number;
+  status: {
+    Accepted: number;
+    Rejected: number;
+    Unknown: number;
+  };
+  gender: {
+    Male: number;
+    Female: number;
+    Other: number;
+    Unknown: number;
+  };
 }
 
 interface Gender {
@@ -129,10 +137,10 @@ export const SummaryChart = ({
 
   if (axisOption === "country") {
     // Sort displayed data according to number of cases
-    displayedData = displayedData.sort((a, b) => (b.Total - a.Total));
+    displayedData = displayedData.sort((a, b) => (b.total - a.total));
   } else if (axisOption === "lgbtq") {
     // Sort displayed data according to number of LGBTQ cases
-    displayedData = displayedData.sort((a, b) => (b.LGBT - a.LGBT));
+    displayedData = displayedData.sort((a, b) => (b.lgbt - a.lgbt));
   }
 
   // If we are displaying few enough countries, we don't need to expand the chart height
@@ -190,14 +198,14 @@ export const SummaryChart = ({
         <>
           <Bar
             type="monotone"
-            dataKey={"Accepted"}
+            dataKey={"status.Accepted"}
             stackId="1"
             stroke="green"
             fill="url(#colorAccepted)"
           />
           <Bar
             type="monotone"
-            dataKey={"Rejected"}
+            dataKey={"status.Rejected"}
             stackId="1"
             stroke="red"
             fill="url(#colorRejected)"
@@ -208,7 +216,7 @@ export const SummaryChart = ({
       {isSummaryPage && (axisOption === "lgbtq") && (
         <Bar
         type="monotone"
-        dataKey={"LGBT"}
+        dataKey={"lgbt"}
         stackId="1"
         stroke="blue"
         fill="url(#colorLGBTQ)"
@@ -282,9 +290,18 @@ export const SummaryChart = ({
       }
       <Legend
         verticalAlign="top"
-        formatter={(value, entry, index) =>
-          i18n.language === "english" ? value : t(value)
-        }
+        formatter={(value, entry, index) => {
+          if (i18n.language === "en") {
+            if (value === "status.Accepted") {
+              return t("dashboardPage.result.A");
+            } else if (value === "status.Rejected") {
+              return t("dashboardPage.result.R");
+            } else if (value === "lgbt") {
+              return t("dashboardPage.lgbtq")
+            }
+          }
+          return t(value);
+        }}
       />
     </BarChart>
   );
