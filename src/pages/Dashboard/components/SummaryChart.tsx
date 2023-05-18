@@ -69,7 +69,7 @@ export const SummaryChart = ({
   let height = h;
   const numberOfDataPointLimit = 15;
   const xTextSize = 15;
-  const chartLayout = ((axisOption === "country") || (axisOption === "lgbt") || (axisOption === "gender") || !isSummaryPage) ? "vertical" : "horizontal";
+  const chartLayout = ((axisOption === "result") || (axisOption === "lgbt") || (axisOption === "gender") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
 
@@ -85,7 +85,7 @@ export const SummaryChart = ({
   // and every name that appears as "checked" is added to the currently displayed dataset
   if ((checkedCountryOptions !== undefined) &&
       (countryEntries !== undefined) &&
-      ((axisOption === "country") ||
+      ((axisOption === "result") ||
         (axisOption === "lgbt") ||
         (axisOption === "gender")) &&
       isSummaryPage) {
@@ -112,7 +112,7 @@ export const SummaryChart = ({
   }
 
   // Display only countries from the selected continent
-  if (((axisOption === "country") ||
+  if (((axisOption === "result") ||
         (axisOption === "lgbt") ||
         (axisOption === "gender")) &&
         continentOption !== "all" && isSummaryPage) {
@@ -125,7 +125,7 @@ export const SummaryChart = ({
     }
   }
 
-  if ((axisOption === "country") || (axisOption === "gender")) {
+  if ((axisOption === "result") || (axisOption === "gender")) {
     // Sort displayed data according to number of cases
     displayedData = displayedData.sort((a, b) => (b.total - a.total));
   } else if (axisOption === "lgbt") {
@@ -192,7 +192,7 @@ export const SummaryChart = ({
       </defs>
       <Tooltip />
 
-      {((isSummaryPage && (axisOption === "country")) || !isSummaryPage) && (
+      {((isSummaryPage && (axisOption === "result")) || !isSummaryPage) && (
         <>
           <Bar
             type="monotone"
@@ -264,7 +264,7 @@ export const SummaryChart = ({
         </YAxis>
       )}
 
-      {(((axisOption === "country") ||
+      {(((axisOption === "result") ||
           (axisOption === "lgbt") ||
           (axisOption === "gender")) &&
           isSummaryPage) && (
@@ -276,7 +276,7 @@ export const SummaryChart = ({
       )}
 
       {isSummaryPage &&
-      ((axisOption === "country") ||
+      ((axisOption === "result") ||
       (axisOption === "lgbt") ||
       (axisOption === "gender")) && (
         <YAxis

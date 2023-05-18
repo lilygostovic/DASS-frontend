@@ -12,7 +12,7 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
 
   const { t } = useTranslation();
 
-  const countryText = t("summaryDropDown.options.country");
+  const resultText = t("summaryDropDown.options.result");
   const genderText = t("summaryDropDown.options.gender");
   const motiveText = t("summaryDropDown.options.motive");
   const lgbtText = t("summaryDropDown.options.lgbt")
@@ -31,7 +31,7 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
         cursor: "pointer",
       }}
     >
-        <option value="country">{countryText}</option>
+        <option value="result">{resultText}</option>
         <option value="gender">{genderText}</option>
         <option value="motive">{motiveText}</option>
         <option value="lgbt">{lgbtText}</option>

@@ -33,7 +33,7 @@ interface Country {
 }
 
 export const Dashboard = () => {
-  const [dropDownOption, setDropDown] = useState<string>("country");
+  const [dropDownOption, setDropDown] = useState<string>("result");
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
   const [checkBoxDropDownOption, setCheckBoxDropDownOption] = useState<string>("all");
@@ -124,7 +124,7 @@ export const Dashboard = () => {
   }
 
   // Resize the chart appropriately when viewing countries
-  if ((dropDownOption === "country") ||
+  if ((dropDownOption === "result") ||
       (dropDownOption === "lgbt") ||
       (dropDownOption === "gender")) {
     chartAreaWidth = "1200px";
@@ -196,13 +196,13 @@ export const Dashboard = () => {
             justifyContent: "center",
           }}
           >
-            {((dropDownOption !== "country") &&
+            {((dropDownOption !== "result") &&
               (dropDownOption !== "lgbt") &&
               (dropDownOption !== "gender")) && (
               <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
             )}
 
-            {((dropDownOption === "country") ||
+            {((dropDownOption === "result") ||
               (dropDownOption === "lgbt") ||
               (dropDownOption === "gender")) && (
               <div style={{
@@ -219,7 +219,7 @@ export const Dashboard = () => {
             )}
           </div>
         </div>
-        {((dropDownOption === "country") ||
+        {((dropDownOption === "result") ||
           (dropDownOption === "lgbt") ||
           (dropDownOption === "gender")) && (
           <div style={{

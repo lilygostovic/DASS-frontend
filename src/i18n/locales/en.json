@@ -560,7 +560,7 @@
     "options": {
       "gender": "Gender",
       "motive": "Asylum Motive",
-      "country": "Country",
+      "result": "Result",
       "lgbt": "LGBT"
     }
   },
