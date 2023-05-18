@@ -67,7 +67,6 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
           </FormInput>
           <FormInput>
             <Label>{motiveLabel}</Label>
-            {/* todo:: make this a multi select */}
             <Select {...register("motive")} placeholder="Motive">
               <option value="">{allOption}</option>
               {motives.map((motive) => (
@@ -81,7 +80,6 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
         <FormRow>
           <FormInput>
             <Label>{countryLabel}</Label>
-            {/* todo:: make this a multi select */}
             <Select {...register("country")}>
               <option value="">{allOption}</option>
               {countries.map((country) => (

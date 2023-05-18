@@ -5,6 +5,7 @@ import { CaseView } from "./CaseView";
 import { type Filters } from "./CaseView/Types";
 import { Form } from "./Form";
 import { Nav } from "../../components";
+import { NoResultView } from "./NoResultView";
 import { StyledDiv } from "src/components/common/StyledDiv";
 import { casesService } from "../../services/casesService";
 import styled from "styled-components";
@@ -45,10 +46,14 @@ export const Cases = () => {
           : undefined,
     });
 
-    const randIndex = Math.floor(Math.random() * cases.length);
-    const randCase = cases[randIndex];
+    if (cases.length === 0) {
+      setRandomCase(null);
+    } else {
+      const randIndex = Math.floor(Math.random() * cases.length);
+      const randCase = cases[randIndex];
 
-    setRandomCase(randCase);
+      setRandomCase(randCase);
+    }
   };
 
   const onSubmit = (data: unknown) => {
@@ -94,6 +99,7 @@ export const Cases = () => {
             display="flex"
             flexDirection="column"
             alignItems="center"
+            mt="150px"
           >
             <CaseView randomCase={randomCase} />
             <RefreshButton
@@ -103,10 +109,11 @@ export const Cases = () => {
                 await fetchCase(filters);
               }}
             >
-              View New Case
+              casesPage.refreshbutton.viewNewCase
             </RefreshButton>
           </StyledDiv>
         )}
+        {randomCase === null && <NoResultView />}
       </StyledDiv>
     </div>
   );
