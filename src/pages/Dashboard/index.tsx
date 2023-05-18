@@ -10,7 +10,6 @@ import { Footer, Nav } from "../../components";
 import React, { useEffect, useState } from "react";
 
 import { data } from "./data";
-import { genderData } from "./testGenderData";
 import { useTranslation } from "react-i18next";
 
 interface Country {
@@ -125,7 +124,9 @@ export const Dashboard = () => {
   }
 
   // Resize the chart appropriately when viewing countries
-  if ((dropDownOption === "country") || dropDownOption === "lgbt") {
+  if ((dropDownOption === "country") ||
+      (dropDownOption === "lgbt") ||
+      (dropDownOption === "gender")) {
     chartAreaWidth = "1200px";
     chartWidth = 1100;
     chartHeight = dynamicChartHeight;
@@ -178,7 +179,6 @@ export const Dashboard = () => {
           }}>
             <SummaryChart
             data={data}
-            genderData={genderData}
             w={chartWidth} h={chartHeight}
             isSummaryPage={true}
             axisOption={dropDownOption}
@@ -196,11 +196,15 @@ export const Dashboard = () => {
             justifyContent: "center",
           }}
           >
-            {((dropDownOption !== "country") && (dropDownOption !== "lgbt")) && (
+            {((dropDownOption !== "country") &&
+              (dropDownOption !== "lgbt") &&
+              (dropDownOption !== "gender")) && (
               <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
             )}
 
-            {((dropDownOption === "country") || (dropDownOption === "lgbt")) && (
+            {((dropDownOption === "country") ||
+              (dropDownOption === "lgbt") ||
+              (dropDownOption === "gender")) && (
               <div style={{
                 display: "flex",
                 flexDirection: "column",
@@ -215,7 +219,9 @@ export const Dashboard = () => {
             )}
           </div>
         </div>
-        {((dropDownOption === "country") || (dropDownOption === "lgbt")) && (
+        {((dropDownOption === "country") ||
+          (dropDownOption === "lgbt") ||
+          (dropDownOption === "gender")) && (
           <div style={{
             display: "flex",
             flexDirection: "column",

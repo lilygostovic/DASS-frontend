@@ -33,16 +33,8 @@ interface Country {
   };
 }
 
-interface Gender {
-  gender: string;
-  total: number;
-  Accepted: number;
-  Rejected: number;
-}
-
 interface SummaryChartProps {
   data: Country[];
-  genderData: Gender[];
   w: number
   h: number
   initialH?: number;
@@ -55,7 +47,7 @@ interface SummaryChartProps {
 }
 
 export const SummaryChart = ({
-  data, genderData,
+  data,
   w,
   h,
   initialH,
@@ -77,7 +69,7 @@ export const SummaryChart = ({
   let height = h;
   const numberOfDataPointLimit = 15;
   const xTextSize = 15;
-  const chartLayout = ((axisOption === "country") || (axisOption === "lgbt") || !isSummaryPage) ? "vertical" : "horizontal";
+  const chartLayout = ((axisOption === "country") || (axisOption === "lgbt") || (axisOption === "gender") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
 
@@ -88,18 +80,14 @@ export const SummaryChart = ({
     leftMargin = 25
   }
 
-  // Display the fake gender dataset if selected in the dropdown
-  if (axisOption === "gender") {
-    displayedData = genderData;
-    ticks = displayedData.length;
-  }
-
   // The below block is responsible for adding checked countries to the chart.
   // It loops through all country names in the database,
   // and every name that appears as "checked" is added to the currently displayed dataset
   if ((checkedCountryOptions !== undefined) &&
       (countryEntries !== undefined) &&
-      ((axisOption === "country") || axisOption === "lgbt") &&
+      ((axisOption === "country") ||
+        (axisOption === "lgbt") ||
+        (axisOption === "gender")) &&
       isSummaryPage) {
     countryNames?.forEach((c) => {
       if (checkedCountryOptions.includes(c)) {
@@ -124,7 +112,9 @@ export const SummaryChart = ({
   }
 
   // Display only countries from the selected continent
-  if (((axisOption === "country") || (axisOption === "lgbt")) &&
+  if (((axisOption === "country") ||
+        (axisOption === "lgbt") ||
+        (axisOption === "gender")) &&
         continentOption !== "all" && isSummaryPage) {
     if (continentOption === "Amerika") {
       displayedData = displayedData.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
@@ -135,7 +125,7 @@ export const SummaryChart = ({
     }
   }
 
-  if (axisOption === "country") {
+  if ((axisOption === "country") || (axisOption === "gender")) {
     // Sort displayed data according to number of cases
     displayedData = displayedData.sort((a, b) => (b.total - a.total));
   } else if (axisOption === "lgbt") {
@@ -187,14 +177,22 @@ export const SummaryChart = ({
           <stop offset="5%" stopColor="#F01406" stopOpacity={0.6} />
           <stop offset="75%" stopColor="#F01406" stopOpacity={0.7} />
         </linearGradient>
-        <linearGradient id="colorLGBTQ" x1="0" x2="0" y1="0" y2="1">
+        <linearGradient id="colorLGBT" x1="0" x2="0" y1="0" y2="1">
           <stop offset="5%" stopColor="#0352F1" stopOpacity={0.6} />
           <stop offset="75%" stopColor="#0352F1" stopOpacity={0.7} />
+        </linearGradient>
+        <linearGradient id="colorFemale" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="5%" stopColor="#C429F5" stopOpacity={0.6} />
+          <stop offset="75%" stopColor="#C429F5" stopOpacity={0.7} />
+        </linearGradient>
+        <linearGradient id="colorMale" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="5%" stopColor="#FB8D1E" stopOpacity={0.6} />
+          <stop offset="75%" stopColor="#FB8D1E" stopOpacity={0.7} />
         </linearGradient>
       </defs>
       <Tooltip />
 
-      {((isSummaryPage && ((axisOption === "country") || (axisOption === "gender"))) || !isSummaryPage) && (
+      {((isSummaryPage && (axisOption === "country")) || !isSummaryPage) && (
         <>
           <Bar
             type="monotone"
@@ -213,14 +211,33 @@ export const SummaryChart = ({
         </>
       )}
 
-      {isSummaryPage && (axisOption === "lgbt") && (
+      {(isSummaryPage && (axisOption === "lgbt")) && (
         <Bar
-        type="monotone"
-        dataKey={"lgbt"}
-        stackId="1"
-        stroke="blue"
-        fill="url(#colorLGBTQ)"
-      />
+          type="monotone"
+          dataKey={"lgbt"}
+          stackId="1"
+          stroke="blue"
+          fill="url(#colorLGBT)"
+        />
+      )}
+
+      {(isSummaryPage && (axisOption === "gender")) && (
+        <>
+        <Bar
+          type="monotone"
+          dataKey={"gender.Male"}
+          stackId="1"
+          stroke="orange"
+          fill="url(#colorMale)"
+        />
+        <Bar
+          type="monotone"
+          dataKey={"gender.Female"}
+          stackId="1"
+          stroke="purple"
+          fill="url(#colorFemale)"
+        />
+      </>
       )}
 
       <CartesianGrid strokeDasharray="2 3" opacity={0.1} vertical={false} />
@@ -247,7 +264,10 @@ export const SummaryChart = ({
         </YAxis>
       )}
 
-      {(((axisOption === "country") || (axisOption === "lgbt")) && isSummaryPage) && (
+      {(((axisOption === "country") ||
+          (axisOption === "lgbt") ||
+          (axisOption === "gender")) &&
+          isSummaryPage) && (
         <XAxis
         type="number"
         axisLine={true}
@@ -255,17 +275,10 @@ export const SummaryChart = ({
         />
       )}
 
-      {((axisOption === "gender") && isSummaryPage) && (
-        <XAxis
-        axisLine={true}
-        tickLine={true}
-        tickCount={ticks}
-        dataKey="gender"
-        tickFormatter={(gender: string) => t(gender)}
-        />
-      )}
-
-      {isSummaryPage && ((axisOption === "country") || (axisOption === "lgbt")) && (
+      {isSummaryPage &&
+      ((axisOption === "country") ||
+      (axisOption === "lgbt") ||
+      (axisOption === "gender")) && (
         <YAxis
         axisLine={true}
         tickLine={true}
@@ -280,14 +293,6 @@ export const SummaryChart = ({
         </YAxis>
       )}
 
-      {isSummaryPage && (axisOption === "gender")} {
-        <YAxis
-        axisLine={true}
-        tickLine={true}
-        tickCount={ticks}
-        >
-        </YAxis>
-      }
       <Legend
         verticalAlign="top"
         formatter={(value, entry, index) => {
@@ -298,6 +303,10 @@ export const SummaryChart = ({
               return t("dashboardPage.result.R");
             } else if (value === "lgbt") {
               return t("dashboardPage.lgbt")
+            } else if (value === "gender.Male") {
+              return t("filterPage.sex.male")
+            } else if (value === "gender.Female") {
+              return t("filterPage.sex.female")
             }
           }
           return t(value);

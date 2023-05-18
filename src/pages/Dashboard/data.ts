@@ -110,7 +110,7 @@ export const data = [
     },
     gender: {
       Male: 50,
-      Female: 4,
+      Female: 450,
       Other: 25,
       Unknown: 25,
     },
@@ -128,8 +128,8 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 50,
-      Female: 4,
+      Male: 490,
+      Female: 3000,
       Other: 25,
       Unknown: 25,
     },
