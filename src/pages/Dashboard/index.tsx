@@ -7,7 +7,7 @@ import {
 } from "./components";
 
 import { Footer, Nav } from "../../components";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 import { data } from "./data";
 import { useTranslation } from "react-i18next";
@@ -46,6 +46,7 @@ export const Dashboard = () => {
   const boxDropDownText = t("dashboardPage.boxDropDownText")
   const initialChartHeight = 590;
   const [dynamicChartHeight, setChartHeight] = useState<number>(initialChartHeight);
+  const scrollDivRef = useRef<HTMLDivElement>(null);
 
   let chartAreaWidth: string;
   let chartWidth: number;
@@ -136,6 +137,14 @@ export const Dashboard = () => {
     chartHeight = initialChartHeight;
   }
 
+  // Function that scrolls the chart back to the top
+  // if few enough countries are displayed
+  const ScrollChartToTop = () => {
+    if (scrollDivRef.current !== null) {
+      scrollDivRef.current.scrollTop = 0;
+    }
+  };
+
   return (
     <div
       style={{
@@ -171,7 +180,7 @@ export const Dashboard = () => {
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
 
-          <div id="scrollDiv" style={{
+          <div id="scrollDiv" ref={scrollDivRef} style={{
             height: "600px",
             overflowY: "scroll",
             border: "2px solid grey",
@@ -187,6 +196,7 @@ export const Dashboard = () => {
             countryNames={countryNames}
             countryEntries={countryEntries}
             initialH={initialChartHeight}
+            scrollToTop={ScrollChartToTop}
             />
           </div>
 

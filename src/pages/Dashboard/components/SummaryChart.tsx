@@ -44,6 +44,7 @@ interface SummaryChartProps {
   checkedCountryOptions?: string[]
   countryNames?: string[];
   countryEntries?: Country[];
+  scrollToTop?: () => void;
 }
 
 export const SummaryChart = ({
@@ -57,6 +58,7 @@ export const SummaryChart = ({
   checkedCountryOptions,
   countryNames,
   countryEntries,
+  scrollToTop,
 }: SummaryChartProps) => {
   const { t } = useTranslation();
 
@@ -134,8 +136,11 @@ export const SummaryChart = ({
   }
 
   // If we are displaying few enough countries, we don't need to expand the chart height
-  if ((displayedData.length < numberOfDataPointLimit) && (initialH !== undefined)) {
+  if ((displayedData.length < numberOfDataPointLimit) &&
+  (initialH !== undefined) &&
+  (scrollToTop !== undefined)) {
     height = initialH;
+    scrollToTop();
   }
 
   // Display a message to the user if the chosen category has no selected countries
