@@ -190,7 +190,7 @@ export const SummaryChart = ({
           <stop offset="75%" stopColor="#FB8D1E" stopOpacity={0.7} />
         </linearGradient>
       </defs>
-      <Tooltip />
+      <Tooltip/>
 
       {((isSummaryPage && (axisOption === "result")) || !isSummaryPage) && (
         <>
@@ -200,6 +200,7 @@ export const SummaryChart = ({
             stackId="1"
             stroke="green"
             fill="url(#colorAccepted)"
+            name="Accepted"
           />
           <Bar
             type="monotone"
@@ -207,6 +208,7 @@ export const SummaryChart = ({
             stackId="1"
             stroke="red"
             fill="url(#colorRejected)"
+            name="Rejected"
           />
         </>
       )}
@@ -218,6 +220,7 @@ export const SummaryChart = ({
           stackId="1"
           stroke="blue"
           fill="url(#colorLGBT)"
+          name="LGBT"
         />
       )}
 
@@ -229,6 +232,7 @@ export const SummaryChart = ({
           stackId="1"
           stroke="orange"
           fill="url(#colorMale)"
+          name="Males"
         />
         <Bar
           type="monotone"
@@ -236,6 +240,7 @@ export const SummaryChart = ({
           stackId="1"
           stroke="purple"
           fill="url(#colorFemale)"
+          name="Females"
         />
       </>
       )}
