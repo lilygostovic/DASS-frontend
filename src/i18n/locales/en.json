@@ -11,7 +11,7 @@
   "dashboardPage": {
     "overviewStats": "Overview of Cases",
     "sex": "Sex",
-    "lgbtq": "LGBTQ",
+    "lgbt": "LGBT",
     "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
     "addButton": "Confirm Choices",
@@ -561,7 +561,7 @@
       "gender": "Gender",
       "motive": "Asylum Motive",
       "country": "Country",
-      "lgbtq": "LGBTQ"
+      "lgbt": "LGBT"
     }
   },
   "continentDropDown": {

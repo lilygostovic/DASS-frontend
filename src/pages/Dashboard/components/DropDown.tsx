@@ -15,7 +15,7 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
   const countryText = t("summaryDropDown.options.country");
   const genderText = t("summaryDropDown.options.gender");
   const motiveText = t("summaryDropDown.options.motive");
-  const lgbtqText = t("summaryDropDown.options.lgbtq")
+  const lgbtText = t("summaryDropDown.options.lgbt")
 
   return (
     <select value={selectedOption} onChange={handleMenuChange}
@@ -34,7 +34,7 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
         <option value="country">{countryText}</option>
         <option value="gender">{genderText}</option>
         <option value="motive">{motiveText}</option>
-        <option value="lgbtq">{lgbtqText}</option>
+        <option value="lgbt">{lgbtText}</option>
     </select>
   )
 }

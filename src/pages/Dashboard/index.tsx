@@ -125,7 +125,7 @@ export const Dashboard = () => {
   }
 
   // Resize the chart appropriately when viewing countries
-  if ((dropDownOption === "country") || dropDownOption === "lgbtq") {
+  if ((dropDownOption === "country") || dropDownOption === "lgbt") {
     chartAreaWidth = "1200px";
     chartWidth = 1100;
     chartHeight = dynamicChartHeight;
@@ -196,11 +196,11 @@ export const Dashboard = () => {
             justifyContent: "center",
           }}
           >
-            {((dropDownOption !== "country") && (dropDownOption !== "lgbtq")) && (
+            {((dropDownOption !== "country") && (dropDownOption !== "lgbt")) && (
               <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
             )}
 
-            {((dropDownOption === "country") || (dropDownOption === "lgbtq")) && (
+            {((dropDownOption === "country") || (dropDownOption === "lgbt")) && (
               <div style={{
                 display: "flex",
                 flexDirection: "column",
@@ -215,7 +215,7 @@ export const Dashboard = () => {
             )}
           </div>
         </div>
-        {((dropDownOption === "country") || (dropDownOption === "lgbtq")) && (
+        {((dropDownOption === "country") || (dropDownOption === "lgbt")) && (
           <div style={{
             display: "flex",
             flexDirection: "column",

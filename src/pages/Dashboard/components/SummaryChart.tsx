@@ -77,7 +77,7 @@ export const SummaryChart = ({
   let height = h;
   const numberOfDataPointLimit = 15;
   const xTextSize = 15;
-  const chartLayout = ((axisOption === "country") || (axisOption === "lgbtq") || !isSummaryPage) ? "vertical" : "horizontal";
+  const chartLayout = ((axisOption === "country") || (axisOption === "lgbt") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
 
@@ -99,7 +99,7 @@ export const SummaryChart = ({
   // and every name that appears as "checked" is added to the currently displayed dataset
   if ((checkedCountryOptions !== undefined) &&
       (countryEntries !== undefined) &&
-      ((axisOption === "country") || axisOption === "lgbtq") &&
+      ((axisOption === "country") || axisOption === "lgbt") &&
       isSummaryPage) {
     countryNames?.forEach((c) => {
       if (checkedCountryOptions.includes(c)) {
@@ -124,7 +124,7 @@ export const SummaryChart = ({
   }
 
   // Display only countries from the selected continent
-  if (((axisOption === "country") || (axisOption === "lgbtq")) &&
+  if (((axisOption === "country") || (axisOption === "lgbt")) &&
         continentOption !== "all" && isSummaryPage) {
     if (continentOption === "Amerika") {
       displayedData = displayedData.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
@@ -138,7 +138,7 @@ export const SummaryChart = ({
   if (axisOption === "country") {
     // Sort displayed data according to number of cases
     displayedData = displayedData.sort((a, b) => (b.total - a.total));
-  } else if (axisOption === "lgbtq") {
+  } else if (axisOption === "lgbt") {
     // Sort displayed data according to number of LGBTQ cases
     displayedData = displayedData.sort((a, b) => (b.lgbt - a.lgbt));
   }
@@ -213,7 +213,7 @@ export const SummaryChart = ({
         </>
       )}
 
-      {isSummaryPage && (axisOption === "lgbtq") && (
+      {isSummaryPage && (axisOption === "lgbt") && (
         <Bar
         type="monotone"
         dataKey={"lgbt"}
@@ -247,7 +247,7 @@ export const SummaryChart = ({
         </YAxis>
       )}
 
-      {(((axisOption === "country") || (axisOption === "lgbtq")) && isSummaryPage) && (
+      {(((axisOption === "country") || (axisOption === "lgbt")) && isSummaryPage) && (
         <XAxis
         type="number"
         axisLine={true}
@@ -265,7 +265,7 @@ export const SummaryChart = ({
         />
       )}
 
-      {isSummaryPage && ((axisOption === "country") || (axisOption === "lgbtq")) && (
+      {isSummaryPage && ((axisOption === "country") || (axisOption === "lgbt")) && (
         <YAxis
         axisLine={true}
         tickLine={true}
@@ -297,7 +297,7 @@ export const SummaryChart = ({
             } else if (value === "status.Rejected") {
               return t("dashboardPage.result.R");
             } else if (value === "lgbt") {
-              return t("dashboardPage.lgbtq")
+              return t("dashboardPage.lgbt")
             }
           }
           return t(value);
