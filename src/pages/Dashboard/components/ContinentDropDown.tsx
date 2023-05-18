@@ -26,14 +26,16 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
         width: "140px",
         fontWeight: "bold",
         color: "black",
-        borderRadius: "4px",
+        borderRadius: "15px",
         border: "1px solid grey",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
         fontSize: "15px",
         marginLeft: "25px",
         marginRight: "25px",
         marginTop: "1px",
         marginBottom: "20px",
         cursor: "pointer",
+        padding: "0px 5px",
       }}
     >
         <option value="all">{allText}</option>

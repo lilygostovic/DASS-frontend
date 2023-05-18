@@ -219,8 +219,8 @@ export const Dashboard = () => {
                 display: "flex",
                 flexDirection: "column",
                 marginTop: "15px",
-                boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
                 borderRadius: "8px",
+                border: "1px solid grey",
                 height: "110px",
               }}>
                 <DropDown selectedOption={dropDownOption} setOption={setDropDown} />

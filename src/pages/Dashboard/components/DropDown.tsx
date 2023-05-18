@@ -25,10 +25,12 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
         fontWeight: "bold",
         border: "1px solid grey",
         color: "black",
-        borderRadius: "4px",
+        borderRadius: "15px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
         fontSize: "19px",
         margin: "20px 25px",
         cursor: "pointer",
+        padding: "5px 10px",
       }}
     >
         <option value="result">{resultText}</option>
