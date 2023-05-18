@@ -74,6 +74,12 @@ export const SummaryChart = ({
   const chartLayout = ((axisOption === "result") || (axisOption === "lgbt") || (axisOption === "gender") || !isSummaryPage) ? "vertical" : "horizontal";
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
+  const unknownText = t("dashboardPage.unknown");
+  const maleText = t("filterPage.sex.male");
+  const femaleText = t("filterPage.sex.female");
+  const accText = t("filterPage.accepted.accepted");
+  const recText = t("filterPage.accepted.rejected");
+  const lgbtText = t("summaryDropDown.options.lgbt");
 
   // The y-axis needs more space to be displayed if we are on summary
   if (isSummaryPage) {
@@ -194,6 +200,10 @@ export const SummaryChart = ({
           <stop offset="5%" stopColor="#FB8D1E" stopOpacity={0.6} />
           <stop offset="75%" stopColor="#FB8D1E" stopOpacity={0.7} />
         </linearGradient>
+        <linearGradient id="colorUnknown" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="5%" stopColor="#black" stopOpacity={0.2} />
+          <stop offset="75%" stopColor="#black" stopOpacity={0.2} />
+        </linearGradient>
       </defs>
       <Tooltip/>
 
@@ -205,7 +215,7 @@ export const SummaryChart = ({
             stackId="1"
             stroke="green"
             fill="url(#colorAccepted)"
-            name="Accepted"
+            name={accText}
           />
           <Bar
             type="monotone"
@@ -213,7 +223,16 @@ export const SummaryChart = ({
             stackId="1"
             stroke="red"
             fill="url(#colorRejected)"
-            name="Rejected"
+            name={recText}
+          />
+          <Bar
+            type="monotone"
+            dataKey={"status.Unknown"}
+            stackId="1"
+            stroke="black"
+            fill="url(#colorUnknown)"
+            strokeDasharray="5 5"
+            name={unknownText}
           />
         </>
       )}
@@ -225,7 +244,7 @@ export const SummaryChart = ({
           stackId="1"
           stroke="blue"
           fill="url(#colorLGBT)"
-          name="LGBT"
+          name={lgbtText}
         />
       )}
 
@@ -237,7 +256,7 @@ export const SummaryChart = ({
           stackId="1"
           stroke="orange"
           fill="url(#colorMale)"
-          name="Males"
+          name={maleText}
         />
         <Bar
           type="monotone"
@@ -245,8 +264,17 @@ export const SummaryChart = ({
           stackId="1"
           stroke="purple"
           fill="url(#colorFemale)"
-          name="Females"
+          name={femaleText}
         />
+        <Bar
+            type="monotone"
+            dataKey={"gender.Unknown"}
+            stackId="1"
+            stroke="black"
+            fill="url(#colorUnknown)"
+            strokeDasharray="5 5"
+            name={unknownText}
+          />
       </>
       )}
 

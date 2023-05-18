@@ -21,7 +21,8 @@
     "result": {
       "A": "Accepted",
       "R": "Rejected"
-    }
+    },
+    "unknown": "Unknown"
   },
   "filterPage": {
     "accepted": {
