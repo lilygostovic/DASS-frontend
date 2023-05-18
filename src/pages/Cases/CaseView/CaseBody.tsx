@@ -4,6 +4,8 @@ import styled from "styled-components";
 const Container = styled.div`
   line-height: 1.25;
   padding-top: 20px;
+  height: 400px;
+  overflow: auto;
 `;
 
 interface CaseBodyProps {

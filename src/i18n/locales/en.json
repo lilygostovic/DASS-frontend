@@ -29,23 +29,13 @@
       "label": "Motive"
     },
     "country": {
-      "label": "Country of Origin",
-      "afghanistan": "Afghanistan",
-      "iran": "Iran",
-      "syria": "Syrien"
+      "label": "Country of Origin"
     },
     "gender": {
       "label": "Gender",
       "female": "Female",
       "male": "Male",
       "unknown": "Unknown"
-    },
-    "ageFilter": {
-      "label": "Age",
-      "minPlaceholder": "Min",
-      "minLabel": "Minimum Age",
-      "maxPlaceholder": "Max",
-      "maxLabel": "Maximum Age"
     },
     "allOption": "All",
     "form": {

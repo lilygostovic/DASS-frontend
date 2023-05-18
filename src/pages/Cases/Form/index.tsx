@@ -1,5 +1,4 @@
 import {
-  AgeInput,
   Container,
   FormInput,
   FormRow,
@@ -14,6 +13,9 @@ import {
   type UseFormRegister,
 } from "react-hook-form";
 
+import { countries } from "../../../common";
+import i18n from "src/i18n/config";
+import { motives } from "src/common/motives";
 import { useTranslation } from "react-i18next";
 
 interface FormProps {
@@ -35,18 +37,11 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
   const motiveLabel = t("filterPage.motive.label");
 
   const countryLabel = t("filterPage.country.label");
-  const afghanistanOption = t("filterPage.country.afghanistan");
-  const iranOption = t("filterPage.country.iran");
-  const syriaOption = t("filterPage.country.syria");
 
   const genderLabel = t("filterPage.gender.label");
   const femaleOption = t("filterPage.gender.female");
   const maleOption = t("filterPage.gender.male");
   const unknownGenderOption = t("filterPage.gender.unknown");
-
-  const ageLabel = t("filterPage.ageFilter.label");
-  const minAgePlaceholder = t("filterPage.ageFilter.minPlaceholder");
-  const maxAgePlaceholder = t("filterPage.ageFilter.maxPlaceholder");
 
   return (
     <Container>
@@ -64,7 +59,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
           <FormInput>
             <Label>{acceptedLabel}</Label>
             <Select {...register("accepted")}>
-              <option value={allOption}>{allOption}</option>
+              <option value="">{allOption}</option>
               <option value={acceptedOption}>{acceptedOption}</option>
               <option value={rejectedOption}>{rejectedOption}</option>
               <option value={unknownOption}>{unknownOption}</option>
@@ -72,48 +67,40 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
           </FormInput>
           <FormInput>
             <Label>{motiveLabel}</Label>
+            {/* todo:: make this a multi select */}
             <Select {...register("motive")} placeholder="Motive">
-              <option value={allOption}>{allOption}</option>
+              <option value="">{allOption}</option>
+              {motives.map((motive) => (
+                <option key={motive.en} value={motive.dk}>
+                  {i18n.language === "en" ? motive.en : motive.dk}
+                </option>
+              ))}
             </Select>
           </FormInput>
         </FormRow>
         <FormRow>
           <FormInput>
             <Label>{countryLabel}</Label>
+            {/* todo:: make this a multi select */}
             <Select {...register("country")}>
-              {/* REMEMBER THIS MUST BE ALL ****DANISH**** COUNTRY NAMES AS VALUES so it hits the backend proper */}
-              <option value={allOption}>{allOption}</option>
-              <option value={afghanistanOption}>{afghanistanOption}</option>
-              <option value={iranOption}>{iranOption}</option>
-              <option value={syriaOption}>{syriaOption}</option>
+              <option value="">{allOption}</option>
+              {countries.map((country) => (
+                <option key={country.short} value={country.dk}>
+                  {i18n.language === "en" ? country.en : country.dk}
+                </option>
+              ))}
             </Select>
           </FormInput>
           <FormInput>
             <Label>{genderLabel}</Label>
             <Select {...register("gender")} placeholder="Gender">
-              <option value={allOption}>{allOption}</option>
+              <option value="">{allOption}</option>
               <option value={femaleOption}>{femaleOption}</option>
               <option value={maleOption}>{maleOption}</option>
               <option value={unknownGenderOption}>{unknownGenderOption}</option>
             </Select>
           </FormInput>
         </FormRow>
-        <FormInput>
-          <Label>{ageLabel}</Label>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <AgeInput
-              {...register("minAge", { min: 0, max: 99 })}
-              type="number"
-              placeholder={minAgePlaceholder}
-            />
-            <AgeInput
-              {...register("maxAge", { min: 0, max: 99 })}
-              type="number"
-              placeholder={maxAgePlaceholder}
-              style={{ marginLeft: "10px" }}
-            />
-          </div>
-        </FormInput>
         <Submit type="submit" />
       </form>
     </Container>

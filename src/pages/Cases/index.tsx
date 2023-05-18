@@ -5,19 +5,11 @@ import { CaseView } from "./CaseView";
 import { type Filters } from "./CaseView/Types";
 import { Form } from "./Form";
 import { Nav } from "../../components";
+import { StyledDiv } from "src/components/common/StyledDiv";
 import { casesService } from "../../services/casesService";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 
-const Content = styled.div`
-  margin: 50px 10vw;
-  height: 80vh;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-`;
 const RefreshButton = styled.button`
   width: 150px;
   margin: 40px 0px;
@@ -47,7 +39,10 @@ export const Cases = () => {
       status: data.status,
       gender: data.gender,
       country: data.country,
-      // keywords: [], //todo:: figure out how to add with typing
+      keywords:
+        data.motive !== undefined
+          ? [{ name: data.motive, type: "Asylmotiv" }]
+          : undefined,
     });
 
     const randIndex = Math.floor(Math.random() * cases.length);
@@ -81,23 +76,28 @@ export const Cases = () => {
   return (
     <div>
       <Nav />
-      <Content>
+      <StyledDiv
+        margin="50px 10vw"
+        height="80vh"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+      >
         <Form
           register={register}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
         />
         {randomCase !== null && randomCase !== undefined && (
-          <div
+          <StyledDiv
             id="case-view"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
           >
             <CaseView randomCase={randomCase} />
             <RefreshButton
+              // todo:: make work
               // eslint-disable-next-line @typescript-eslint/no-misused-promises
               onClick={async () => {
                 await fetchCase(filters);
@@ -105,9 +105,9 @@ export const Cases = () => {
             >
               View New Case
             </RefreshButton>
-          </div>
+          </StyledDiv>
         )}
-      </Content>
+      </StyledDiv>
     </div>
   );
 };

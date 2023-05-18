@@ -3,18 +3,6 @@ import styled from "styled-components";
 const FIELD_WIDTH = 200;
 const FONT_SIZE = 12;
 
-export const AgeInput = styled.input`
-  font-size: ${FONT_SIZE}px;
-
-  width: ${FIELD_WIDTH / 2 - 20}px;
-
-  border: 1px solid lightGrey;
-  border-radius: 8px;
-
-  padding: 8px;
-  margin: 4px 0px;
-`;
-
 export const Select = styled.select`
   font-size: ${FONT_SIZE}px;
   width: ${FIELD_WIDTH + 10}px;
