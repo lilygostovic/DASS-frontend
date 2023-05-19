@@ -11,9 +11,18 @@ export const Select = styled.select`
 `;
 
 export const Submit = styled.input`
+  background-color: #6f6ad1;
+
+  border: none;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  color: white;
+  font-weight: bold;
+
+  padding: 16px 32px;
   margin-top: 20px;
-  padding: 4px;
-  width: ${FIELD_WIDTH + 10}px;
+  cursor: pointer;
 `;
 
 export const Label = styled.label`
@@ -32,8 +41,6 @@ export const FormRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
-
-export const Title = styled.h1``;
 
 export const Container = styled.div`
   display: flex;

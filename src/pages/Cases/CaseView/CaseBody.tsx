@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledText } from "src/components/common/StyledText";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -12,5 +13,7 @@ interface CaseBodyProps {
   text: string;
 }
 export const CaseBody = ({ text }: CaseBodyProps) => (
-  <Container>{text}</Container>
+  <Container>
+    <StyledText variant="paragraphSmall">{text}</StyledText>
+  </Container>
 );

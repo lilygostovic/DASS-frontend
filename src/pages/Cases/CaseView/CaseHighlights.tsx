@@ -1,4 +1,5 @@
 import { type Case } from "../../../services/casesService/model";
+import { StyledText } from "src/components/common/StyledText";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
@@ -13,7 +14,12 @@ interface FilterPropertyProps {
 
 const FilterProperty = ({ filter, value }: FilterPropertyProps) => (
   <div style={{ padding: "12px" }}>
-    <b>{filter}:</b> {value}
+    <StyledText variant="labelSmall" color="#6e55ce" fontWeight="bold">
+      {filter}:{" "}
+    </StyledText>
+    <StyledText variant="labelSmall" color="black">
+      {value}
+    </StyledText>
   </div>
 );
 
@@ -27,7 +33,6 @@ export const CaseHighlights = ({ randomCase }: CaseHighlightsProps) => {
   const motiveLabel = t("filterPage.motive.label");
   const countryLabel = t("filterPage.country.label");
   const genderLabel = t("filterPage.gender.label");
-  // const ageLabel = t("filterPage.age.label");
 
   return (
     <Container>
@@ -38,7 +43,6 @@ export const CaseHighlights = ({ randomCase }: CaseHighlightsProps) => {
       />
       <FilterProperty filter={countryLabel} value={randomCase.country.name} />
       <FilterProperty filter={genderLabel} value={randomCase.gender} />
-      {/* <FilterProperty filter={ageLabel} value={randomCase.age} /> */}
     </Container>
   );
 };

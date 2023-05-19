@@ -2,6 +2,7 @@ import { CaseHighlights, type CaseHighlightsProps } from "./CaseHighlights";
 
 import { CaseBody } from "./CaseBody";
 import { StyledDiv } from "src/components/common/StyledDiv";
+import { StyledText } from "src/components/common/StyledText";
 import { useTranslation } from "react-i18next";
 
 export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
@@ -19,7 +20,9 @@ export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
       borderRadius="12px"
       boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
     >
-      <h1>{title}</h1>
+      <StyledText variant="headerBig" color="#4e3dcb" mt="12px" mb="12px">
+        {title}
+      </StyledText>
       <CaseHighlights randomCase={randomCase} />
       <CaseBody text={randomCase.body} />
     </StyledDiv>

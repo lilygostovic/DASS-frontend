@@ -42,6 +42,7 @@
       "title": "Filter For Specific Cases"
     },
     "caseViewTitle": "Case #",
+    "viewedText": "Viewed: {{viewed}}/{{matching}}",
     "refreshButton": "New Case",
     "noResult": {
       "title": "No Result Found",

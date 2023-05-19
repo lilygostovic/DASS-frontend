@@ -5,7 +5,6 @@ import {
   Label,
   Select,
   Submit,
-  Title,
 } from "./StyledComponents";
 import {
   type FieldValues,
@@ -13,6 +12,7 @@ import {
   type UseFormRegister,
 } from "react-hook-form";
 
+import { StyledText } from "src/components/common/StyledText";
 import { countries } from "../../../common";
 import i18n from "src/i18n/config";
 import { motives } from "src/common/motives";
@@ -45,7 +45,9 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
 
   return (
     <Container>
-      <Title>{formTitle}</Title>
+      <StyledText variant="headerBig" mt="25px" mb="20px">
+        {formTitle}
+      </StyledText>
       <form
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit(onSubmit)}

@@ -8,6 +8,7 @@ import { Nav } from "../../components";
 import { NoResultView } from "./NoResultView";
 import { RefreshButton } from "./RefreshButton";
 import { StyledDiv } from "src/components/common/StyledDiv";
+import { StyledText } from "src/components/common/StyledText";
 import { casesService } from "../../services/casesService";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -17,10 +18,16 @@ export const Cases = () => {
   const { getCases } = casesService;
   const { t } = useTranslation();
 
-  const refreshButton = t("filterPage.refreshButton");
-
   const [cases, setCases] = useState<Case[]>([]);
   const [randomCase, setRandomCase] = useState<Case | null>();
+  const [numMatchingCases, setNumMatchingCases] = useState(0);
+  const [numViewedCases, setNumViewedCases] = useState(0);
+
+  const viewedText = t("filterPage.viewedText", {
+    matching: numMatchingCases,
+    viewed: numViewedCases,
+  });
+  const refreshButton = t("filterPage.refreshButton");
 
   const fetchCase = async (data: Filters) => {
     const cases = await getCases({
@@ -39,8 +46,10 @@ export const Cases = () => {
       const randIndex = Math.floor(Math.random() * cases.length);
       const randCase = cases[randIndex];
 
-      setRandomCase(randCase);
       setCases(cases);
+      setRandomCase(randCase);
+      setNumMatchingCases(cases.length);
+      setNumViewedCases(1);
     }
   };
 
@@ -77,8 +86,9 @@ export const Cases = () => {
         const randIndex = Math.floor(Math.random() * cases.length);
         const randCase = cases[randIndex];
 
-        setRandomCase(randCase);
         setCases(cases);
+        setRandomCase(randCase);
+        setNumViewedCases(numViewedCases + 1);
       }
     }
   };
@@ -107,8 +117,13 @@ export const Cases = () => {
             mt="150px"
           >
             <CaseView randomCase={randomCase} />
+            <StyledText variant="paragraphSmall" mt="10px">
+              {viewedText}
+            </StyledText>
             <RefreshButton onClick={displayNewCase}>
-              {refreshButton}
+              <StyledText variant="paragraphTinyBold">
+                {refreshButton}
+              </StyledText>
             </RefreshButton>
           </StyledDiv>
         )}
