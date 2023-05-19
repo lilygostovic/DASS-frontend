@@ -90,7 +90,6 @@
       "fullName": "Ghana",
       "shortName": "gha"
     },
-
     "Albanien": {
       "fullName": "Albania",
       "shortName": "alb"
@@ -284,8 +283,8 @@
       "shortName": "kos"
     },
     "Kroatien": {
-      "fullName": "Kroatia",
-      "shortName": "kro"
+      "fullName": "Croatia",
+      "shortName": "cro"
     },
     "Kuwait": {
       "fullName": "Kuwait",
@@ -428,7 +427,7 @@
       "shortName": "sle"
     },
     "Slovenien": {
-      "fullName": "Slovenien",
+      "fullName": "Slovenia",
       "shortName": "slo"
     },
     "Somalia": {

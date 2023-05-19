@@ -10,6 +10,19 @@ interface CountryCheckBoxProps {
 
 export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, initialChartHeight }: CountryCheckBoxProps) => {
   const [checkedOptions, setCheckedOptions] = useState<string[]>([]);
+  const [isHovered, setHovered] = useState<boolean>(false);
+
+  const { t } = useTranslation();
+  const boxHeader = t("dashboardPage.boxHeader");
+  const addText = t("dashboardPage.addButton");
+
+  // Options are sorted according to their English/Danish names from JSON
+  const sortedOptions = options.sort((a, b) => {
+    const transA = t(`countries.${a}.fullName`);
+    const transB = t(`countries.${b}.fullName`);
+
+    return transA.localeCompare(transB);
+  })
 
   // Some limit to signal when the chart should increase
   const optionslimit = 8;
@@ -48,9 +61,11 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
     }
   }
 
-  const { t } = useTranslation();
-  const boxHeader = t("dashboardPage.boxHeader");
-  const addText = t("dashboardPage.addButton");
+  // Set to true when we have hovering over the confirm button
+  const handleMouseHover = () => { setHovered(true); };
+
+  // Set to false when we are no longer hovering over the confirm button
+  const handleMouseStatic = () => { setHovered(false); };
 
   return (
     <div style={{
@@ -71,7 +86,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         height: "550px",
         overflowY: "scroll",
       }}>
-        {options.map((o) => (
+        {sortedOptions.map((o) => (
           <div key={o} style={{ fontSize: "15px" }}>
             <label>
               <input
@@ -80,7 +95,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
                 checked={checkedOptions.includes(o)}
                 onChange={handleCheckboxChange}>
               </input>
-              <span>{o.charAt(0).toUpperCase() + o.slice(1)}</span>
+              <span>{t(`countries.${o}.fullName`)}</span>
             </label>
           </div>
         ))}
@@ -89,7 +104,18 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         width: "100%",
         height: "40px",
         marginTop: "15px",
-      }}></input>
+        borderRadius: "15px",
+        border: "1px solid grey",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
+        backgroundColor: isHovered ? "#E0E0E0" : "white",
+        transition: "background-color 0.1s",
+        cursor: "pointer",
+        fontWeight: "bold",
+      }}
+      onMouseEnter={handleMouseHover}
+      onMouseLeave={handleMouseStatic}
+      >
+      </input>
     </div>
   );
 }

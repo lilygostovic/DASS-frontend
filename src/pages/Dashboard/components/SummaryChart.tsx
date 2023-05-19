@@ -205,7 +205,10 @@ export const SummaryChart = ({
           <stop offset="75%" stopColor="#black" stopOpacity={0.2} />
         </linearGradient>
       </defs>
-      <Tooltip/>
+
+      <Tooltip
+        labelFormatter={(label: string) => t(`countries.${label}.fullName`)}
+      />
 
       {((isSummaryPage && (axisOption === "result")) || !isSummaryPage) && (
         <>
