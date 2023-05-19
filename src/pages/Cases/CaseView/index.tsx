@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
   const { t } = useTranslation();
-  const title = `${t("filterPage.caseViewTitle")}${randomCase.id}`; // todo:: update text
+  const title = `${t("filterPage.caseViewTitle")}${randomCase.id}`;
 
   return (
     <StyledDiv

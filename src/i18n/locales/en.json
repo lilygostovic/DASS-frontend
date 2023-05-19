@@ -41,7 +41,12 @@
     "form": {
       "title": "Filter For Specific Cases"
     },
-    "caseViewTitle": "Case #"
+    "caseViewTitle": "Case #",
+    "refreshButton": "New Case",
+    "noResult": {
+      "title": "No Result Found",
+      "subtitle": "Unfortunately no cases match your search. Please try again with different search values."
+    }
   },
   "female": "Female",
   "male": "Male",

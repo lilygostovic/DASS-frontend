@@ -6,33 +6,20 @@ import { type Filters } from "./CaseView/Types";
 import { Form } from "./Form";
 import { Nav } from "../../components";
 import { NoResultView } from "./NoResultView";
+import { RefreshButton } from "./RefreshButton";
 import { StyledDiv } from "src/components/common/StyledDiv";
 import { casesService } from "../../services/casesService";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
-
-const RefreshButton = styled.button`
-  width: 150px;
-  margin: 40px 0px;
-  padding: 20px;
-
-  border-radius: 8px;
-  border: none;
-
-  color: white;
-  font-size: 14px;
-  background-color: #151515c7;
-
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-`;
+import { useTranslation } from "react-i18next";
 
 export const Cases = () => {
   const { register, handleSubmit } = useForm();
   const { getCases } = casesService;
+  const { t } = useTranslation();
 
-  const defaultFilters: Filters = {};
+  const refreshButton = t("filterPage.refreshButton");
 
-  const [filters, setFilters] = useState<Filters>(defaultFilters);
+  const [cases, setCases] = useState<Case[]>([]);
   const [randomCase, setRandomCase] = useState<Case | null>();
 
   const fetchCase = async (data: Filters) => {
@@ -53,12 +40,12 @@ export const Cases = () => {
       const randCase = cases[randIndex];
 
       setRandomCase(randCase);
+      setCases(cases);
     }
   };
 
   const onSubmit = (data: unknown) => {
     try {
-      setFilters(data as Filters);
       fetchCase(data as Filters);
 
       setTimeout(() => {
@@ -78,8 +65,26 @@ export const Cases = () => {
     }
   };
 
+  const displayNewCase = () => {
+    if (randomCase !== null && randomCase !== undefined) {
+      const i = cases.indexOf(randomCase); // get index of current case displayed
+
+      cases.splice(i, 1); // remove displayed case from array
+
+      if (cases.length === 0) {
+        setRandomCase(null);
+      } else {
+        const randIndex = Math.floor(Math.random() * cases.length);
+        const randCase = cases[randIndex];
+
+        setRandomCase(randCase);
+        setCases(cases);
+      }
+    }
+  };
+
   return (
-    <div>
+    <>
       <Nav />
       <StyledDiv
         margin="50px 10vw"
@@ -102,19 +107,13 @@ export const Cases = () => {
             mt="150px"
           >
             <CaseView randomCase={randomCase} />
-            <RefreshButton
-              // todo:: make work
-              // eslint-disable-next-line @typescript-eslint/no-misused-promises
-              onClick={async () => {
-                await fetchCase(filters);
-              }}
-            >
-              casesPage.refreshbutton.viewNewCase
+            <RefreshButton onClick={displayNewCase}>
+              {refreshButton}
             </RefreshButton>
           </StyledDiv>
         )}
         {randomCase === null && <NoResultView />}
       </StyledDiv>
-    </div>
+    </>
   );
 };
