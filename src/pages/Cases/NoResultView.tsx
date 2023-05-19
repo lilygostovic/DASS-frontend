@@ -2,10 +2,6 @@ import { StyledDiv } from "src/components/common/StyledDiv";
 import { StyledText } from "src/components/common/StyledText";
 import { noResult } from "src/images";
 
-// <div style={{ width: "400px", backgroundColor: "red", textAlign: "center" }}>
-//   <p>Result Not Found</p>
-// </div>
-
 export const NoResultView = () => (
   <StyledDiv justifyContent="center" width="350px">
     <StyledDiv height="250px" width="250px" margin="auto">
