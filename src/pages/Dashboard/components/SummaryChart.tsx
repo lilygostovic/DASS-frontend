@@ -66,9 +66,10 @@ export const SummaryChart = ({
 
   // The default displayed data is the fake country dataset
   // eslint-disable-next-line
-  let displayedData: any[] = data;
+  let displayedData = data;
   let ticks = data.length;
   let height = h;
+  const deafultCountries = data.map((c) => c.name);
   const numberOfDataPointLimit = 15;
   const xTextSize = 15;
   const chartLayout = ((axisOption === "result") || (axisOption === "lgbt") || (axisOption === "gender") || !isSummaryPage) ? "vertical" : "horizontal";
@@ -98,23 +99,17 @@ export const SummaryChart = ({
         (axisOption === "gender")) &&
       isSummaryPage) {
     countryNames?.forEach((c) => {
+      // Check if the current country is checked in the box
       if (checkedCountryOptions.includes(c)) {
         const singleCountryDataPoint = countryEntries.find((x) => x.name === c);
 
-        // eslint-disable-next-line
+        // Add country to the displayed dataset if not already there
         if (!displayedData.some((cou) => cou.name === c) && (singleCountryDataPoint !== undefined)) {
-          displayedData.push(singleCountryDataPoint);
+          displayedData = displayedData.concat(singleCountryDataPoint);
         }
-      } else {
-        // NOTE: The below line is strange for multiple reasons
-        // (1) If you name the parameter variable within the filter call, anything other than "c"
-        // then the default countries are removed from the dataset.
-        // (2) If you comment out this line then the first country of every continent list on the checkbox
-        // will disappear once the option is unchecked again.
-        // For example, if you check off Albania, and then uncheck it, it's gone?
-        // However, keeping the below line makes the chart work :)
-        // If this part of the code becomes a problem later we will have to discuss what to do about it
-        displayedData = displayedData.filter((c) => (c.name !== c));
+        // Remove countries from the dataset that are not part of the default
+      } else if (!deafultCountries.some((y) => y === c)) {
+        displayedData = displayedData.filter((x) => (x.name !== c));
       }
     });
   }
