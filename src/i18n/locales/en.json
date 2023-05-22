@@ -22,7 +22,8 @@
       "A": "Accepted",
       "R": "Rejected"
     },
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "reset": "Reset"
   },
   "filterPage": {
     "accepted": {

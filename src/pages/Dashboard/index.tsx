@@ -46,7 +46,7 @@ export const Dashboard = () => {
   const boxDropDownText = t("dashboardPage.boxDropDownText")
   const initialChartHeight = 590;
   const [dynamicChartHeight, setChartHeight] = useState<number>(initialChartHeight);
-  const scrollDivRef = useRef<HTMLDivElement>(null);
+  const chartDivRef = useRef<HTMLDivElement>(null);
 
   let chartAreaWidth: string;
   let chartWidth: number;
@@ -140,8 +140,8 @@ export const Dashboard = () => {
   // Function that scrolls the chart back to the top
   // if few enough countries are displayed
   const ScrollChartToTop = () => {
-    if (scrollDivRef.current !== null) {
-      scrollDivRef.current.scrollTop = 0;
+    if (chartDivRef.current !== null) {
+      chartDivRef.current.scrollTop = 0;
     }
   };
 
@@ -180,7 +180,7 @@ export const Dashboard = () => {
         >
           <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
 
-          <div id="scrollDiv" ref={scrollDivRef} style={{
+          <div id="chartDiv" ref={chartDivRef} style={{
             height: "600px",
             overflowY: "scroll",
             border: "2px solid grey",

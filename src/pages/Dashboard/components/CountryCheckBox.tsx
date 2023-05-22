@@ -15,6 +15,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
   const { t } = useTranslation();
   const boxHeader = t("dashboardPage.boxHeader");
   const addText = t("dashboardPage.addButton");
+  const resetText = t("dashboardPage.reset")
 
   // Options are sorted according to their English/Danish names from JSON
   const sortedOptions = options.sort((a, b) => {
@@ -37,6 +38,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const opt = event.target.value;
 
+    // Add the newly checked option, or remove an unchecked option
     if (event.target.checked) {
       setCheckedOptions([...checkedOptions, opt]);
       setNumberOfCheckedOptions(numberOfCheckedOptions + 1)
@@ -61,6 +63,17 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
     }
   }
 
+  // Reset checkbox
+  const handleResetClick = () => {
+    setCheckedOptions([]);
+
+    setCheckedOptionsChart([]);
+
+    setHeight(initialChartHeight);
+
+    setNumberOfCheckedOptions(0);
+  }
+
   // Set to true when we have hovering over the confirm button
   const handleMouseHover = () => { setHovered(true); };
 
@@ -83,7 +96,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
       <div style={{
         border: "1px solid grey",
         borderRadius: "4px",
-        height: "550px",
+        height: "510px",
         overflowY: "scroll",
       }}>
         {sortedOptions.map((o) => (
@@ -100,6 +113,17 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
           </div>
         ))}
       </div>
+
+      <button onClick={handleResetClick} style={{
+        cursor: "pointer",
+        marginTop: "10px",
+        marginBottom: "10px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
+        width: "100%",
+      }}>
+        {resetText}
+      </button>
+
       <input type="submit" value={addText} onClick={handleSubmitClick} style={{
         width: "100%",
         height: "40px",
