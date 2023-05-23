@@ -10,7 +10,8 @@ interface CountryCheckBoxProps {
 
 export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, initialChartHeight }: CountryCheckBoxProps) => {
   const [checkedOptions, setCheckedOptions] = useState<string[]>([]);
-  const [isHovered, setHovered] = useState<boolean>(false);
+  const [isHoveredConfirm, setHoveredConfirm] = useState<boolean>(false);
+  const [isHoveredReset, setHoveredReset] = useState<boolean>(false);
 
   const { t } = useTranslation();
   const boxHeader = t("dashboardPage.boxHeader");
@@ -75,10 +76,16 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
   }
 
   // Set to true when we have hovering over the confirm button
-  const handleMouseHover = () => { setHovered(true); };
+  const handleMouseHoverConfirm = () => { setHoveredConfirm(true); };
 
   // Set to false when we are no longer hovering over the confirm button
-  const handleMouseStatic = () => { setHovered(false); };
+  const handleMouseStaticConfirm = () => { setHoveredConfirm(false); };
+
+  // Set to true when we have hovering over the reset button
+  const handleMouseHoverReset = () => { setHoveredReset(true); };
+
+  // Set to false when we are no longer hovering over the reset button
+  const handleMouseStaticReset = () => { setHoveredReset(false); };
 
   return (
     <div style={{
@@ -120,7 +127,14 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         marginBottom: "10px",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
         width: "100%",
-      }}>
+        backgroundColor: isHoveredReset ? "#E0E0E0" : "white",
+        transition: "background-color 0.05s",
+        border: "1px solid grey",
+        borderRadius: "15px",
+      }}
+      onMouseEnter={handleMouseHoverReset}
+      onMouseLeave={handleMouseStaticReset}
+      >
         {resetText}
       </button>
 
@@ -131,13 +145,13 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         borderRadius: "15px",
         border: "1px solid grey",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
-        backgroundColor: isHovered ? "#E0E0E0" : "white",
-        transition: "background-color 0.1s",
+        backgroundColor: isHoveredConfirm ? "#E0E0E0" : "white",
+        transition: "background-color 0.05s",
         cursor: "pointer",
         fontWeight: "bold",
       }}
-      onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseStatic}
+      onMouseEnter={handleMouseHoverConfirm}
+      onMouseLeave={handleMouseStaticConfirm}
       >
       </input>
     </div>
