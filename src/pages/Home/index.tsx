@@ -31,6 +31,7 @@ export const Home = () => {
         <HomeTextBlock
           title={aboutTitleText}
           text={aboutText}
+          links={["https://www.ku.dk/"]}
         />
         <HomeTextBlock
           title={youTitle}
@@ -39,6 +40,7 @@ export const Home = () => {
         <HomeTextBlock
           title={resTitle}
           text={resBody}
+          links={["https://fln.dk/"]}
         />
         <HomeTextBlock
           title={contactTitle}

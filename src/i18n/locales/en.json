@@ -9,7 +9,7 @@
     "subtitle": "A summary of statistics about Asylum Seekers in Denmark. ",
     "about": {
       "title": "About This Project",
-      "body": "This webapp is part of a project from the University of Copenhagen developed by 6 students. The main goal of our app is to provide easily available summary statistics to asylum seekers and their lawyers. Such statistics are found on the pages that you can navigate around. We hope that you are able to find the information you are looking for, and that you have a pleasant experience with our system while doing so. Every decision we have made, over the course of this project, has been to improve the usability of accessing relevant asylum data for your benefit. We have considered many ideas for how to make your asylum seeking process as simple as possible. Therefore, our webapp provides a simpler overview of statistics that others do not. Our top priority is achieving your satisfaction."
+      "body": "This webapp is part of a project from the University of Copenhagen developed by 6 students. The main goal of our app is to provide easily available summary statistics to asylum seekers and their lawyers. Such statistics are found on the pages that you can navigate around. We hope that you are able to find the information you are looking for, and that you have a pleasant experience with our system while doing so. Every decision we have made, over the course of this project, has been to improve the usability of accessing relevant asylum data for your benefit. We have considered many ideas for how to make your asylum seeking process as simple as possible. Therefore, our webapp provides a simpler overview of statistics that others do not. Our top priority is achieving your satisfaction. Visit our university by using the below link:"
     },
     "you": {
       "title": "What YOU Have to Do",
@@ -17,7 +17,7 @@
     },
     "res": {
       "title": "Resources",
-      "body": "Our webapp is based on the home of Flygtningenævnet, which is where our data is gathered from. The data from our statistical representations originates from the Praksis section, which contains the actual cases and their descriptions. Should you wish to access additional information and details that are not provided by us, please visit: https://fln.dk/."
+      "body": "Our webapp is based on the home of Flygtningenævnet, which is where our data is gathered from. The data from our statistical representations originates from the Praksis section, which contains the actual cases and their descriptions. Should you wish to access additional information and details that are not provided by us, please visit the below link:"
     },
     "contact": {
       "title": "Contact Us",
