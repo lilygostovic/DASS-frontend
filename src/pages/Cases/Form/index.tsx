@@ -37,6 +37,8 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
   const maleOption = t("filterPage.gender.male");
   const unknownGenderOption = t("filterPage.gender.unknown");
 
+  const submitButton = t("filterPage.submitButton");
+
   return (
     <StyledDiv
       pt="70px"
@@ -99,7 +101,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
             </Select>
           </FormInput>
         </div>
-        <Submit type="submit" />
+        <Submit type="submit" value={submitButton} />
       </form>
     </StyledDiv>
   );
