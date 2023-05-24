@@ -62,7 +62,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
         <div>
           <FormInput>
             <Label>{acceptedLabel}</Label>
-            <Select {...register("accepted")}>
+            <Select {...register("status")}>
               <option value="">{allOption}</option>
               <option value={acceptedOption}>{acceptedOption}</option>
               <option value={rejectedOption}>{rejectedOption}</option>

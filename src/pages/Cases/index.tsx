@@ -69,6 +69,7 @@ export const Cases = () => {
 
   const onSubmit = (data: unknown) => {
     try {
+      console.log(data);
       fetchCase(data as Filters);
     } catch {
       const dataStr = data as string;
