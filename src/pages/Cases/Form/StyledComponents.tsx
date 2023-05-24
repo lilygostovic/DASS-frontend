@@ -21,7 +21,7 @@ export const Submit = styled.input`
   font-weight: bold;
 
   padding: 16px 32px;
-  margin-top: 20px;
+  margin-bottom: 30px;
   cursor: pointer;
 `;
 
@@ -34,7 +34,7 @@ export const Label = styled.label`
 export const FormInput = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 15px 0px;
 `;
 
 export const FormRow = styled.div`

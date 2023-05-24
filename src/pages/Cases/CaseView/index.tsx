@@ -11,6 +11,8 @@ export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
 
   return (
     <StyledDiv
+      width="70%"
+      height="75%"
       display="flex"
       flexDirection="column"
       alignItems="center"

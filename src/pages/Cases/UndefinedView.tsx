@@ -1,18 +1,18 @@
 import { StyledDiv } from "src/components/common/StyledDiv";
 import { StyledText } from "src/components/common/StyledText";
-import { noResult } from "src/images";
+import { readBook } from "src/images";
 import { useTranslation } from "react-i18next";
 
-export const NoResultView = () => {
+export const UndefinedView = () => {
   const { t } = useTranslation();
 
-  const title = t("filterPage.noResult.title");
-  const subtitle = t("filterPage.noResult.subtitle");
+  const title = t("filterPage.undefinedView.title");
+  const subtitle = t("filterPage.undefinedView.subtitle");
 
   return (
     <StyledDiv width="100%" alignSelf="center">
-      <StyledDiv height="250px" width="250px" margin="auto">
-        <img src={noResult} height="250px" />
+      <StyledDiv height="200px" width="200px" margin="auto">
+        <img src={readBook} height="200px" />
       </StyledDiv>
       <div
         style={{

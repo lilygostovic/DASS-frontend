@@ -1,17 +1,11 @@
 import {
-  Container,
-  FormInput,
-  FormRow,
-  Label,
-  Select,
-  Submit,
-} from "./StyledComponents";
-import {
   type FieldValues,
   type UseFormHandleSubmit,
   type UseFormRegister,
 } from "react-hook-form";
+import { FormInput, Label, Select, Submit } from "./StyledComponents";
 
+import { StyledDiv } from "src/components/common/StyledDiv";
 import { StyledText } from "src/components/common/StyledText";
 import { countries } from "../../../common";
 import i18n from "src/i18n/config";
@@ -44,20 +38,26 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
   const unknownGenderOption = t("filterPage.gender.unknown");
 
   return (
-    <Container>
-      <StyledText variant="headerBig" mt="25px" mb="20px">
-        {formTitle}
-      </StyledText>
+    <StyledDiv
+      pt="70px"
+      pl="30px"
+      pr="30px"
+      display="flex"
+      flexDirection="column"
+      boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+    >
+      <StyledText variant="headerBig">{formTitle}</StyledText>
       <form
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit(onSubmit)}
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          height: "100%",
+          justifyContent: "space-between",
         }}
       >
-        <FormRow>
+        <div>
           <FormInput>
             <Label>{acceptedLabel}</Label>
             <Select {...register("accepted")}>
@@ -78,8 +78,6 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
               ))}
             </Select>
           </FormInput>
-        </FormRow>
-        <FormRow>
           <FormInput>
             <Label>{countryLabel}</Label>
             <Select {...register("country")}>
@@ -100,9 +98,9 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
               <option value={unknownGenderOption}>{unknownGenderOption}</option>
             </Select>
           </FormInput>
-        </FormRow>
+        </div>
         <Submit type="submit" />
       </form>
-    </Container>
+    </StyledDiv>
   );
 };

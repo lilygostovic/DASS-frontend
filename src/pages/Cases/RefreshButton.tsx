@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const RefreshButton = styled.button`
   margin-top: 20px;
-  margin-bottom: 40px;
   padding: 12px 25px;
 
   border-radius: 8px;

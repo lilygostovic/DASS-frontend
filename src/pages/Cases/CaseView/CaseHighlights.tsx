@@ -1,11 +1,7 @@
 import { type Case } from "../../../services/casesService/model";
+import { StyledDiv } from "src/components/common/StyledDiv";
 import { StyledText } from "src/components/common/StyledText";
-import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-
-const Container = styled.div`
-  display: flex;
-`;
 
 interface FilterPropertyProps {
   filter: string;
@@ -35,7 +31,7 @@ export const CaseHighlights = ({ randomCase }: CaseHighlightsProps) => {
   const genderLabel = t("filterPage.gender.label");
 
   return (
-    <Container>
+    <StyledDiv display="flex" height="50px">
       <FilterProperty filter={acceptedLabel} value={randomCase.status} />
       <FilterProperty
         filter={motiveLabel}
@@ -43,6 +39,6 @@ export const CaseHighlights = ({ randomCase }: CaseHighlightsProps) => {
       />
       <FilterProperty filter={countryLabel} value={randomCase.country.name} />
       <FilterProperty filter={genderLabel} value={randomCase.gender} />
-    </Container>
+    </StyledDiv>
   );
 };

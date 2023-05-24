@@ -9,6 +9,7 @@ import { NoResultView } from "./NoResultView";
 import { RefreshButton } from "./RefreshButton";
 import { StyledDiv } from "src/components/common/StyledDiv";
 import { StyledText } from "src/components/common/StyledText";
+import { UndefinedView } from "./UndefinedView";
 import { casesService } from "../../services/casesService";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -56,16 +57,6 @@ export const Cases = () => {
   const onSubmit = (data: unknown) => {
     try {
       fetchCase(data as Filters);
-
-      setTimeout(() => {
-        const caseView = document.getElementById("case-view");
-
-        caseView?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      }, 100);
     } catch {
       const dataStr = data as string;
 
@@ -94,27 +85,24 @@ export const Cases = () => {
   };
 
   return (
-    <>
+    <StyledDiv display="flex" flexDirection="column" height="100vh">
       <Nav />
-      <StyledDiv
-        margin="50px 10vw"
-        height="80vh"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-      >
+      <StyledDiv display="flex" height="100%" justifyContent="space-between">
         <Form
           register={register}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
         />
+        {randomCase === null && <NoResultView />}
+        {randomCase === undefined && <UndefinedView />}
         {randomCase !== null && randomCase !== undefined && (
           <StyledDiv
             id="case-view"
             display="flex"
             flexDirection="column"
             alignItems="center"
-            mt="150px"
+            mt="30px"
+            mb="20px"
           >
             <CaseView randomCase={randomCase} />
             <StyledText variant="paragraphSmall" mt="10px">
@@ -127,8 +115,7 @@ export const Cases = () => {
             </RefreshButton>
           </StyledDiv>
         )}
-        {randomCase === null && <NoResultView />}
       </StyledDiv>
-    </>
+    </StyledDiv>
   );
 };
