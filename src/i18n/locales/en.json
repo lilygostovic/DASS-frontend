@@ -52,7 +52,8 @@
       "title": "Read Cases With Specific Filters",
       "subtitle": "Start by selecting filters on the left side menu then clicking Submit!"
     },
-    "submitButton": "View Cases"
+    "submitButton": "View Cases",
+    "timeout": "Hang on! We are working on finding matching cases."
   },
   "female": "Female",
   "male": "Male",

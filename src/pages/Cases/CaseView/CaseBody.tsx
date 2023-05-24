@@ -1,19 +1,17 @@
 import React from "react";
+import { StyledDiv } from "src/components/common/StyledDiv";
 import { StyledText } from "src/components/common/StyledText";
-import styled from "styled-components";
-
-const Container = styled.div`
-  line-height: 1.25;
-  padding-top: 20px;
-  height: 400px;
-  overflow: auto;
-`;
 
 interface CaseBodyProps {
   text: string;
 }
 export const CaseBody = ({ text }: CaseBodyProps) => (
-  <Container>
+  <StyledDiv
+    pt="20px"
+    height="400px"
+    overflow="auto"
+    style={{ lineHeight: 1.25 }}
+  >
     <StyledText variant="paragraphSmall">{text}</StyledText>
-  </Container>
+  </StyledDiv>
 );

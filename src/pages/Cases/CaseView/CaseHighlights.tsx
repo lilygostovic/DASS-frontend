@@ -31,7 +31,7 @@ export const CaseHighlights = ({ randomCase }: CaseHighlightsProps) => {
   const genderLabel = t("filterPage.gender.label");
 
   return (
-    <StyledDiv display="flex" height="50px">
+    <StyledDiv display="flex" height="60px">
       <FilterProperty filter={acceptedLabel} value={randomCase.status} />
       <FilterProperty
         filter={motiveLabel}

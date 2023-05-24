@@ -23,6 +23,7 @@ export const Cases = () => {
 
   const [cases, setCases] = useState<Case[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [timeoutPassed, setTimeoutPassed] = useState(false);
   const [randomCase, setRandomCase] = useState<Case | null>();
   const [numMatchingCases, setNumMatchingCases] = useState(0);
   const [numViewedCases, setNumViewedCases] = useState(0);
@@ -35,6 +36,11 @@ export const Cases = () => {
 
   const fetchCase = async (data: Filters) => {
     setIsLoading(true);
+    setTimeoutPassed(false);
+
+    setTimeout(() => {
+      setTimeoutPassed(true);
+    }, 4000);
 
     const cases = await getCases({
       status: data.status,
@@ -101,7 +107,7 @@ export const Cases = () => {
           onSubmit={onSubmit}
         />
         {isLoading ? (
-          <LoadingView />
+          <LoadingView timeoutPassed={timeoutPassed} />
         ) : (
           <>
             {randomCase === null && <NoResultView />}
