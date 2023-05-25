@@ -1,15 +1,6 @@
-export enum Gender {
-  Female = "Female",
-  Male = "Male",
-  Other = "Other",
-  Unknown = "Unknown",
-}
+export type Gender = "Female" | "Male" | "Other" | "Unknown";
 
-export enum Status {
-  Accepted = "Accepted",
-  Rejected = "Rejected",
-  Unknown = "Unknown",
-}
+export type Status = "Accepted" | "Rejected" | "Unknown";
 
 export interface Country {
   name: string; // todo:: tighter typing

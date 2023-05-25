@@ -1,19 +1,15 @@
 import {
-  AgeInput,
-  Container,
-  FormInput,
-  FormRow,
-  Label,
-  Select,
-  Submit,
-  Title,
-} from "./StyledComponents";
-import {
   type FieldValues,
   type UseFormHandleSubmit,
   type UseFormRegister,
 } from "react-hook-form";
+import { FormInput, Label, Select, Submit } from "./StyledComponents";
 
+import { StyledDiv } from "src/components/common/StyledDiv";
+import { StyledText } from "src/components/common/StyledText";
+import { countries } from "../../../common";
+import i18n from "src/i18n/config";
+import { motives } from "src/common/motives";
 import { useTranslation } from "react-i18next";
 
 interface FormProps {
@@ -30,91 +26,83 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
   const acceptedLabel = t("filterPage.accepted.label");
   const acceptedOption = t("filterPage.accepted.accepted");
   const rejectedOption = t("filterPage.accepted.rejected");
+  const unknownOption = t("filterPage.accepted.unknown");
 
   const motiveLabel = t("filterPage.motive.label");
 
   const countryLabel = t("filterPage.country.label");
-  const afghanistanOption = t("filterPage.country.afghanistan");
-  const iranOption = t("filterPage.country.iran");
-  const syriaOption = t("filterPage.country.syria");
 
-  const sexLabel = t("filterPage.sex.label");
-  const femaleOption = t("filterPage.sex.female");
-  const maleOption = t("filterPage.sex.male");
-  const indeterminableOption = t("filterPage.sex.indeterminable");
+  const genderLabel = t("filterPage.gender.label");
+  const femaleOption = t("filterPage.gender.female");
+  const maleOption = t("filterPage.gender.male");
+  const unknownGenderOption = t("filterPage.gender.unknown");
 
-  const ageLabel = t("filterPage.ageFilter.label");
-  const minAgePlaceholder = t("filterPage.ageFilter.minPlaceholder");
-  const maxAgePlaceholder = t("filterPage.ageFilter.maxPlaceholder");
+  const submitButton = t("filterPage.submitButton");
 
   return (
-    <Container>
-      <Title>{formTitle}</Title>
+    <StyledDiv
+      pt="70px"
+      pl="30px"
+      pr="30px"
+      display="flex"
+      flexDirection="column"
+      boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+    >
+      <StyledText variant="headerBig">{formTitle}</StyledText>
       <form
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit(onSubmit)}
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          height: "100%",
+          justifyContent: "space-between",
         }}
       >
-        <FormRow>
+        <div>
           <FormInput>
             <Label>{acceptedLabel}</Label>
-            <Select {...register("accepted")}>
-              <option value={allOption}>{allOption}</option>
+            <Select {...register("status")}>
+              <option value="">{allOption}</option>
               <option value={acceptedOption}>{acceptedOption}</option>
               <option value={rejectedOption}>{rejectedOption}</option>
+              <option value={unknownOption}>{unknownOption}</option>
             </Select>
           </FormInput>
           <FormInput>
             <Label>{motiveLabel}</Label>
             <Select {...register("motive")} placeholder="Motive">
-              <option value={allOption}>{allOption}</option>
+              <option value="">{allOption}</option>
+              {motives.map((motive) => (
+                <option key={motive.en} value={motive.dk}>
+                  {i18n.language === "en" ? motive.en : motive.dk}
+                </option>
+              ))}
             </Select>
           </FormInput>
-        </FormRow>
-        <FormRow>
           <FormInput>
             <Label>{countryLabel}</Label>
             <Select {...register("country")}>
-              <option value={allOption}>{allOption}</option>
-              <option value={afghanistanOption}>{afghanistanOption}</option>
-              <option value={iranOption}>{iranOption}</option>
-              <option value={syriaOption}>{syriaOption}</option>
+              <option value="">{allOption}</option>
+              {countries.map((country) => (
+                <option key={country.short} value={country.dk}>
+                  {i18n.language === "en" ? country.en : country.dk}
+                </option>
+              ))}
             </Select>
           </FormInput>
           <FormInput>
-            <Label>{sexLabel}</Label>
-            <Select {...register("sex")} placeholder="Sex">
-              <option value={allOption}>{allOption}</option>
+            <Label>{genderLabel}</Label>
+            <Select {...register("gender")} placeholder="Gender">
+              <option value="">{allOption}</option>
               <option value={femaleOption}>{femaleOption}</option>
               <option value={maleOption}>{maleOption}</option>
-              <option value={indeterminableOption}>
-                {indeterminableOption}
-              </option>
+              <option value={unknownGenderOption}>{unknownGenderOption}</option>
             </Select>
           </FormInput>
-        </FormRow>
-        <FormInput>
-          <Label>{ageLabel}</Label>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-            <AgeInput
-              {...register("minAge", { min: 0, max: 99 })}
-              type="number"
-              placeholder={minAgePlaceholder}
-            />
-            <AgeInput
-              {...register("maxAge", { min: 0, max: 99 })}
-              type="number"
-              placeholder={maxAgePlaceholder}
-              style={{ marginLeft: "10px" }}
-            />
-          </div>
-        </FormInput>
-        <Submit type="submit" />
+        </div>
+        <Submit type="submit" value={submitButton} />
       </form>
-    </Container>
+    </StyledDiv>
   );
 };

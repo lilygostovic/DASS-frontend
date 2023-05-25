@@ -1,36 +1,32 @@
 import { CaseHighlights, type CaseHighlightsProps } from "./CaseHighlights";
 
 import { CaseBody } from "./CaseBody";
-import styled from "styled-components";
+import { StyledDiv } from "src/components/common/StyledDiv";
+import { StyledText } from "src/components/common/StyledText";
 import { useTranslation } from "react-i18next";
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 80px 40px 80px;
-
-  background-color: #ffffffa2;
-  border-radius: 12px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-`;
-
-export type CaseViewProps = {
-  caseNumber: number;
-  text: string;
-} & CaseHighlightsProps;
-
-export const CaseView = ({ caseNumber, filters, text }: CaseViewProps) => {
+export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
   const { t } = useTranslation();
-  const title = `${t("filterPage.caseViewTitle")}${caseNumber}`; // todo:: update text
+  const title = `${t("filterPage.caseViewTitle")}${randomCase.id}`;
 
   return (
-    <Container>
-      <h1>{title}</h1>
-      <CaseHighlights filters={filters} />
-      <CaseBody text={text} />
-    </Container>
+    <StyledDiv
+      width="70%"
+      height="75%"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      p="10px 80px 40px 80px"
+      bg="#ffffffa2"
+      borderRadius="12px"
+      boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
+    >
+      <StyledText variant="headerBig" color="#4e3dcb" mt="12px" mb="12px">
+        {title}
+      </StyledText>
+      <CaseHighlights randomCase={randomCase} />
+      <CaseBody text={randomCase.body} />
+    </StyledDiv>
   );
 };

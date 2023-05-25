@@ -1,10 +1,7 @@
-import { type Filters } from "./Types";
-import styled from "styled-components";
+import { type Case } from "../../../services/casesService/model";
+import { StyledDiv } from "src/components/common/StyledDiv";
+import { StyledText } from "src/components/common/StyledText";
 import { useTranslation } from "react-i18next";
-
-const Container = styled.div`
-  display: flex;
-`;
 
 interface FilterPropertyProps {
   filter: string;
@@ -13,41 +10,35 @@ interface FilterPropertyProps {
 
 const FilterProperty = ({ filter, value }: FilterPropertyProps) => (
   <div style={{ padding: "12px" }}>
-    <b>{filter}:</b> {value}
+    <StyledText variant="labelSmall" color="#6e55ce" fontWeight="bold">
+      {filter}:{" "}
+    </StyledText>
+    <StyledText variant="labelSmall" color="black">
+      {value}
+    </StyledText>
   </div>
 );
 
 export interface CaseHighlightsProps {
-  filters: Filters;
+  randomCase: Case;
 }
 
-export const CaseHighlights = ({ filters }: CaseHighlightsProps) => {
+export const CaseHighlights = ({ randomCase }: CaseHighlightsProps) => {
   const { t } = useTranslation();
   const acceptedLabel = t("filterPage.accepted.label");
   const motiveLabel = t("filterPage.motive.label");
   const countryLabel = t("filterPage.country.label");
-  const sexLabel = t("filterPage.sex.label");
-  const minAgeLabel = t("filterPage.ageFilter.minLabel");
-  const maxAgeLabel = t("filterPage.ageFilter.maxLabel");
+  const genderLabel = t("filterPage.gender.label");
 
   return (
-    <Container>
-      <FilterProperty filter={acceptedLabel} value={filters.accepted} />
-      <FilterProperty filter={motiveLabel} value={filters.motive} />
-      <FilterProperty filter={countryLabel} value={filters.country} />
-      <FilterProperty filter={sexLabel} value={filters.sex.toString()} />
-      {filters.minAge !== undefined && filters.minAge !== "" && (
-        <FilterProperty
-          filter={minAgeLabel}
-          value={filters.minAge.toString()}
-        />
-      )}
-      {filters.maxAge !== undefined && filters.maxAge !== "" && (
-        <FilterProperty
-          filter={maxAgeLabel}
-          value={filters.maxAge.toString()}
-        />
-      )}
-    </Container>
+    <StyledDiv display="flex" height="60px">
+      <FilterProperty filter={acceptedLabel} value={randomCase.status} />
+      <FilterProperty
+        filter={motiveLabel}
+        value={randomCase.keywords.map((keyword) => keyword.name).join(", ")}
+      />
+      <FilterProperty filter={countryLabel} value={randomCase.country.name} />
+      <FilterProperty filter={genderLabel} value={randomCase.gender} />
+    </StyledDiv>
   );
 };
