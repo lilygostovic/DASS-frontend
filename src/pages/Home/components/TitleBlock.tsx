@@ -6,24 +6,27 @@ interface TitleBlockProps {
   title: string;
   subtitle: string;
   data: Array<{
-    country: string;
+    id: number;
+    name: string;
+    continent: string;
+    last_modified: string;
     total: number;
-    female: number;
-    male: number;
-    lgbtq: number;
-    Accepted: number;
-    Rejected: number;
-    continent: string
+    lgbt: number;
+    status: {
+      Accepted: number;
+      Rejected: number;
+      Unknown: number;
+    };
+    gender: {
+      Male: number;
+      Female: number;
+      Other: number;
+      Unknown: number;
+    };
   }>;
-  genderData: Array<{
-    gender: string;
-    total: number;
-    Accepted: number;
-    Rejected: number;
-  }>
 }
 
-export const TitleBlock = ({ title, subtitle, data, genderData }: TitleBlockProps) => (
+export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (
   <StyledDiv
     display="flex"
     flexDirection="row"
@@ -44,7 +47,7 @@ export const TitleBlock = ({ title, subtitle, data, genderData }: TitleBlockProp
         window.location.href = "/summary";
       }}
     >
-      <SummaryChart data={data} genderData={genderData} w={600} h={400} isSummaryPage={false}/>
+      <SummaryChart data={data} w={600} h={400} isSummaryPage={false}/>
     </StyledDiv>
   </StyledDiv>
 );

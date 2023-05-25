@@ -17,17 +17,19 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
   const euroText = t("continentDropDown.options.europe");
   const americaText = t("continentDropDown.options.america");
   const africaText = t("continentDropDown.options.africa");
+  const otherText = t("continentDropDown.options.other");
 
   return (
     <select value={selectedOption} onChange={handleMenuChange}
       style={{
-        height: "20px",
-        width: "155px",
+        height: "23px",
         color: "black",
-        border: "none",
-        borderRadius: "4px",
+        border: "1px solid grey",
+        borderRadius: "15px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
         fontSize: "15px",
         marginLeft: "15px",
+        width: "172px",
         marginBottom: "15px",
         cursor: "pointer",
       }}
@@ -37,6 +39,7 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
         <option value="america">{americaText}</option>
         <option value="africa">{africaText}</option>
         <option value="europe">{euroText}</option>
+        <option value="other">{otherText}</option>
     </select>
   )
 }
