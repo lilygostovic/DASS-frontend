@@ -1,8 +1,9 @@
 import { CaseHighlights, type CaseHighlightsProps } from "./CaseHighlights";
 
 import { CaseBody } from "./CaseBody";
-import { StyledDiv } from "src/components/common/StyledDiv";
-import { StyledText } from "src/components/common/StyledText";
+import React from "react";
+import { StyledDiv } from "../../../components/common/StyledDiv";
+import { StyledText } from "../../../components/common/StyledText";
 import { useTranslation } from "react-i18next";
 
 export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
