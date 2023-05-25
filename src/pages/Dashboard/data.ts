@@ -14,10 +14,10 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 1000,
-      Female: 2900,
+      Male: 100,
+      Female: 60,
       Other: 25,
-      Unknown: 25,
+      Unknown: 5,
     },
   },
   {
@@ -33,10 +33,10 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 1400,
-      Female: 1500,
+      Male: 75,
+      Female: 50,
       Other: 50,
-      Unknown: 50,
+      Unknown: 5,
     },
   },
   {
@@ -52,10 +52,10 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 1465,
-      Female: 1350,
+      Male: 35,
+      Female: 20,
       Other: 30,
-      Unknown: 50,
+      Unknown: 5,
     },
   },
   {
@@ -71,10 +71,10 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 1200,
-      Female: 1250,
+      Male: 60,
+      Female: 10,
       Other: 65,
-      Unknown: 20,
+      Unknown: 1,
     },
   },
   {
@@ -90,10 +90,10 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 2000,
-      Female: 2800,
+      Male: 30,
+      Female: 40,
       Other: 170,
-      Unknown: 40,
+      Unknown: 5,
     },
   },
   {
@@ -110,9 +110,9 @@ export const data = [
     },
     gender: {
       Male: 50,
-      Female: 450,
+      Female: 50,
       Other: 25,
-      Unknown: 25,
+      Unknown: 10,
     },
   },
   {
@@ -128,10 +128,10 @@ export const data = [
       Unknown: 100,
     },
     gender: {
-      Male: 490,
-      Female: 3000,
+      Male: 90,
+      Female: 120,
       Other: 25,
-      Unknown: 25,
+      Unknown: 5,
     },
   },
 ];
