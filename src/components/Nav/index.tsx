@@ -42,6 +42,7 @@ export const Nav = () => {
           justifyContent="space-between"
           width="100%"
           display="flex"
+          bg="#3E54AC"
         >
           <div>
             <NavButton to="/" className={isHome !== null ? "active" : ""}>

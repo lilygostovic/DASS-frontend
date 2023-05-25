@@ -13,7 +13,7 @@ export const LanguagePicker = () => {
       style={{
         appearance: "none",
         backgroundColor: "transparent",
-        color: "black",
+        color: "white",
         border: "none",
         padding: "0 1em 0 0",
         margin: "0px",
