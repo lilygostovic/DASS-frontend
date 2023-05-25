@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/indent */
+/* eslint-disable @typescript-eslint/comma-dangle */
 import {
   CheckBoxDropDown,
   ContinentDropDown,
@@ -6,8 +8,8 @@ import {
   SummaryChart,
 } from "./components";
 
-import { Footer, Nav } from "../../components";
 import React, { useRef, useState } from 'react';
+import { Nav } from "../../components";
 
 import { countryRequest } from "./data";
 import { useTranslation } from "react-i18next";
@@ -42,9 +44,10 @@ export const Dashboard = () => {
 
   const text = t("dashboardPage.overviewStats");
   const boxText = t("dashboardPage.checkBox");
-  const boxDropDownText = t("dashboardPage.boxDropDownText")
+  const boxDropDownText = t("dashboardPage.boxDropDownText");
   const initialChartHeight = 590;
-  const [dynamicChartHeight, setChartHeight] = useState<number>(initialChartHeight);
+  const [dynamicChartHeight, setChartHeight] =
+    useState<number>(initialChartHeight);
   const chartDivRef = useRef<HTMLDivElement>(null);
   const [countries, defaultCountries] = countryRequest();
 
@@ -76,7 +79,9 @@ export const Dashboard = () => {
 
     boxItems = filteredCountryNamesAsia;
   } else if (checkBoxDropDownOption === "america") {
-    const countriesMurica = countries.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
+    const countriesMurica = countries.filter(
+      (c) => c.continent === "Nordamerika" || c.continent === "Sydamerika"
+    );
     const countryNamesMurica = countriesMurica.map((c) => c.name).sort();
     const filteredCountryNamesMurica = countryNamesMurica.filter((name) =>
       !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
@@ -97,20 +102,22 @@ export const Dashboard = () => {
 
     boxItems = filteredCountryNamesEurope;
 
-  // Other has been selected
+    // Other has been selected
   } else {
     const countriesOther = countries.filter((c) => c.continent === "Other");
     const countryNamesOther = countriesOther.map((c) => c.name).sort();
     const filteredCountryNamesOther = countryNamesOther.filter((name) =>
       !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
-    boxItems = filteredCountryNamesOther
+    boxItems = filteredCountryNamesOther;
   }
 
   // Resize the chart appropriately when viewing countries
-  if ((dropDownOption === "result") ||
-      (dropDownOption === "lgbt") ||
-      (dropDownOption === "gender")) {
+  if (
+    dropDownOption === "result" ||
+    dropDownOption === "lgbt" ||
+    dropDownOption === "gender"
+  ) {
     chartAreaWidth = "1200px";
     chartWidth = 1100;
     chartHeight = dynamicChartHeight;
@@ -161,14 +168,22 @@ export const Dashboard = () => {
             fontSize: "20px",
           }}
         >
-          <h1 style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}>{text}</h1>
+          <h1
+            style={{ fontSize: "25px", color: "black", marginBottom: "20px" }}
+          >
+            {text}
+          </h1>
 
-          <div id="chartDiv" ref={chartDivRef} style={{
-            height: "600px",
-            overflowY: "scroll",
-            border: "2px solid grey",
-            borderRadius: "10px",
-          }}>
+          <div
+            id="chartDiv"
+            ref={chartDivRef}
+            style={{
+              height: "600px",
+              overflowY: "scroll",
+              border: "2px solid grey",
+              borderRadius: "10px",
+            }}
+          >
             <SummaryChart
             data={defaultCountries}
             w={chartWidth} h={chartHeight}
@@ -183,66 +198,84 @@ export const Dashboard = () => {
             />
           </div>
 
-          <div style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
           >
-            {((dropDownOption !== "result") &&
-              (dropDownOption !== "lgbt") &&
-              (dropDownOption !== "gender")) && (
-              <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
-            )}
+            {dropDownOption !== "result" &&
+              dropDownOption !== "lgbt" &&
+              dropDownOption !== "gender" && (
+                <DropDown
+                  selectedOption={dropDownOption}
+                  setOption={setDropDown}
+                />
+              )}
 
-            {((dropDownOption === "result") ||
-              (dropDownOption === "lgbt") ||
-              (dropDownOption === "gender")) && (
-              <div style={{
-                display: "flex",
-                flexDirection: "column",
-                marginTop: "15px",
-                borderRadius: "8px",
-                border: "1px solid grey",
-                height: "110px",
-              }}>
-                <DropDown selectedOption={dropDownOption} setOption={setDropDown} />
-                <ContinentDropDown selectedOption={continentOption} setOption={setContinentOption} />
+            {(dropDownOption === "result" ||
+              dropDownOption === "lgbt" ||
+              dropDownOption === "gender") && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginTop: "15px",
+                  borderRadius: "8px",
+                  border: "1px solid grey",
+                  height: "110px",
+                }}
+              >
+                <DropDown
+                  selectedOption={dropDownOption}
+                  setOption={setDropDown}
+                />
+                <ContinentDropDown
+                  selectedOption={continentOption}
+                  setOption={setContinentOption}
+                />
               </div>
             )}
           </div>
         </div>
-        {((dropDownOption === "result") ||
-          (dropDownOption === "lgbt") ||
-          (dropDownOption === "gender")) && (
-          <div style={{
-            display: "flex",
-            flexDirection: "column",
-            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
-            borderRadius: "8px",
-            width: "250px",
-            margin: "30px 30px",
-          }}>
-            <div style={{
+        {(dropDownOption === "result" ||
+          dropDownOption === "lgbt" ||
+          dropDownOption === "gender") && (
+          <div
+            style={{
               display: "flex",
-              fontWeight: "bold",
-              fontSize: "19px",
-              backgroundColor: "#3E54AC",
-              color: "white",
-              marginBottom: "20px",
-              borderRadius: "8px 8px 0 0",
-              height: "80px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}>
+              flexDirection: "column",
+              boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
+              borderRadius: "8px",
+              width: "250px",
+              margin: "30px 30px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontWeight: "bold",
+                fontSize: "19px",
+                backgroundColor: "#3E54AC",
+                color: "white",
+                marginBottom: "20px",
+                borderRadius: "8px 8px 0 0",
+                height: "80px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               {boxText}
             </div>
-            <div style={{
-              fontWeight: "bold",
-              fontSize: "18px",
-              marginLeft: "15px",
-              marginBottom: "5px",
-            }}>
+            <div
+              style={{
+                fontWeight: "bold",
+                fontSize: "18px",
+                marginLeft: "15px",
+                marginBottom: "5px",
+              }}
+            >
               {boxDropDownText}
             </div>
             <CheckBoxDropDown
@@ -257,9 +290,6 @@ export const Dashboard = () => {
             />
           </div>
         )}
-      </div>
-      <div style={{ alignItems: "flex-end" }}>
-        <Footer />
       </div>
     </div>
   );

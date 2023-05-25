@@ -29,35 +29,38 @@
     "accepted": {
       "label": "Accepted/Rejected",
       "accepted": "Accepted",
-      "rejected": "Rejected"
+      "rejected": "Rejected",
+      "unknown": "Unknown"
     },
     "motive": {
       "label": "Motive"
     },
     "country": {
-      "label": "Country of Origin",
-      "afghanistan": "Afghanistan",
-      "iran": "Iran",
-      "syria": "Syria"
+      "label": "Country of Origin"
     },
-    "sex": {
-      "label": "Sex",
+    "gender": {
+      "label": "Gender",
       "female": "Female",
       "male": "Male",
-      "indeterminable": "Indeterminable"
-    },
-    "ageFilter": {
-      "label": "Age",
-      "minPlaceholder": "Min",
-      "minLabel": "Minimum Age",
-      "maxPlaceholder": "Max",
-      "maxLabel": "Maximum Age"
+      "unknown": "Unknown"
     },
     "allOption": "All",
     "form": {
-      "title": "Filter For Specific Cases"
+      "title": "Filter Cases"
     },
-    "caseViewTitle": "Case #"
+    "caseViewTitle": "Case #",
+    "viewedText": "Viewed: {{viewed}}/{{matching}}",
+    "refreshButton": "New Case",
+    "noResult": {
+      "title": "No Result Found",
+      "subtitle": "Unfortunately no cases match your search. Please try again with different search values."
+    },
+    "undefinedView": {
+      "title": "Read Cases With Specific Filters",
+      "subtitle": "Start by selecting filters on the left side menu then clicking Submit!"
+    },
+    "submitButton": "View Cases",
+    "timeout": "Hang on! We are working on finding matching cases."
   },
   "female": "Female",
   "male": "Male",
@@ -555,7 +558,6 @@
       "fullName": "Unknown",
       "shortName": "mis"
     }
-
   },
   "summaryDropDown": {
     "options": {
