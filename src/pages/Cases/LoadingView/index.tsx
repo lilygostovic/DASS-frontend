@@ -1,8 +1,8 @@
-// ScaleLoader and SyncLoader also nice
-
 import BeatLoader from "react-spinners/BeatLoader";
-import { StyledDiv } from "src/components/common/StyledDiv";
-import { StyledText } from "src/components/common/StyledText";
+// ScaleLoader and SyncLoader also nice
+import React from "react";
+import { StyledDiv } from "../../../components/common/StyledDiv";
+import { StyledText } from "../../../components/common/StyledText";
 import { useTranslation } from "react-i18next";
 
 interface LoadingViewProps {

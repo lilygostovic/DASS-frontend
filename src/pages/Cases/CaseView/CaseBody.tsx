@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledDiv } from "src/components/common/StyledDiv";
-import { StyledText } from "src/components/common/StyledText";
+import { StyledDiv } from "../../../components/common/StyledDiv";
+import { StyledText } from "../../../components/common/StyledText";
 
 interface CaseBodyProps {
   text: string;

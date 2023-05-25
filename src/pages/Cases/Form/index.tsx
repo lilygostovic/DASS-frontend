@@ -5,11 +5,12 @@ import {
 } from "react-hook-form";
 import { FormInput, Label, Select, Submit } from "./StyledComponents";
 
-import { StyledDiv } from "src/components/common/StyledDiv";
-import { StyledText } from "src/components/common/StyledText";
+import React from "react";
+import { StyledDiv } from "../../../components/common/StyledDiv";
+import { StyledText } from "../../../components/common/StyledText";
 import { countries } from "../../../common";
-import i18n from "src/i18n/config";
-import { motives } from "src/common/motives";
+import i18n from "../../../i18n/config";
+import { motives } from "../../../common/motives";
 import { useTranslation } from "react-i18next";
 
 interface FormProps {

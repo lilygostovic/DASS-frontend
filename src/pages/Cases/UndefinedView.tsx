@@ -1,6 +1,7 @@
-import { StyledDiv } from "src/components/common/StyledDiv";
-import { StyledText } from "src/components/common/StyledText";
-import { readBook } from "src/images";
+import React from "react";
+import { StyledDiv } from "../../components/common/StyledDiv";
+import { StyledText } from "../../components/common/StyledText";
+import { readBook } from "../../images";
 import { useTranslation } from "react-i18next";
 
 export const UndefinedView = () => {
