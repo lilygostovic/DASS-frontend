@@ -3,7 +3,7 @@ import { Nav } from "../../components";
 import React from "react";
 import { StyledDiv } from "../../components/common/StyledDiv";
 import { TitleBlock } from "./components/TitleBlock";
-import { data } from "../Dashboard/data";
+import { countryRequest } from "../Dashboard/data";
 import { useTranslation } from "react-i18next";
 
 export const Home = () => {
@@ -11,6 +11,9 @@ export const Home = () => {
 
   const title = t("homePage.title");
   const subtitle = t("homePage.subtitle");
+
+  // Get the default countries to display
+  const [, data] = countryRequest();
 
   return (
     <div>

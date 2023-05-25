@@ -7,9 +7,9 @@ import {
 } from "./components";
 
 import { Footer, Nav } from "../../components";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-import { data } from "./data";
+import { countryRequest } from "./data";
 import { useTranslation } from "react-i18next";
 
 interface Country {
@@ -37,7 +37,6 @@ export const Dashboard = () => {
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
   const [checkBoxDropDownOption, setCheckBoxDropDownOption] = useState<string>("all");
-  const [countries, setCountries] = useState<Country[]>([]);
 
   const { t } = useTranslation();
 
@@ -47,6 +46,7 @@ export const Dashboard = () => {
   const initialChartHeight = 590;
   const [dynamicChartHeight, setChartHeight] = useState<number>(initialChartHeight);
   const chartDivRef = useRef<HTMLDivElement>(null);
+  const [countries, defaultCountries] = countryRequest();
 
   let chartAreaWidth: string;
   let chartWidth: number;
@@ -55,62 +55,45 @@ export const Dashboard = () => {
   let countryEntries: Country[] = [];
   let chartHeight;
 
-  // HTTP request that gets a list of all country entries from the database
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/countries");
-        const data = await response.json();
-
-        setCountries(data);
-      } catch (error) {
-        // eslint-disable-next-line
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // CountryNames is for having a list of names to display on checkbox
+  // CountryNames is for having a list of names to display on the checkbox
   countryNames = countries.map((c) => c.name).sort();
 
   // CountryEntries is for the chart having a list of country datapoints.
   // It's used in SummaryChart.tsx when we need to find the data for a single country to add
-  countryEntries = countries.filter((c1) => !data.some((c2) => c2.name.toLowerCase() === c1.name.toLowerCase()));
+  countryEntries = countries.filter((c1) => !defaultCountries.some((c2) => c2.name.toLowerCase() === c1.name.toLowerCase()));
 
   // Displayed countries on the checkbox are sorted by continent
   if (checkBoxDropDownOption === "all") {
     const deafultFilteredCountryNames = countryNames.filter((name) =>
-      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = deafultFilteredCountryNames;
   } else if (checkBoxDropDownOption === "asia") {
     const countriesAsia = countries.filter((c) => c.continent === "Asien");
     const countryNamesAsia = countriesAsia.map((c) => c.name).sort();
     const filteredCountryNamesAsia = countryNamesAsia.filter((name) =>
-      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesAsia;
   } else if (checkBoxDropDownOption === "america") {
     const countriesMurica = countries.filter((c) => (c.continent === "Nordamerika") || (c.continent === "Sydamerika"));
     const countryNamesMurica = countriesMurica.map((c) => c.name).sort();
     const filteredCountryNamesMurica = countryNamesMurica.filter((name) =>
-      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesMurica;
   } else if (checkBoxDropDownOption === "africa") {
     const countriesAfrica = countries.filter((c) => c.continent === "Afrika");
     const countryNamesAfrica = countriesAfrica.map((c) => c.name).sort();
     const filteredCountryNamesAfrica = countryNamesAfrica.filter((name) =>
-      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesAfrica;
   } else if (checkBoxDropDownOption === "europe") {
     const countriesEurope = countries.filter((c) => c.continent === "Europa");
     const countryNamesEurope = countriesEurope.map((c) => c.name).sort();
     const filteredCountryNamesEurope = countryNamesEurope.filter((name) =>
-      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesEurope;
 
@@ -119,7 +102,7 @@ export const Dashboard = () => {
     const countriesOther = countries.filter((c) => c.continent === "Other");
     const countryNamesOther = countriesOther.map((c) => c.name).sort();
     const filteredCountryNamesOther = countryNamesOther.filter((name) =>
-      !data.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
 
     boxItems = filteredCountryNamesOther
   }
@@ -187,7 +170,7 @@ export const Dashboard = () => {
             borderRadius: "10px",
           }}>
             <SummaryChart
-            data={data}
+            data={defaultCountries}
             w={chartWidth} h={chartHeight}
             isSummaryPage={true}
             axisOption={dropDownOption}
