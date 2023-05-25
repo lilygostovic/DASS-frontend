@@ -10,13 +10,20 @@
   },
   "dashboardPage": {
     "overviewStats": "Overview of Cases",
-    "gender": "gender",
-    "lgbtq": "LGBTQ",
-    "result": "Accepted/Rejected",
+    "sex": "Sex",
+    "lgbt": "LGBT",
     "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
     "addButton": "Confirm Choices",
-    "boxDropDownText": "Find your continent:"
+    "boxDropDownText": "Find your continent:",
+    "emptyPage1": "No countries for this category currently selected",
+    "emptyPage2": "To see countries from this category, please select from the options to your right",
+    "result": {
+      "A": "Accepted",
+      "R": "Rejected"
+    },
+    "unknown": "Unknown",
+    "reset": "Reset"
   },
   "filterPage": {
     "accepted": {
@@ -59,53 +66,505 @@
   "male": "Male",
   "total": "Total",
   "countries": {
-    "afghanistan": {
+    "Afghanistan": {
       "fullName": "Afghanistan",
       "shortName": "afg"
     },
-    "belize": {
+    "Belize": {
       "fullName": "Belize",
       "shortName": "blz"
     },
-    "cambodia": {
+    "Cambodia": {
       "fullName": "Cambodia",
       "shortName": "khm"
     },
-    "djibouti": {
+    "Djibouti": {
       "fullName": "Djibouti",
       "shortName": "dji"
     },
-    "ecuador": {
+    "Ecuador": {
       "fullName": "Ecuador",
       "shortName": "ecu"
     },
-    "finland": {
+    "Finland": {
       "fullName": "Finland",
       "shortName": "fin"
     },
-    "ghana": {
+    "Ghana": {
       "fullName": "Ghana",
       "shortName": "gha"
     },
-    "test1": {
-      "fullName": "Test1",
-      "shortName": "Test1"
+    "Albanien": {
+      "fullName": "Albania",
+      "shortName": "alb"
     },
-    "test2": {
-      "fullName": "Test2",
-      "shortName": "Test2"
+    "Algeriet": {
+      "fullName": "Algeria",
+      "shortName": "alg"
     },
-    "test3": {
-      "fullName": "Test3",
-      "shortName": "Test3"
+    "Angola": {
+      "fullName": "Angola",
+      "shortName": "ang"
+    },
+    "Armenien": {
+      "fullName": "Armenia",
+      "shortName": "arm"
+    },
+    "Aserbajdsjan": {
+      "fullName": "Azerbaijan",
+      "shortName": "aze"
+    },
+    "Bangladesh": {
+      "fullName": "Bangladesh",
+      "shortName": "ban"
+    },
+    "Belarus (Hviderusland)": {
+      "fullName": "Belarus",
+      "shortName": "bes"
+    },
+    "Belgien": {
+      "fullName": "Belgium",
+      "shortName": "bel"
+    },
+    "Benin": {
+      "fullName": "Benin",
+      "shortName": "ben"
+    },
+    "Bosnien-Hercegovina": {
+      "fullName": "Bosnia",
+      "shortName": "bos"
+    },
+    "Brasilien": {
+      "fullName": "Brazil",
+      "shortName": "brz"
+    },
+    "Bulgarien": {
+      "fullName": "Bulgaria",
+      "shortName": "bul"
+    },
+    "Burundi": {
+      "fullName": "Burundi",
+      "shortName": "bur"
+    },
+    "Cameroun": {
+      "fullName": "Cameroon",
+      "shortName": "cam"
+    },
+    "Chile": {
+      "fullName": "Chile",
+      "shortName": "chi"
+    },
+    "Colombia": {
+      "fullName": "Colombia",
+      "shortName": "col"
+    },
+    "Cuba": {
+      "fullName": "Cuba",
+      "shortName": "cub"
+    },
+    "Cypern": {
+      "fullName": "Cyprus",
+      "shortName": "cyp"
+    },
+    "Den Demokratiske Republik Congo (DR Congo)": {
+      "fullName": "DR Congo",
+      "shortName": "drc"
+    },
+    "Egypten": {
+      "fullName": "Egypt",
+      "shortName": "egy"
+    },
+    "El Salvador": {
+      "fullName": "El Salvador",
+      "shortName": "sal"
+    },
+    "Elfenbenskysten": {
+      "fullName": "Ivory Coast",
+      "shortName": "ivc"
+    },
+    "Eritrea": {
+      "fullName": "Eritrea",
+      "shortName": "eri"
+    },
+    "Etiopien": {
+      "fullName": "Ethiopia",
+      "shortName": "eth"
+    },
+    "Filippinerne": {
+      "fullName": "Phillipines",
+      "shortName": "phi"
+    },
+    "Frankrig": {
+      "fullName": "France",
+      "shortName": "fra"
+    },
+    "Gambia": {
+      "fullName": "The Gambia",
+      "shortName": "gam"
+    },
+    "Gaza/Vestbredden": {
+      "fullName": "Gaza",
+      "shortName": "gaz"
+    },
+    "Georgien": {
+      "fullName": "Georgia",
+      "shortName": "geo"
+    },
+    "Grækenland": {
+      "fullName": "Greece",
+      "shortName": "gre"
+    },
+    "Guatemala": {
+      "fullName": "Guatemala",
+      "shortName": "gua"
+    },
+    "Guinea": {
+      "fullName": "Guinea",
+      "shortName": "gui"
+    },
+    "Haiti": {
+      "fullName": "Haiti",
+      "shortName": "hai"
+    },
+    "Holland": {
+      "fullName": "Netherlands",
+      "shortName": "net"
+    },
+    "Honduras": {
+      "fullName": "Honduras",
+      "shortName": "hon"
+    },
+    "Indien": {
+      "fullName": "India",
+      "shortName": "ind"
+    },
+    "Indonesien": {
+      "fullName": "Indonesia",
+      "shortName": "ins"
+    },
+    "Irak": {
+      "fullName": "Irak",
+      "shortName": "irk"
+    },
+    "Iran": {
+      "fullName": "Iran",
+      "shortName": "ira"
+    },
+    "Island": {
+      "fullName": "Iceland",
+      "shortName": "ice"
+    },
+    "Israel": {
+      "fullName": "Israel",
+      "shortName": "isr"
+    },
+    "Italien": {
+      "fullName": "Italy",
+      "shortName": "ita"
+    },
+    "Jordan": {
+      "fullName": "Jordan",
+      "shortName": "jor"
+    },
+    "Kasakhstan": {
+      "fullName": "Kazakhstan",
+      "shortName": "kaz"
+    },
+    "Kenya": {
+      "fullName": "Kenya",
+      "shortName": "ken"
+    },
+    "Kina": {
+      "fullName": "China",
+      "shortName": "chi"
+    },
+    "Kirgisistan": {
+      "fullName": "Kyrgyzstan",
+      "shortName": "kyr"
+    },
+    "Kosovo": {
+      "fullName": "Kosovo",
+      "shortName": "kos"
+    },
+    "Kroatien": {
+      "fullName": "Croatia",
+      "shortName": "cro"
+    },
+    "Kuwait": {
+      "fullName": "Kuwait",
+      "shortName": "kuw"
+    },
+    "Letland": {
+      "fullName": "Estonia",
+      "shortName": "est"
+    },
+    "Libanon": {
+      "fullName": "Lebanon",
+      "shortName": "leb"
+    },
+    "Liberia": {
+      "fullName": "Liberia",
+      "shortName": "lir"
+    },
+    "Libyen": {
+      "fullName": "Libya",
+      "shortName": "liy"
+    },
+    "Litauen": {
+      "fullName": "Lithuania",
+      "shortName": "lit"
+    },
+    "Malaysia": {
+      "fullName": "Malaysia",
+      "shortName": "may"
+    },
+    "Mali": {
+      "fullName": "Mali",
+      "shortName": "mal"
+    },
+    "Malta": {
+      "fullName": "Malta",
+      "shortName": "mat"
+    },
+    "Marokko": {
+      "fullName": "Morocco",
+      "shortName": "mor"
+    },
+    "Mauritanien": {
+      "fullName": "Mauritania",
+      "shortName": "mau"
+    },
+    "Moldova": {
+      "fullName": "Moldova",
+      "shortName": "mol"
+    },
+    "Montenegro": {
+      "fullName": "Montenegro",
+      "shortName": "mon"
+    },
+    "Myanmar": {
+      "fullName": "Myanmar",
+      "shortName": "mya"
+    },
+    "Namibia": {
+      "fullName": "Namibia",
+      "shortName": "nam"
+    },
+    "Nepal": {
+      "fullName": "Nepal",
+      "shortName": "nep"
+    },
+    "Nicaragua": {
+      "fullName": "Nicaragua",
+      "shortName": "nic"
+    },
+    "Niger": {
+      "fullName": "Niger",
+      "shortName": "nig"
+    },
+    "Nigeria": {
+      "fullName": "Nigeria",
+      "shortName": "nia"
+    },
+    "Nordmakedonien": {
+      "fullName": "North Macedonia",
+      "shortName": "mac"
+    },
+    "Norge": {
+      "fullName": "Norway",
+      "shortName": "nor"
+    },
+    "Pakistan": {
+      "fullName": "Pakistan",
+      "shortName": "pak"
+    },
+    "Panama": {
+      "fullName": "Panama",
+      "shortName": "pan"
+    },
+    "Peru": {
+      "fullName": "Peru",
+      "shortName": "per"
+    },
+    "Polen": {
+      "fullName": "Poland",
+      "shortName": "pol"
+    },
+    "Portugal": {
+      "fullName": "Portugal",
+      "shortName": "por"
+    },
+    "Republikken Congo (Congo Brazzaville)": {
+      "fullName": "Republic of the Congo",
+      "shortName": "rcb"
+    },
+    "Rumænien": {
+      "fullName": "Romania",
+      "shortName": "rom"
+    },
+    "Rusland": {
+      "fullName": "Russia",
+      "shortName": "rus"
+    },
+    "Rwanda": {
+      "fullName": "Rwanda",
+      "shortName": "rwa"
+    },
+    "Saudi-Arabien": {
+      "fullName": "Saudi-Arabia",
+      "shortName": "sau"
+    },
+    "Schweiz": {
+      "fullName": "Switzerland",
+      "shortName": "swi"
+    },
+    "Senegal": {
+      "fullName": "Senegal",
+      "shortName": "sen"
+    },
+    "Serbien": {
+      "fullName": "Serbia",
+      "shortName": "ser"
+    },
+    "Sierra Leone": {
+      "fullName": "Sierra Leone",
+      "shortName": "sle"
+    },
+    "Slovenien": {
+      "fullName": "Slovenia",
+      "shortName": "slo"
+    },
+    "Somalia": {
+      "fullName": "Somalia",
+      "shortName": "som"
+    },
+    "Spanien": {
+      "fullName": "Spain",
+      "shortName": "spa"
+    },
+    "Sri Lanka": {
+      "fullName": "Sri Lanka",
+      "shortName": "srl"
+    },
+    "Statsløse palæstinensere": {
+      "fullName": "Stateless Palestinians",
+      "shortName": "pal"
+    },
+    "Sudan": {
+      "fullName": "Sudan",
+      "shortName": "sud"
+    },
+    "Sverige": {
+      "fullName": "Sweden",
+      "shortName": "swe"
+    },
+    "Sydafrika": {
+      "fullName": "South Africa",
+      "shortName": "saf"
+    },
+    "Sydkorea": {
+      "fullName": "South Korea",
+      "shortName": "sko"
+    },
+    "Sydsudan": {
+      "fullName": "South Sudan",
+      "shortName": "ssu"
+    },
+    "Syrien": {
+      "fullName": "Syria",
+      "shortName": "syr"
+    },
+    "Tanzania": {
+      "fullName": "Tanzania",
+      "shortName": "tan"
+    },
+    "Tchad": {
+      "fullName": "Chad",
+      "shortName": "cha"
+    },
+    "Thailand": {
+      "fullName": "Thailand",
+      "shortName": "Tha"
+    },
+    "Togo": {
+      "fullName": "Togo",
+      "shortName": "Tog"
+    },
+    "Tunesien": {
+      "fullName": "Tunesia",
+      "shortName": "Tun"
+    },
+    "Turkmenistan": {
+      "fullName": "Turkmenistan",
+      "shortName": "Tur"
+    },
+    "Tyrkiet": {
+      "fullName": "Turkey",
+      "shortName": "Tuk"
+    },
+    "Tyskland": {
+      "fullName": "Germany",
+      "shortName": "ger"
+    },
+    "Uganda": {
+      "fullName": "Uganda",
+      "shortName": "uga"
+    },
+    "Ukraine": {
+      "fullName": "Ukraine",
+      "shortName": "ukr"
+    },
+    "Ungarn": {
+      "fullName": "Hungary",
+      "shortName": "hun"
+    },
+    "Uzbekistan": {
+      "fullName": "Uzbekistan",
+      "shortName": "hun"
+    },
+    "Venezuela": {
+      "fullName": "Venezuela",
+      "shortName": "ven"
+    },
+    "Vietnam": {
+      "fullName": "Vietnam",
+      "shortName": "vie"
+    },
+    "Yemen": {
+      "fullName": "Yemen",
+      "shortName": "yem"
+    },
+    "Zambia": {
+      "fullName": "Zambia",
+      "shortName": "zam"
+    },
+    "Zimbabwe": {
+      "fullName": "Zimbabwe",
+      "shortName": "zim"
+    },
+    "Østrig": {
+      "fullName": "Austria",
+      "shortName": "aus"
+    },
+    "Anonymiseret hjemland": {
+      "fullName": "Anonymized",
+      "shortName": "ahc"
+    },
+    "Diverse emner": {
+      "fullName": "Miscellaneous",
+      "shortName": "mis"
+    },
+    "Ukendt hjemland": {
+      "fullName": "Unknown",
+      "shortName": "mis"
     }
   },
   "summaryDropDown": {
     "options": {
       "gender": "Gender",
       "motive": "Asylum Motive",
-      "country": "Country",
-      "lgbtq": "LGBTQ"
+      "result": "Result",
+      "lgbt": "LGBT"
     }
   },
   "continentDropDown": {
@@ -114,7 +573,8 @@
       "america": "America",
       "asia": "Asia",
       "europe": "Europe",
-      "africa": "Africa"
+      "africa": "Africa",
+      "other": "Other"
     }
   }
 }
