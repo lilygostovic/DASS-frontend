@@ -17,6 +17,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
   const euroText = t("continentDropDown.options.europe");
   const americaText = t("continentDropDown.options.america");
   const africaText = t("continentDropDown.options.africa");
+  const OtherText = t("continentDropDown.options.other");
 
   return (
     <select value={selectedOption} onChange={handleMenuChange}
@@ -25,21 +26,24 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
         width: "140px",
         fontWeight: "bold",
         color: "black",
-        borderRadius: "4px",
+        borderRadius: "15px",
         border: "1px solid grey",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
         fontSize: "15px",
         marginLeft: "25px",
         marginRight: "25px",
         marginTop: "1px",
         marginBottom: "20px",
         cursor: "pointer",
+        padding: "0px 5px",
       }}
     >
         <option value="all">{allText}</option>
-        <option value="asia">{asiaText}</option>
-        <option value="america">{americaText}</option>
-        <option value="africa">{africaText}</option>
-        <option value="europe">{euroText}</option>
+        <option value="Asien">{asiaText}</option>
+        <option value="Amerika">{americaText}</option>
+        <option value="Afrika">{africaText}</option>
+        <option value="Europa">{euroText}</option>
+        <option value="Other">{OtherText}</option>
     </select>
   )
 }
