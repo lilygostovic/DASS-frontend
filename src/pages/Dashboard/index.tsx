@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/indent */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/comma-dangle */
 import {
   CheckBoxDropDown,
@@ -7,10 +8,9 @@ import {
   DropDown,
   SummaryChart,
 } from "./components";
+import React, { useRef, useState } from "react";
 
-import React, { useRef, useState } from 'react';
 import { Nav } from "../../components";
-
 import { countryRequest } from "./data";
 import { useTranslation } from "react-i18next";
 
@@ -38,7 +38,8 @@ export const Dashboard = () => {
   const [dropDownOption, setDropDown] = useState<string>("result");
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
-  const [checkBoxDropDownOption, setCheckBoxDropDownOption] = useState<string>("all");
+  const [checkBoxDropDownOption, setCheckBoxDropDownOption] =
+    useState<string>("all");
 
   const { t } = useTranslation();
 
@@ -63,19 +64,32 @@ export const Dashboard = () => {
 
   // CountryEntries is for the chart having a list of country datapoints.
   // It's used in SummaryChart.tsx when we need to find the data for a single country to add
-  countryEntries = countries.filter((c1) => !defaultCountries.some((c2) => c2.name.toLowerCase() === c1.name.toLowerCase()));
+  countryEntries = countries.filter(
+    (c1) =>
+      !defaultCountries.some(
+        (c2) => c2.name.toLowerCase() === c1.name.toLowerCase()
+      )
+  );
 
   // Displayed countries on the checkbox are sorted by continent
   if (checkBoxDropDownOption === "all") {
-    const deafultFilteredCountryNames = countryNames.filter((name) =>
-      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+    const deafultFilteredCountryNames = countryNames.filter(
+      (name) =>
+        !defaultCountries.some(
+          (c) => c.name.toLowerCase() === name.toLowerCase()
+        )
+    );
 
     boxItems = deafultFilteredCountryNames;
   } else if (checkBoxDropDownOption === "asia") {
     const countriesAsia = countries.filter((c) => c.continent === "Asien");
     const countryNamesAsia = countriesAsia.map((c) => c.name).sort();
-    const filteredCountryNamesAsia = countryNamesAsia.filter((name) =>
-      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+    const filteredCountryNamesAsia = countryNamesAsia.filter(
+      (name) =>
+        !defaultCountries.some(
+          (c) => c.name.toLowerCase() === name.toLowerCase()
+        )
+    );
 
     boxItems = filteredCountryNamesAsia;
   } else if (checkBoxDropDownOption === "america") {
@@ -83,22 +97,34 @@ export const Dashboard = () => {
       (c) => c.continent === "Nordamerika" || c.continent === "Sydamerika"
     );
     const countryNamesMurica = countriesMurica.map((c) => c.name).sort();
-    const filteredCountryNamesMurica = countryNamesMurica.filter((name) =>
-      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+    const filteredCountryNamesMurica = countryNamesMurica.filter(
+      (name) =>
+        !defaultCountries.some(
+          (c) => c.name.toLowerCase() === name.toLowerCase()
+        )
+    );
 
     boxItems = filteredCountryNamesMurica;
   } else if (checkBoxDropDownOption === "africa") {
     const countriesAfrica = countries.filter((c) => c.continent === "Afrika");
     const countryNamesAfrica = countriesAfrica.map((c) => c.name).sort();
-    const filteredCountryNamesAfrica = countryNamesAfrica.filter((name) =>
-      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+    const filteredCountryNamesAfrica = countryNamesAfrica.filter(
+      (name) =>
+        !defaultCountries.some(
+          (c) => c.name.toLowerCase() === name.toLowerCase()
+        )
+    );
 
     boxItems = filteredCountryNamesAfrica;
   } else if (checkBoxDropDownOption === "europe") {
     const countriesEurope = countries.filter((c) => c.continent === "Europa");
     const countryNamesEurope = countriesEurope.map((c) => c.name).sort();
-    const filteredCountryNamesEurope = countryNamesEurope.filter((name) =>
-      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+    const filteredCountryNamesEurope = countryNamesEurope.filter(
+      (name) =>
+        !defaultCountries.some(
+          (c) => c.name.toLowerCase() === name.toLowerCase()
+        )
+    );
 
     boxItems = filteredCountryNamesEurope;
 
@@ -106,8 +132,12 @@ export const Dashboard = () => {
   } else {
     const countriesOther = countries.filter((c) => c.continent === "Other");
     const countryNamesOther = countriesOther.map((c) => c.name).sort();
-    const filteredCountryNamesOther = countryNamesOther.filter((name) =>
-      !defaultCountries.some((c) => c.name.toLowerCase() === name.toLowerCase()));
+    const filteredCountryNamesOther = countryNamesOther.filter(
+      (name) =>
+        !defaultCountries.some(
+          (c) => c.name.toLowerCase() === name.toLowerCase()
+        )
+    );
 
     boxItems = filteredCountryNamesOther;
   }
@@ -185,16 +215,17 @@ export const Dashboard = () => {
             }}
           >
             <SummaryChart
-            data={defaultCountries}
-            w={chartWidth} h={chartHeight}
-            isSummaryPage={true}
-            axisOption={dropDownOption}
-            continentOption={continentOption}
-            checkedCountryOptions={checkedOptionsChart}
-            countryNames={countryNames}
-            countryEntries={countryEntries}
-            initialH={initialChartHeight}
-            scrollToTop={ScrollChartToTop}
+              data={defaultCountries}
+              w={chartWidth}
+              h={chartHeight}
+              isSummaryPage={true}
+              axisOption={dropDownOption}
+              continentOption={continentOption}
+              checkedCountryOptions={checkedOptionsChart}
+              countryNames={countryNames}
+              countryEntries={countryEntries}
+              initialH={initialChartHeight}
+              scrollToTop={ScrollChartToTop}
             />
           </div>
 
