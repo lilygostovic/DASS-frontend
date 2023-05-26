@@ -1,4 +1,4 @@
-import type { Country } from "../../Dashboard/data";
+import type { Country } from "../../Dashboard/types";
 import { StyledDiv } from "../../../components/common/StyledDiv";
 import { StyledText } from "../../../components/common/StyledText";
 import { SummaryChart } from "../../Dashboard/components";

@@ -9,7 +9,7 @@ import {
 } from "recharts";
 
 // test merge to master
-import type { Country } from "../data";
+import type { Country } from "../types";
 import React from "react";
 import i18n from "../../../i18n/config";
 import { useTranslation } from "react-i18next";

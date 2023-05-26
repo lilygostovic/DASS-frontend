@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Country } from "../../pages/Dashboard/data";
+import type { Country } from "../../pages/Dashboard/types";
 
 // /api/countries
 

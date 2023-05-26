@@ -10,7 +10,7 @@ import {
 } from "./components";
 import React, { useRef, useState } from "react";
 
-import type { Country } from "./data";
+import type { Country } from "./types";
 import { Nav } from "../../components";
 import { getCountries } from "../../services/countries";
 import { useTranslation } from "react-i18next";
