@@ -12,7 +12,7 @@ import React, { useRef, useState } from "react";
 
 import type { Country } from "./data";
 import { Nav } from "../../components";
-import { countryRequest } from "./data";
+import { getCountries } from "../../services/countries";
 import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
@@ -30,7 +30,7 @@ export const Dashboard = () => {
   const [dynamicChartHeight, setChartHeight] =
     useState<number>(initialChartHeight);
   const chartDivRef = useRef<HTMLDivElement>(null);
-  const [countries, defaultCountries] = countryRequest();
+  const [countries, defaultCountries] = getCountries();
 
   let chartWidth: number;
   let boxItems: string[] = [];
