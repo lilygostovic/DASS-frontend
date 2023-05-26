@@ -10,29 +10,10 @@ import {
 } from "./components";
 import React, { useRef, useState } from "react";
 
+import type { Country } from "./data";
 import { Nav } from "../../components";
 import { countryRequest } from "./data";
 import { useTranslation } from "react-i18next";
-
-interface Country {
-  id: number;
-  name: string;
-  continent: string;
-  last_modified: string;
-  total: number;
-  lgbt: number;
-  status: {
-    Accepted: number;
-    Rejected: number;
-    Unknown: number;
-  };
-  gender: {
-    Male: number;
-    Female: number;
-    Other: number;
-    Unknown: number;
-  };
-}
 
 export const Dashboard = () => {
   const [dropDownOption, setDropDown] = useState<string>("result");

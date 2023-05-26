@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // Definition of country object type
-interface Country {
+export interface Country {
   id: number;
   name: string;
   continent: string;

@@ -9,29 +9,10 @@ import {
 } from "recharts";
 
 // test merge to master
+import type { Country } from "../data";
 import React from "react";
 import i18n from "../../../i18n/config";
 import { useTranslation } from "react-i18next";
-
-interface Country {
-  id: number;
-  name: string;
-  continent: string;
-  last_modified: string;
-  total: number;
-  lgbt: number;
-  status: {
-    Accepted: number;
-    Rejected: number;
-    Unknown: number;
-  };
-  gender: {
-    Male: number;
-    Female: number;
-    Other: number;
-    Unknown: number;
-  };
-}
 
 interface SummaryChartProps {
   data: Country[];
