@@ -43,15 +43,13 @@ export const Dashboard = () => {
   const { t } = useTranslation();
 
   const text = t("dashboardPage.overviewStats");
-  const boxText = t("dashboardPage.checkBox");
   const boxDropDownText = t("dashboardPage.boxDropDownText");
-  const initialChartHeight = 590;
+  const initialChartHeight = 585;
   const [dynamicChartHeight, setChartHeight] =
     useState<number>(initialChartHeight);
   const chartDivRef = useRef<HTMLDivElement>(null);
   const [countries, defaultCountries] = countryRequest();
 
-  let chartAreaWidth: string;
   let chartWidth: number;
   let boxItems: string[] = [];
   let countryNames: string[] = [];
@@ -118,11 +116,9 @@ export const Dashboard = () => {
     dropDownOption === "lgbt" ||
     dropDownOption === "gender"
   ) {
-    chartAreaWidth = "1200px";
     chartWidth = 1100;
     chartHeight = dynamicChartHeight;
   } else {
-    chartAreaWidth = "100%";
     chartWidth = 1400;
     chartHeight = initialChartHeight;
   }
@@ -156,14 +152,10 @@ export const Dashboard = () => {
             display: "flex",
             justifyContent: "space-bewteen",
             flexDirection: "column",
-            width: chartAreaWidth,
-            height: "810px",
+            width: "100%",
+            height: "800px",
             alignItems: "center",
-            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
-            borderRadius: "8px",
-            marginLeft: "30px",
-            marginTop: "30px",
-            marginBottom: "30px",
+            boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
             color: "black",
             fontSize: "20px",
           }}
@@ -178,7 +170,7 @@ export const Dashboard = () => {
             id="chartDiv"
             ref={chartDivRef}
             style={{
-              height: "600px",
+              height: "590px",
               overflowY: "scroll",
               border: "2px solid grey",
               borderRadius: "10px",
@@ -246,38 +238,20 @@ export const Dashboard = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.35)",
-              borderRadius: "8px",
-              width: "250px",
-              margin: "30px 30px",
+              boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+              width: "300px",
+              marginLeft: "40px",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                fontWeight: "bold",
-                fontSize: "19px",
-                backgroundColor: "#3E54AC",
-                color: "white",
-                marginBottom: "20px",
-                borderRadius: "8px 8px 0 0",
-                height: "80px",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {boxText}
-            </div>
-            <div
+            <h1
               style={{
                 fontWeight: "bold",
-                fontSize: "18px",
+                fontSize: "20px",
                 marginLeft: "15px",
-                marginBottom: "5px",
               }}
             >
               {boxDropDownText}
-            </div>
+            </h1>
             <CheckBoxDropDown
               selectedOption={checkBoxDropDownOption}
               setOption={setCheckBoxDropDownOption}

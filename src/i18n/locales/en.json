@@ -12,10 +12,9 @@
     "overviewStats": "Overview of Cases",
     "sex": "Sex",
     "lgbt": "LGBT",
-    "checkBox": "Find a Country To Add",
     "boxHeader": "Countries:",
     "addButton": "Confirm Choices",
-    "boxDropDownText": "Find your continent:",
+    "boxDropDownText": "Find Your Country:",
     "emptyPage1": "No countries for this category currently selected",
     "emptyPage2": "To see countries from this category, please select from the options to your right",
     "result": {
