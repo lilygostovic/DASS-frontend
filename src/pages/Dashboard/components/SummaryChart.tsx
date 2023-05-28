@@ -57,10 +57,10 @@ export const SummaryChart = ({
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
   const unknownText = t("dashboardPage.unknown");
-  const maleText = t("filterPage.gender.male");
-  const femaleText = t("filterPage.gender.female");
-  const accText = t("filterPage.accepted.accepted");
-  const recText = t("filterPage.accepted.rejected");
+  const maleText = t("male");
+  const femaleText = t("female");
+  const accText = t("dashboardPage.result.A");
+  const recText = t("dashboardPage.result.R");
   const lgbtText = t("summaryDropDown.options.lgbt");
 
   // The y-axis needs more space to be displayed if we are on summary
