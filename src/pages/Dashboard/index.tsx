@@ -145,7 +145,7 @@ export const Dashboard = () => {
   return (
     <div
       style={{
-        backgroundColor: "#ECF2FF",
+        backgroundColor: "white",
         maxHeight: "100vh",
         minHeight: "100vh",
       }}
