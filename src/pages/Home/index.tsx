@@ -37,7 +37,7 @@ export const Home = () => {
 
   return (
     <div>
-      <Nav />
+      <Nav/>
       <StyledDiv mb="100px">
         <TitleBlock title={title} subtitle={subtitle} data={data} />
         <HomeTextBlock
