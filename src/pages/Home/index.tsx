@@ -6,6 +6,11 @@ import { TitleBlock } from "./components/TitleBlock";
 import { data } from "../Dashboard/data";
 import { useTranslation } from "react-i18next";
 
+interface linkPage {
+  link: string;
+  name: string;
+}
+
 export const Home = () => {
   const { t } = useTranslation();
 
@@ -20,6 +25,16 @@ export const Home = () => {
   const contactTitle = t("homePage.contact.title");
   const contactBody = t("homePage.contact.body");
 
+  const ku: linkPage = {
+    link: "https://www.ku.dk/",
+    name: "University of Copenhagen",
+  };
+
+  const fln: linkPage = {
+    link: "https://fln.dk/",
+    name: "The Refugee Board",
+  };
+
   return (
     <div>
       <Nav />
@@ -28,6 +43,7 @@ export const Home = () => {
         <HomeTextBlock
           title={aboutTitle}
           text={aboutBody}
+          links={[ku]}
         />
         <HomeTextBlock
           title={youTitle}
@@ -36,6 +52,7 @@ export const Home = () => {
         <HomeTextBlock
           title={resTitle}
           text={resBody}
+          links={[fln]}
         />
         <HomeTextBlock
           title={contactTitle}
