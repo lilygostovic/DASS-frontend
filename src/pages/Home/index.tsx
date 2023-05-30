@@ -24,15 +24,17 @@ export const Home = () => {
   const resBody = t("homePage.res.body");
   const contactTitle = t("homePage.contact.title");
   const contactBody = t("homePage.contact.body");
+  const uniText = t("homePage.uni");
+  const flnText = t("homePage.fln")
 
   const ku: linkPage = {
     link: "https://www.ku.dk/",
-    name: "University of Copenhagen",
+    name: uniText,
   };
 
   const fln: linkPage = {
     link: "https://fln.dk/",
-    name: "The Refugee Board",
+    name: flnText,
   };
 
   return (

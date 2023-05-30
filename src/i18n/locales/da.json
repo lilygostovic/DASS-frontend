@@ -7,6 +7,8 @@
   "homePage": {
     "title": "Statistikker For\nDansk Asylansøgning",
     "subtitle": "Et overblik over statistikker for asylansøgere i Danmark.",
+    "uni": "Københavns Universitet",
+    "fln": "Flygtningenævnet",
     "about": {
       "title": "Om Projektet",
       "body": "Denne hjemmeside er en del af et projekt fra Københavns Universitet, som er udviklet af 6 studerende. Formålet med vores app er at levere let tilgængelige oversigtsstatistikker til asylansøgere og deres advokater. Den slags statistikker findes på de sider, som du kan navigere rundt på her. Vi håber, at du er i stand til at finde den information, du leder efter, og at du får en behagelig oplevelse med vores system, mens du gør det. Hvert skridt, vi har taget i løbet af dette projekt, har været for at forbedre anvendeligheden af adgang til relevante asyldata. Vi har overvejet mange ideer til, hvordan man kan gøre din asylansøgning så enkel som muligt. Derfor giver vores webapp et enklere overblik over statistikker, som andre ikke gør. Vores højeste prioritet er at opnå din tilfredshed. Besøg vores universitet ved at bruge nedenstående link:"
