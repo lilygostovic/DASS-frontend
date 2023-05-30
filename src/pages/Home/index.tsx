@@ -11,6 +11,14 @@ export const Home = () => {
 
   const title = t("homePage.title");
   const subtitle = t("homePage.subtitle");
+  const aboutTitle = t("homePage.about.title");
+  const aboutBody = t("homePage.about.body");
+  const youTitle = t("homePage.you.title");
+  const youBody = t("homePage.you.body");
+  const resTitle = t("homePage.res.title");
+  const resBody = t("homePage.res.body");
+  const contactTitle = t("homePage.contact.title");
+  const contactBody = t("homePage.contact.body");
 
   return (
     <div>
@@ -18,20 +26,20 @@ export const Home = () => {
       <StyledDiv mb="100px">
         <TitleBlock title={title} subtitle={subtitle} data={data} />
         <HomeTextBlock
-          title="About This Project"
-          text="Here we could maybe add reasons for why this is the best project ever"
+          title={aboutTitle}
+          text={aboutBody}
         />
         <HomeTextBlock
-          title="What YOU have to do"
-          text="Maybe instructions for what the user can do??? What each page shows, and how to operate them?"
+          title={youTitle}
+          text={youBody}
         />
         <HomeTextBlock
-          title="Resources"
-          text="The website/tools we have used? What kind of data is used?"
+          title={resTitle}
+          text={resBody}
         />
         <HomeTextBlock
-          title="Contact Us"
-          text="Contact information like emails and some links perhaps? Maybe some info like this could also be placed in the empty bottom right corner? IDK what else could be interesting to place in the empty corner? :DDD"
+          title={contactTitle}
+          text={contactBody}
         />
       </StyledDiv>
     </div>
