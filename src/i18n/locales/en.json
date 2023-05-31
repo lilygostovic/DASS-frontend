@@ -8,7 +8,7 @@
     "title": "Danish\nAsylum Seeker\nStatistics",
     "subtitle": "A summary of statistics about Asylum Seekers in Denmark. "
   },
-  "dashboardPage": {
+  "dashboard": {
     "overviewStats": "Overview of Cases",
     "sex": "Sex",
     "lgbt": "LGBT",
