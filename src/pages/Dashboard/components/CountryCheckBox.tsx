@@ -103,7 +103,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
       <div style={{
         border: "1px solid grey",
         borderRadius: "4px",
-        height: "510px",
+        height: "570px",
         overflowY: "scroll",
       }}>
         {sortedOptions.map((o) => (
@@ -127,10 +127,12 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         marginBottom: "10px",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
         width: "100%",
-        backgroundColor: isHoveredReset ? "#E0E0E0" : "white",
+        backgroundColor: isHoveredReset ? "#BBB9D2" : "#6f6ad1",
         transition: "background-color 0.05s",
-        border: "1px solid grey",
-        borderRadius: "15px",
+        border: "none",
+        borderRadius: "8px",
+        color: "white",
+        fontWeight: "bold",
       }}
       onMouseEnter={handleMouseHoverReset}
       onMouseLeave={handleMouseStaticReset}
@@ -142,13 +144,14 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         width: "100%",
         height: "40px",
         marginTop: "15px",
-        borderRadius: "15px",
-        border: "1px solid grey",
+        borderRadius: "8px",
+        border: "none",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
-        backgroundColor: isHoveredConfirm ? "#E0E0E0" : "white",
+        backgroundColor: isHoveredConfirm ? "#BBB9D2" : "#6f6ad1",
         transition: "background-color 0.05s",
         cursor: "pointer",
         fontWeight: "bold",
+        color: "white",
       }}
       onMouseEnter={handleMouseHoverConfirm}
       onMouseLeave={handleMouseStaticConfirm}

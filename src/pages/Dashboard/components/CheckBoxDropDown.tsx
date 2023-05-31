@@ -24,14 +24,14 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
       style={{
         height: "23px",
         color: "black",
-        border: "1px solid grey",
         borderRadius: "15px",
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
+        border: "1px solid grey",
         fontSize: "15px",
         marginLeft: "15px",
         width: "172px",
         marginBottom: "15px",
         cursor: "pointer",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
       }}
     >
         <option value="all">{allText}</option>
