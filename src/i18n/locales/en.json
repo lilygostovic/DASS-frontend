@@ -6,7 +6,29 @@
   },
   "homePage": {
     "title": "Danish\nAsylum Seeker\nStatistics",
-    "subtitle": "A summary of statistics about Asylum Seekers in Denmark. "
+    "subtitle": "A summary of statistics about Asylum Seekers in Denmark. ",
+    "uni": "University of Copenhagen",
+    "fln": "The Refugee Board",
+    "about": {
+      "title": "About This Project",
+      "body": "This webapp is part of a project from the University of Copenhagen developed by 6 students. The main goal of our app is to provide easily available summary statistics to asylum seekers and their lawyers. Such statistics are found on the pages that you can navigate around. We hope that you are able to find the information you are looking for, and that you have a pleasant experience with our system while doing so. Every decision we have made, over the course of this project, has been to improve the usability of accessing relevant asylum data for your benefit. We have considered many ideas for how to make your asylum seeking process as simple as possible. Therefore, our webapp provides a simpler overview of statistics that others do not. Our top priority is achieving your satisfaction. Visit our university by using the below link:"
+    },
+    "you": {
+      "title": "What You Have to Do",
+      "body": "This webapp contains 3 different pages. On this page, you find our general information, a taste of our statistics, and a visual user guide. The pages showing the statistics are 'Summary' and 'Cases'. On 'Summary', you will find a general overview of all registered cases in our system represented by bars. Here you can observe general case trends under different categories, and find additional countries you would like to add on the displayed chart for comparison. Navigate to this page by using the link above, or by clicking the displayed chart. If you are looking for specific cases and their content, then the 'Cases' page is for you. Here you have the opportunity to read a case according to specific filters that you select. By finding the case that matches your situation, you will gain insight into how your own case can progress. Navigate to this page by using the link on the navigation bar. Please use the visual user guide below in case of any confusion."
+    },
+    "res": {
+      "title": "Resources",
+      "body": "Our webapp is based on the home of Flygtningenævnet, which is where our data is gathered from. The data from our statistical representations originates from the Praksis section, which contains the actual cases and their descriptions. Should you wish to access additional information and details that are not provided by us, please visit the below link:"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "body": "For any inquiries, please contact our client at: krka@di.ku.dk"
+    },
+    "ug": {
+      "title": "User Guide",
+      "body": "Follow these steps to find your cases"
+    }
   },
   "dashboardPage": {
     "overviewStats": "Overview of Cases",
