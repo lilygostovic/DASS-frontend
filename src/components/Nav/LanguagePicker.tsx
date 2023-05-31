@@ -8,6 +8,7 @@ export const LanguagePicker = () => {
 
   return (
     <select
+      data-testid = "LanguageSwitch"
       name="language"
       onChange={handleLanguageChange}
       style={{
