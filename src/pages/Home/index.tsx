@@ -3,11 +3,12 @@ import { Nav } from "../../components";
 import React from "react";
 import { StyledDiv } from "../../components/common/StyledDiv";
 import { TitleBlock } from "./components/TitleBlock";
-import { getCountries } from "../../services/countries";
+import { countriesService } from "../../services";
 import { useTranslation } from "react-i18next";
 
 export const Home = () => {
   const { t } = useTranslation();
+  const { getCountries } = countriesService;
 
   const title = t("homePage.title");
   const subtitle = t("homePage.subtitle");

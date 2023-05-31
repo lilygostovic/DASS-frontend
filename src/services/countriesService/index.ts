@@ -1,23 +1,6 @@
 import { useEffect, useState } from "react";
+
 import type { Country } from "../../pages/Dashboard/types";
-
-// /api/countries
-
-/* PARAMS:
- * id: number
-    - gets specific country by id
-    - ex. /api/countries?id=1
- * name: string
-    - gets specific country by id
-    - in Danish and with capitals)
-    - ex. /api/countries?name=Iran
- * min_id: number
-    - default set to 1
-    - ex. /api/countries?min_id=10
- * max_id: number
-    - default set to infinity
-    - ex. /api/countries?max_id=100
- */
 
 // This function performs the HTTP request that gets all the countries from the database.
 const getCountries = () => {
@@ -33,7 +16,7 @@ const getCountries = () => {
         setCountries(data);
       } catch (error) {
         // eslint-disable-next-line
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -51,6 +34,6 @@ const getCountries = () => {
 
   // Return list of all countries, together with a list of default countries to display
   return [countries, defaultCountries];
-}
+};
 
-export { getCountries };
+export const countriesService = { getCountries };

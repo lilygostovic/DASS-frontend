@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/indent */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/comma-dangle */
 import {
   CheckBoxDropDown,
@@ -12,10 +11,11 @@ import React, { useRef, useState } from "react";
 
 import type { Country } from "./types";
 import { Nav } from "../../components";
-import { getCountries } from "../../services/countries";
+import { countriesService } from "../../services";
 import { useTranslation } from "react-i18next";
 
 export const Dashboard = () => {
+  const { getCountries } = countriesService;
   const [dropDownOption, setDropDown] = useState<string>("result");
   const [continentOption, setContinentOption] = useState<string>("all");
   const [checkedOptionsChart, setCheckedOptionsChart] = useState<string[]>([]);
@@ -217,7 +217,6 @@ export const Dashboard = () => {
                   setOption={setDropDown}
                 />
               )}
-
             {(dropDownOption === "result" ||
               dropDownOption === "lgbt" ||
               dropDownOption === "gender") && (
