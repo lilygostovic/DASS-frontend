@@ -9,29 +9,10 @@ import {
 } from "recharts";
 
 // test merge to master
+import type { Country } from "../types";
 import React from "react";
 import i18n from "../../../i18n/config";
 import { useTranslation } from "react-i18next";
-
-interface Country {
-  id: number;
-  name: string;
-  continent: string;
-  last_modified: string;
-  total: number;
-  lgbt: number;
-  status: {
-    Accepted: number;
-    Rejected: number;
-    Unknown: number;
-  };
-  gender: {
-    Male: number;
-    Female: number;
-    Other: number;
-    Unknown: number;
-  };
-}
 
 interface SummaryChartProps {
   data: Country[];
@@ -76,10 +57,10 @@ export const SummaryChart = ({
   const emptyPageText1 = t("dashboardPage.emptyPage1");
   const emptyPageText2 = t("dashboardPage.emptyPage2");
   const unknownText = t("dashboardPage.unknown");
-  const maleText = t("filterPage.sex.male");
-  const femaleText = t("filterPage.sex.female");
-  const accText = t("filterPage.accepted.accepted");
-  const recText = t("filterPage.accepted.rejected");
+  const maleText = t("male");
+  const femaleText = t("female");
+  const accText = t("dashboardPage.result.A");
+  const recText = t("dashboardPage.result.R");
   const lgbtText = t("summaryDropDown.options.lgbt");
 
   // The y-axis needs more space to be displayed if we are on summary

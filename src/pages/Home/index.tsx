@@ -3,7 +3,7 @@ import { Nav } from "../../components";
 import React from "react";
 import { StyledDiv } from "../../components/common/StyledDiv";
 import { TitleBlock } from "./components/TitleBlock";
-import { data } from "../Dashboard/data";
+import { countriesService } from "../../services";
 import { useTranslation } from "react-i18next";
 
 interface linkPage {
@@ -13,6 +13,7 @@ interface linkPage {
 
 export const Home = () => {
   const { t } = useTranslation();
+  const { getCountries } = countriesService;
 
   const title = t("homePage.title");
   const subtitle = t("homePage.subtitle");
@@ -36,6 +37,9 @@ export const Home = () => {
     link: "https://fln.dk/",
     name: flnText,
   };
+
+  // Get the default countries to display
+  const [, data] = getCountries();
 
   return (
     <div>
