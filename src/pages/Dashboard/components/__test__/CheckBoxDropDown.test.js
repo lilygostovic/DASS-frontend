@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CheckBoxDropDown } from '../CheckBoxDropDown';
 
-const mockedselectedOption = "all"
+const mockedselectedOption = ""
 const  mockedsetOption = jest.fn()
 
 describe('CheckBoxDropDown', () => {
