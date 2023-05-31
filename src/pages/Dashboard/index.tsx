@@ -44,9 +44,9 @@ export const Dashboard = () => {
   // CountryEntries is for the chart having a list of country datapoints.
   // It's used in SummaryChart.tsx when we need to find the data for a single country to add
   countryEntries = countries.filter(
-    (c1) =>
+    (c1: Country) =>
       !defaultCountries.some(
-        (c2) => c2.name.toLowerCase() === c1.name.toLowerCase()
+        (c2: Country) => c2.name.toLowerCase() === c1.name.toLowerCase()
       )
   );
 
@@ -55,7 +55,7 @@ export const Dashboard = () => {
     const deafultFilteredCountryNames = countryNames.filter(
       (name) =>
         !defaultCountries.some(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c: Country) => c.name.toLowerCase() === name.toLowerCase()
         )
     );
 
@@ -66,20 +66,20 @@ export const Dashboard = () => {
     const filteredCountryNamesAsia = countryNamesAsia.filter(
       (name) =>
         !defaultCountries.some(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c: Country) => c.name.toLowerCase() === name.toLowerCase()
         )
     );
 
     boxItems = filteredCountryNamesAsia;
   } else if (checkBoxDropDownOption === "america") {
     const countriesMurica = countries.filter(
-      (c) => c.continent === "Nordamerika" || c.continent === "Sydamerika"
+      (c: Country) => c.continent === "Nordamerika" || c.continent === "Sydamerika"
     );
     const countryNamesMurica = countriesMurica.map((c) => c.name).sort();
     const filteredCountryNamesMurica = countryNamesMurica.filter(
       (name) =>
         !defaultCountries.some(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c: Country) => c.name.toLowerCase() === name.toLowerCase()
         )
     );
 
@@ -90,7 +90,7 @@ export const Dashboard = () => {
     const filteredCountryNamesAfrica = countryNamesAfrica.filter(
       (name) =>
         !defaultCountries.some(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c: Country) => c.name.toLowerCase() === name.toLowerCase()
         )
     );
 
@@ -101,7 +101,7 @@ export const Dashboard = () => {
     const filteredCountryNamesEurope = countryNamesEurope.filter(
       (name) =>
         !defaultCountries.some(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c: Country) => c.name.toLowerCase() === name.toLowerCase()
         )
     );
 
@@ -114,7 +114,7 @@ export const Dashboard = () => {
     const filteredCountryNamesOther = countryNamesOther.filter(
       (name) =>
         !defaultCountries.some(
-          (c) => c.name.toLowerCase() === name.toLowerCase()
+          (c: Country) => c.name.toLowerCase() === name.toLowerCase()
         )
     );
 
