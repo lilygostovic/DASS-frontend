@@ -1,8 +1,10 @@
+import { type Gender, type Status } from "../../../services/casesService/model";
+
 export interface Filters {
-  accepted: string;
-  motive: string;
-  country: string;
-  sex: string;
-  minAge?: number | string; // todo:: change to number only
-  maxAge?: number | string; // todo:: change to number only
+  motive?: string;
+  country?: string;
+  gender?: Gender;
+  status?: Status;
+  // minAge?: number | string; // todo:: change to number only
+  // maxAge?: number | string; // todo:: change to number only
 }

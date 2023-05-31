@@ -9,7 +9,7 @@
   },
   "dashboard": {
     "welcome": "Velkommen!",
-    "sex": "Køn",
+    "gender": "Køn",
     "lgbtq": "LGBT+"
   },
   "female": "Kvinde",
@@ -40,7 +40,7 @@
       "fullName": "Finland",
       "shortName": "fin"
     },
-    "galapagos": {
+    "ghana": {
       "fullName": "Ghana",
       "shortName": "gha"
     }
