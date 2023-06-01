@@ -30,13 +30,15 @@
       "body": "Follow these steps to find your cases"
     },
     "images": {
-      "homeChart":
-        "READ: You can also find our case statistics by clicking the chart above",
-      "summary": "READ: Browse our general case statistics by using the blue button marked by the arrow",
-      "cases":
-        "READ: You can read specific cases on our Cases page by (1) choosing a selection of filters, (2) selecting an age range if you wish and (3) hitting the Send button",
-      "nav":
-        "READ: Navigate to the different pages of this site by clicking the page links marked in red by the arrows"
+      "home":
+        "Navigate to the different pages of this site by clicking the page links, or the chart, marked in red by the arrows.",
+      "summary1": "Use the buttons below the chart to change the displayed data.",
+      "summary2": "Select additional countries that should be added to the chart by using the checkbox. You can find your own country by using the continent option. Then click Confirm Choices.",
+      "cases1": "Find a case matching your own by using the filters.",
+      "cases2": "Read a new matching case by clicking the button below the text.",
+      "homeTitle": "The Home Page",
+      "summaryTitle": "The Summary page",
+      "casesTitle": "The Cases Page"
     }
   },
   "dashboardPage": {
