@@ -1,13 +1,11 @@
 import React from "react";
 import { StyledDiv } from "../../../components/common/StyledDiv";
 import { StyledText } from "../../../components/common/StyledText";
+import casesPic1 from "./../../../images/cases1.png";
+import casesPic2 from "./../../../images/cases2.png";
 import homePic from "./../../../images/home.png";
-import navPic from "./nav.png";
 import summaryPic1 from "./../../../images/summary1.png";
 import summaryPic2 from "./../../../images/summary2.png";
-// import casesPic from "./cases.png";
-// import chartPic from "./caseSum.png";
-// import sumPic from "./sum.png";
 import { useTranslation } from "react-i18next";
 
 interface GuideBlockProps {
@@ -163,7 +161,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
               >
                 <figure>
                   <img
-                    src={navPic}
+                    src={casesPic1}
                     width="240px"
                     height="150px"
                     onClick={handleClick}
@@ -188,7 +186,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
 
                 <figure>
                   <img
-                    src={navPic}
+                    src={casesPic2}
                     width="240px"
                     height="150px"
                     onClick={handleClick}
