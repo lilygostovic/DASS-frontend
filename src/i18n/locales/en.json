@@ -48,7 +48,7 @@
   },
   "filterPage": {
     "accepted": {
-      "label": "Accepted/Rejected",
+      "label": "Result",
       "accepted": "Accepted",
       "rejected": "Rejected",
       "unknown": "Unknown"
