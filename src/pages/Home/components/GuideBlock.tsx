@@ -1,9 +1,12 @@
 import React from "react";
 import { StyledDiv } from "../../../components/common/StyledDiv";
 import { StyledText } from "../../../components/common/StyledText";
+import homePic from "./../../../images/home.png";
+import navPic from "./nav.png";
+import summaryPic1 from "./../../../images/summary1.png";
+import summaryPic2 from "./../../../images/summary2.png";
 // import casesPic from "./cases.png";
 // import chartPic from "./caseSum.png";
-import navPic from "./nav.png";
 // import sumPic from "./sum.png";
 import { useTranslation } from "react-i18next";
 
@@ -56,8 +59,8 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
               >
                 <figure>
                   <img
-                    src={navPic}
-                    width="230px"
+                    src={homePic}
+                    width="240px"
                     height="150px"
                     onClick={handleClick}
                     onMouseEnter={(e) => {
@@ -74,7 +77,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
                       borderRadius: "8px",
                       cursor: "pointer",
                       transition: "transform 0.2s",
-                      marginLeft: "160px",
+                      marginLeft: "155px",
                     }}>
                   </img>
                   <figcaption style={{ textAlign: "center" }}>{t1}</figcaption>
@@ -96,8 +99,8 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
               >
                 <figure>
                   <img
-                    src={navPic}
-                    width="230px"
+                    src={summaryPic1}
+                    width="240px"
                     height="150px"
                     onClick={handleClick}
                     onMouseEnter={(e) => {
@@ -121,8 +124,8 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
 
                 <figure>
                   <img
-                    src={navPic}
-                    width="230px"
+                    src={summaryPic2}
+                    width="240px"
                     height="150px"
                     onClick={handleClick}
                     onMouseEnter={(e) => {
@@ -161,7 +164,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
                 <figure>
                   <img
                     src={navPic}
-                    width="230px"
+                    width="240px"
                     height="150px"
                     onClick={handleClick}
                     onMouseEnter={(e) => {
@@ -186,7 +189,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
                 <figure>
                   <img
                     src={navPic}
-                    width="230px"
+                    width="240px"
                     height="150px"
                     onClick={handleClick}
                     onMouseEnter={(e) => {
