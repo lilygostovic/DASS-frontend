@@ -74,7 +74,7 @@ export const GuideBlock = ({ title, text }: GuideBlockProps) => {
                       borderRadius: "8px",
                       cursor: "pointer",
                       transition: "transform 0.2s",
-                      marginLeft: "150px",
+                      marginLeft: "160px",
                     }}>
                   </img>
                   <figcaption style={{ textAlign: "center" }}>{t1}</figcaption>
