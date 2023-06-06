@@ -200,6 +200,7 @@ export const Dashboard = () => {
           </h1>
 
           <div
+            data-testid="summary-page"
             id="chartDiv"
             ref={chartDivRef}
             style={{

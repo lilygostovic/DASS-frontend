@@ -12,6 +12,7 @@ export const CaseView = ({ randomCase }: CaseHighlightsProps) => {
 
   return (
     <StyledDiv
+      data-testid="case-view"
       width="70%"
       height="75%"
       display="flex"

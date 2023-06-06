@@ -9,7 +9,7 @@ interface FilterPropertyProps {
   value: string;
 }
 
-const FilterProperty = ({ filter, value }: FilterPropertyProps) => (
+export const FilterProperty = ({ filter, value }: FilterPropertyProps) => (
   <div style={{ padding: "12px" }}>
     <StyledText variant="labelSmall" color="#6e55ce" fontWeight="bold">
       {filter}:{" "}

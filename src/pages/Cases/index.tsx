@@ -103,6 +103,7 @@ export const Cases = () => {
       <Nav />
       <StyledDiv display="flex" height="100%" justifyContent="space-between">
         <Form
+          data-testid="cases-form"
           register={register}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
