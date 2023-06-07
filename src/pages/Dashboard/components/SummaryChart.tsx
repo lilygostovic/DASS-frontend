@@ -163,6 +163,7 @@ export const SummaryChart = ({
 
   return (
     <BarChart
+      data-testid="summary-chart"
       width={w}
       height={height}
       data={displayedData}

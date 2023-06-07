@@ -62,8 +62,8 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
       >
         <div>
           <FormInput>
-            <Label>{acceptedLabel}</Label>
-            <Select {...register("status")}>
+            <Label htmlFor="status-select">{acceptedLabel}</Label>
+            <Select id="status-select" {...register("status")}>
               <option value="">{allOption}</option>
               <option value={acceptedOption}>{acceptedOption}</option>
               <option value={rejectedOption}>{rejectedOption}</option>
@@ -71,8 +71,8 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
             </Select>
           </FormInput>
           <FormInput>
-            <Label>{motiveLabel}</Label>
-            <Select {...register("motive")} placeholder="Motive">
+            <Label htmlFor="motive-select">{motiveLabel}</Label>
+            <Select id="motive-select" {...register("motive")} placeholder="Motive">
               <option value="">{allOption}</option>
               {motives.map((motive) => (
                 <option key={motive.en} value={motive.dk}>
@@ -82,8 +82,8 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
             </Select>
           </FormInput>
           <FormInput>
-            <Label>{countryLabel}</Label>
-            <Select {...register("country")}>
+            <Label htmlFor="country-select">{countryLabel}</Label>
+            <Select id="country-select" {...register("country")}>
               <option value="">{allOption}</option>
               {countries.map((country) => (
                 <option key={country.short} value={country.dk}>
@@ -93,8 +93,8 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
             </Select>
           </FormInput>
           <FormInput>
-            <Label>{genderLabel}</Label>
-            <Select {...register("gender")} placeholder="Gender">
+            <Label htmlFor="gender-select">{genderLabel}</Label>
+            <Select {...register("gender")} placeholder="Gender" id="gender-select">
               <option value="">{allOption}</option>
               <option value={femaleOption}>{femaleOption}</option>
               <option value={maleOption}>{maleOption}</option>
@@ -102,7 +102,7 @@ export const Form = ({ register, handleSubmit, onSubmit }: FormProps) => {
             </Select>
           </FormInput>
         </div>
-        <Submit type="submit" value={submitButton} />
+        <Submit data-testid ='submit-button' type="submit" value={submitButton} />
       </form>
     </StyledDiv>
   );

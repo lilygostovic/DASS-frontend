@@ -101,9 +101,8 @@ export const Cases = () => {
   return (
     <StyledDiv display="flex" flexDirection="column" height="100vh">
       <Nav />
-      <StyledDiv display="flex" height="100%" justifyContent="space-between">
+      <StyledDiv data-testid="cases-form" display="flex" height="100%" justifyContent="space-between">
         <Form
-          data-testid="cases-form"
           register={register}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
@@ -123,7 +122,7 @@ export const Cases = () => {
                 mt="30px"
                 mb="20px"
               >
-                <CaseView randomCase={randomCase} />
+                <CaseView randomCase={randomCase}/>
                 <StyledText variant="paragraphSmall" mt="10px">
                   {viewedText}
                 </StyledText>

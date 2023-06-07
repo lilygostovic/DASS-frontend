@@ -36,7 +36,7 @@ interface GetCasesProps {
   fields?: Field[];
 }
 
-const getCases = async ({
+export const getCases = async ({
   minId,
   maxId,
   gender,

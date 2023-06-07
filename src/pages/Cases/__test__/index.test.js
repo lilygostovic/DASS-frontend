@@ -1,50 +1,93 @@
 
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Cases } from "../index";
-import { BrowserRouter } from "react-router-dom";
-import { casesService } from "src/__mocks__/casesService";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react"
+import { casesService } from "src/services/casesService/index.ts"
+import { Cases } from "../index"
+import { BrowserRouter } from "react-router-dom"
+import { act } from 'react-dom/test-utils'
+
+jest.mock("src/services/casesService/index.ts")
+
+const mockGetCases = jest.fn()
+// Assign the mock function to the getCases property of the casesService object
+casesService.getCases = mockGetCases
 
 const MockCases = () => {
   return(
-      <BrowserRouter>
+       <BrowserRouter>
           <Cases/>
       </BrowserRouter>
   )
 }
 
+describe(("Cases/index integration tests"),  () => {
 
-jest.mock("src/__mocks__/casesService")
-
-const mockCases = [
-  {
-    id: 1,
-    status: "open",
-    gender: "male",
-    country: "US",
-    motive: "political",
-  },
-  {
-    id: 2,
-    status: "closed",
-    gender: "female",
-    country: "UK",
-    motive: "religious",
-  },
-];
-
-describe(("Cases/index"),  () => {
-
-  beforeEach(() => {
-    casesService.getCases.mockResolvedValue(mockCases);
-  });
+  beforeEach(async () => {
+    await act(async () => {
+      render(<MockCases />)
+    })
+    mockGetCases.mockResolvedValue([])
+  })
 
   afterEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
-  test("renders Cases component", async () => {
-    render(<MockCases />);
+  test('renders form and submits with no results', async () => {
 
-  });
-  });
+    const formElement = await screen.findByTestId('cases-form')
+    expect(formElement).toBeInTheDocument()
+  
+    const submitButton = await screen.findByTestId('submit-button')
+
+    // Fill out form and submit
+    fireEvent.change(screen.getByLabelText('Accepted/Rejected'), { target: { value: 'Accepted' } })
+    fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'Male' } })
+    fireEvent.change(screen.getByLabelText('Country of Origin'), { target: { value: 'Poland' } })
+    fireEvent.change(screen.getByLabelText('Motive'), { target: { value: 'Abuse' } })
+    fireEvent.submit(submitButton)
+
+    await waitFor(() => {
+      expect(mockGetCases).toHaveBeenCalledTimes(1)
+    })
+
+    const noResultImageElement = await screen.findByRole("img")
+    const noResultTextElement = await screen.findByText(/no result found/i)
+    expect(noResultTextElement).toBeInTheDocument()
+    expect(noResultImageElement).toBeInTheDocument()
+  })
+
+  test('renders form and submits with results', async () => {
+
+    const dataCases = {
+      id: 1,
+      timestamp: new Date('2022-06-01T00:00:00Z'),
+      gender: 'Male',
+      status: 'Accepted',
+      body: 'This the body of the case',
+      country: 'United States',
+      keywords: ['keyword1', 'keyword2'],
+    }
+    mockGetCases.mockResolvedValue([dataCases])
+
+    const formElement = await screen.findByTestId('cases-form')
+    expect(formElement).toBeInTheDocument()
+  
+    const submitButton = await screen.findByTestId('submit-button')
+
+    // Fill out form and submit
+    fireEvent.change(screen.getByLabelText('Accepted/Rejected'), { target: { value: 'Accepted' } })
+    fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'Male' } })
+    fireEvent.change(screen.getByLabelText('Country of Origin'), { target: { value: 'Poland' } })
+    fireEvent.change(screen.getByLabelText('Motive'), { target: { value: 'Abuse' } })
+    fireEvent.submit(submitButton)
+
+    await waitFor(() => {
+      expect(mockGetCases).toHaveBeenCalledTimes(1)
+    })
+
+    const case1NameElement = await screen.findByText('This the body of the case')
+    expect(case1NameElement).toBeInTheDocument()
+
+  })
+
+})

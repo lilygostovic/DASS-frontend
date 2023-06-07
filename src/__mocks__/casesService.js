@@ -1,4 +1,4 @@
 
 export const casesService = {
-    getCases: jest.fn(),
+    getCases: jest.fn().mockResolvedValue,
   };

@@ -7,6 +7,7 @@ interface CaseBodyProps {
 }
 export const CaseBody = ({ text }: CaseBodyProps) => (
   <StyledDiv
+    data-testid="case-render"
     pt="20px"
     height="400px"
     overflow="auto"

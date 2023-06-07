@@ -107,7 +107,7 @@ export const CountryCheckBox = ({ options, setCheckedOptionsChart, setHeight, in
         overflowY: "scroll",
       }}>
         {sortedOptions.map((o) => (
-          <div key={o} style={{ fontSize: "15px" }}>
+          <div data-testid="checkbox" role="mycheckboxes" key={o} style={{ fontSize: "15px" }}>
             <label>
               <input
                 type="checkbox"

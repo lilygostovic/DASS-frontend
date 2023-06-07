@@ -225,8 +225,7 @@ export const Dashboard = () => {
             />
           </div>
 
-          <div
-            style={{
+          <div style={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -278,6 +277,7 @@ export const Dashboard = () => {
               width: "250px",
               margin: "30px 30px",
             }}
+            data-testid='checkbox'
           >
             <div
               style={{

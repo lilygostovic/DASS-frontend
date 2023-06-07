@@ -18,7 +18,7 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
   const lgbtText = t("summaryDropDown.options.lgbt")
 
   return (
-     <select value={selectedOption} onChange={handleMenuChange}
+     <select data-testid="dropdown" value={selectedOption} onChange={handleMenuChange}
       style={{
         height: "35px",
         width: "190px",

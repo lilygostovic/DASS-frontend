@@ -16,6 +16,7 @@ export const LoadingView = ({ timeoutPassed }: LoadingViewProps) => {
 
   return (
     <StyledDiv
+      data-testid="load-view"
       height="100%"
       width="100%"
       display="flex"
@@ -23,7 +24,7 @@ export const LoadingView = ({ timeoutPassed }: LoadingViewProps) => {
       justifyContent="center"
       alignItems="center"
     >
-      <BeatLoader size={10} speedMultiplier={0.4} />
+      <BeatLoader data-testid="beat-load" size={10} speedMultiplier={0.4} />
       {timeoutPassed && (
         <StyledText variant="labelSmall" mt="20px">
           {timeout}
