@@ -20,7 +20,7 @@ describe("FilterButton component", () => {
 
   });
 
-  test("calls the onClick function when clicked", () => {
+  test("Calls the onClick function when clicked", () => {
     const onClick = jest.fn();
     render(
       <FilterButton

@@ -19,6 +19,7 @@ const MockCases = () => {
   )
 }
 
+
 describe(("Cases/index integration tests"),  () => {
 
   beforeEach(async () => {
@@ -87,6 +88,42 @@ describe(("Cases/index integration tests"),  () => {
 
     const case1NameElement = await screen.findByText('This the body of the case')
     expect(case1NameElement).toBeInTheDocument()
+
+  })
+
+  test('submits form with multiple results', async () => {
+ 
+    const dataCases = [
+      {      
+        id: 1,      
+        timestamp: new Date('2022-06-01T00:00:00Z'),
+        gender: 'Male',       
+        status: 'Accepted',     
+        body: 'This is case 1',     
+        country: 'United States',     
+        keywords: ['keyword1', 'keyword2'],    
+      },
+      {
+        id: 2,        
+        timestamp: new Date('2022-06-02T00:00:00Z'),  
+        gender: 'Female',   
+        status: 'Rejected',    
+        body: 'This is case 2',      
+        country: 'Canada',     
+        keywords: ['keyword3', 'keyword4'],
+      }  
+    ];
+
+    mockGetCases.mockResolvedValue(dataCases);
+  
+    const submitButton = await screen.findByTestId('submit-button')
+    fireEvent.submit(submitButton)
+    
+    for (const caseData of dataCases) {
+        const caseElement = await screen.findAllByText((content, element) =>
+        element.textContent === content , { content: caseData.body });
+        expect(caseElement).toBeTruthy();
+      }
 
   })
 

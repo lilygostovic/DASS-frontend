@@ -3,7 +3,7 @@ import { TitleBlock } from '../TitleBlock';
 import { SummaryChart } from 'src/pages/Dashboard/components/SummaryChart';
 
 
-describe('TitleBlock and SummaryChart', () => {
+describe('TitleBlock and Summary Chart this test  acts as unit and Integration test', () => {
 
     test('should render the title, subtitle, and summary chart correctly', () => {
       const title = 'Dashboard';
@@ -67,4 +67,5 @@ describe('TitleBlock and SummaryChart', () => {
       expect(subtitleElement).toBeInTheDocument();
       expect(chartElement).toBeInTheDocument();
     });
+
   });

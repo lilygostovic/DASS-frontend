@@ -42,6 +42,7 @@ export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (
       </StyledText>
     </StyledDiv>
     <StyledDiv
+      data-testid="summary-chart"
       style={{ fontSize: "14px" }}
       onClick={() => {
         window.location.href = "/summary";

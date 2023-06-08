@@ -2,8 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { SummaryChart } from '../SummaryChart'
 
 describe('SummaryChart', () => {
-  test('should display empty page message when displayed data is empty', async () => {
-    const data = []
+  const data = []
     const w = 500
     const h = 500
     const isSummaryPage = true
@@ -15,7 +14,8 @@ describe('SummaryChart', () => {
       h,
       isSummaryPage,
     }
-
+  test('should display empty page message when displayed data is empty', async () => {
+    
     render(<SummaryChart {...props} />)
 
     const emptyPageText1Element = await screen.findByText(emptyPageText1)
