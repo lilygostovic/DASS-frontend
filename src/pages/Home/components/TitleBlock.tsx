@@ -1,3 +1,4 @@
+import type { Country } from "../../Dashboard/types";
 import { StyledDiv } from "../../../components/common/StyledDiv";
 import { StyledText } from "../../../components/common/StyledText";
 import { SummaryChart } from "../../Dashboard/components";
@@ -5,25 +6,7 @@ import { SummaryChart } from "../../Dashboard/components";
 interface TitleBlockProps {
   title: string;
   subtitle: string;
-  data: Array<{
-    id: number;
-    name: string;
-    continent: string;
-    last_modified: string;
-    total: number;
-    lgbt: number;
-    status: {
-      Accepted: number;
-      Rejected: number;
-      Unknown: number;
-    };
-    gender: {
-      Male: number;
-      Female: number;
-      Other: number;
-      Unknown: number;
-    };
-  }>;
+  data: Country[];
 }
 
 export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (

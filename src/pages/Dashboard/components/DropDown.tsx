@@ -14,7 +14,6 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
 
   const resultText = t("summaryDropDown.options.result");
   const genderText = t("summaryDropDown.options.gender");
-  const motiveText = t("summaryDropDown.options.motive");
   const lgbtText = t("summaryDropDown.options.lgbt")
 
   return (
@@ -35,7 +34,6 @@ export const DropDown = ({ selectedOption, setOption }: dropDownProps) => {
     >
         <option value="result">{resultText}</option>
         <option value="gender">{genderText}</option>
-        <option value="motive">{motiveText}</option>
         <option value="lgbt">{lgbtText}</option>
       </select>
   )
