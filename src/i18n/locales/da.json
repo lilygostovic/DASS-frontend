@@ -57,6 +57,43 @@
     "unknown": "Ukendt",
     "reset": "Nulstil"
   },
+  "filterPage": {
+    "accepted": {
+      "label": "Bedømmelse",
+      "accepted": "Godkendt",
+      "rejected": "Afvist",
+      "unknown": "Ukendt"
+    },
+    "motive": {
+      "label": "Motiv"
+    },
+    "country": {
+      "label": "Hjemland"
+    },
+    "gender": {
+      "label": "Køn",
+      "female": "Kvinde",
+      "male": "Mand",
+      "unknown": "Ukendt"
+    },
+    "allOption": "Alle",
+    "form": {
+      "title": "Find en Sag"
+    },
+    "caseViewTitle": "Sag #",
+    "viewedText": "Viewed: {{viewed}}/{{matching}}",
+    "refreshButton": "Ny sag",
+    "noResult": {
+      "title": "Ingen sager fundet",
+      "subtitle": "Desværre kunne ingen sager findes med de parametre. Vælg venligst nogle andre"
+    },
+    "undefinedView": {
+      "title": "Læs sager med specifikke filtre",
+      "subtitle": "Begynd ved at vælge nogle filtre i menuen til venstre. Derefter klik Find Sager!"
+    },
+    "submitButton": "Find sager",
+    "timeout": "Næsten klar! Vi er i fuld gang med at finde en sag til dig"
+  },
   "summaryDropDown": {
     "options": {
       "gender": "Køn",
