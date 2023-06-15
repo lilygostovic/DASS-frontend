@@ -28,6 +28,17 @@
     "ug": {
       "title": "Bruger Vejledning",
       "body": "Følg disse skridt for at navigere vores hjemmeside"
+    },
+    "images": {
+      "home":
+        "Naviger til vores forskellige sider ved at klikke på de links du ser i toppen, eller ved at klikke på diagrammet, som er markeret med røde pile.",
+      "summary1": "Benyt knapperne under diagrammet for at skifte den viste data.",
+      "summary2": "Vælg flere lande som skal tilføjes til diagrammet ved at benytte afkrydsningsfeltet til højre. Du kan finde fit eget land ved at bruge knappen med kontinent muligheder. Derefter klik Bekræft Valg.",
+      "cases1": "Find en sag der passer til din egen ved at benytte filter indstillingerne.",
+      "cases2": "Læs en ny passende sag ved at klikke på knappen under teksten.",
+      "homeTitle": "Hovedsiden",
+      "summaryTitle": "Statistiksiden",
+      "casesTitle": "Siden med Sager"
     }
   },
   "dashboardPage": {

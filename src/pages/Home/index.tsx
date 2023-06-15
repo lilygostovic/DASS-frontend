@@ -1,3 +1,4 @@
+import { GuideBlock } from "./components/GuideBlock";
 import { HomeTextBlock } from "./components/HomeText";
 import { Nav } from "../../components";
 import React from "react";
@@ -26,7 +27,9 @@ export const Home = () => {
   const contactTitle = t("homePage.contact.title");
   const contactBody = t("homePage.contact.body");
   const uniText = t("homePage.uni");
-  const flnText = t("homePage.fln")
+  const flnText = t("homePage.fln");
+  const ugTitle = t("homePage.ug.title");
+  const ugBody = t("homePage.ug.body");
 
   const ku: linkPage = {
     link: "https://www.ku.dk/",
@@ -63,6 +66,10 @@ export const Home = () => {
         <HomeTextBlock
           title={contactTitle}
           text={contactBody}
+        />
+        <GuideBlock
+          title={ugTitle}
+          text={ugBody}
         />
       </StyledDiv>
     </div>
