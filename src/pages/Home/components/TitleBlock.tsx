@@ -18,13 +18,14 @@ export const TitleBlock = ({ title, subtitle, data }: TitleBlockProps) => (
     padding="0px 80px"
     minHeight="100vh"
   >
-    <StyledDiv display="flex" flexDirection="column">
+    <StyledDiv data-testid="title-block" display="flex" flexDirection="column">
       <StyledText variant="title">{title}</StyledText>
       <StyledText variant="subtitle" pt="24px">
         {subtitle}
       </StyledText>
     </StyledDiv>
     <StyledDiv
+      data-testid="summary-chart"
       style={{ fontSize: "14px" }}
       onClick={() => {
         window.location.href = "/summary";

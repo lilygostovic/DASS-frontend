@@ -144,7 +144,7 @@ export const SummaryChart = ({
 
   return (
     <BarChart
-      width={w}
+    width={w}
       height={height}
       data={displayedData}
       layout={chartLayout}

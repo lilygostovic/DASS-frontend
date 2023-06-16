@@ -20,7 +20,7 @@ export const ContinentDropDown = ({ selectedOption, setOption }: dropDownProps) 
   const OtherText = t("continentDropDown.options.other");
 
   return (
-    <select value={selectedOption} onChange={handleMenuChange}
+    <select data-testid="Continent-drop-down" value={selectedOption} onChange={handleMenuChange}
       style={{
         height: "20px",
         width: "140px",

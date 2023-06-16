@@ -178,6 +178,7 @@ export const Dashboard = () => {
           </h1>
 
           <div
+            data-testid="summary-page"
             id="chartDiv"
             ref={chartDivRef}
             style={{
@@ -202,8 +203,7 @@ export const Dashboard = () => {
             />
           </div>
 
-          <div
-            style={{
+          <div style={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -253,6 +253,7 @@ export const Dashboard = () => {
               width: "300px",
               marginLeft: "40px",
             }}
+            data-testid='checkbox'
           >
             <h1
               style={{

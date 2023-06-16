@@ -20,7 +20,7 @@ export const CheckBoxDropDown = ({ selectedOption, setOption }: CheckBoxDropDown
   const otherText = t("continentDropDown.options.other");
 
   return (
-    <select value={selectedOption} onChange={handleMenuChange}
+    <select data-testid="check-box-dropdown" value={selectedOption} onChange={handleMenuChange}
       style={{
         height: "23px",
         color: "black",
